@@ -19,6 +19,7 @@ export default function Home() {
 					<a
 						href="https://www.youtube.com/channel/UCQmw7Ty7UN8i7_dan_uKNfQ"
 						className={styles.card}
+						target="_blank"
 					>
 						<h3>YouTube</h3>
 						<p>
@@ -30,6 +31,7 @@ export default function Home() {
 					<a
 						href="https://www.instagram.com/gussales.dev/"
 						className={styles.card}
+						target="_blank"
 					>
 						<h3>Instagram</h3>
 						<p>
@@ -41,6 +43,7 @@ export default function Home() {
 					<a
 						href="https://www.facebook.com/gussales.dev"
 						className={styles.card}
+						target="_blank"
 					>
 						<h3>Facebook</h3>
 						<p>
@@ -49,8 +52,9 @@ export default function Home() {
 					</a>
 
 					<a
-						href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+						href="https://gussales.medium.com/"
 						className={styles.card}
+						target="_blank"
 					>
 						<h3>Medium</h3>
 						<p>Acompanhe meus artigos que escrevo no Medium</p>
@@ -59,13 +63,7 @@ export default function Home() {
 			</main>
 
 			<footer className={styles.footer}>
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Gustavo Sales - Gus Quem Fala
-				</a>
+				Gustavo Sales - Gus Quem Fala
 			</footer>
 		</div>
 	);
