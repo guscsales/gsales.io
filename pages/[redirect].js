@@ -1,5 +1,5 @@
 const RedirectUrlsMapper = {
-    ['node']: 'https://youtu.be/q0DQEKDEFZk'
+    ['node']: 'https://www.youtube.com/watch?v=q0DQEKDEFZk&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=2&ab_channel=GusQuemFala'
 }
 
 function Redirect () {
