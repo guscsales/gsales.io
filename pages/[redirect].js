@@ -1,5 +1,6 @@
 const RedirectUrlsMapper = {
-    ['node']: 'https://www.youtube.com/watch?v=q0DQEKDEFZk&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=2&ab_channel=GusQuemFala'
+    ['node']: 'https://www.youtube.com/watch?v=q0DQEKDEFZk&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=2&ab_channel=GusQuemFala',
+    ['curso-de-ingles']: 'https://go.hotmart.com/S56903817H'
 }
 
 function Redirect () {
