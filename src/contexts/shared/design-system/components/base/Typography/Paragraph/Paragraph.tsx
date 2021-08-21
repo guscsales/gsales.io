@@ -11,7 +11,7 @@ import { TypographyProps } from '../shared/TypographyProps';
 
 export const Paragraph = styled.p<TypographyProps>`
   font-family: ${FontFamilies.COMMON};
-  line-height: ${FontLineHeights.SMALL};
+  line-height: ${FontLineHeights.MEDIUM};
   font-size: ${FontSizes.MEDIUM};
   color: ${({ color }) => color};
   text-align: ${({ align }) => align};

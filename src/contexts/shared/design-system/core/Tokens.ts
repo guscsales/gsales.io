@@ -67,6 +67,8 @@ export enum Spaces {
   EIGHT = '6.4rem',
   NINE = '7.2rem',
   TEN = '8rem',
+  ELEVEN = '8.8rem',
+  TWELVE = '9.6rem',
 }
 
 export enum BorderRadiuses {
@@ -76,4 +78,10 @@ export enum BorderRadiuses {
 
 export enum Shadows {
   ONE = '0 0 1.2rem rgba(0, 0, 0, 0.15)',
+}
+
+export enum Breakpoints {
+  TABLET_PORTRAIT = 'screen and (min-width: 40em)',
+  TABLET_LANDSCAPE = 'screen and (min-width: 64em)',
+  DESKTOP = 'screen and (min-width: 80em)',
 }

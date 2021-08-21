@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+  Breakpoints,
   Colors,
   FontAlignments,
   FontFamilies,
@@ -12,12 +13,16 @@ import { TypographyProps } from '../shared/TypographyProps';
 export const HeadingOne = styled.h1<TypographyProps>`
   font-family: ${FontFamilies.TITLES};
   font-weight: ${FontWeights.BOLDER};
-  line-height: ${FontLineHeights.MEDIUM};
-  font-size: ${FontSizes.XX_LARGE};
+  line-height: ${FontLineHeights.SMALL};
+  font-size: ${FontSizes.X_LARGE};
   color: ${({ color }) => color};
   text-align: ${({ align }) => align};
   margin: 0;
   padding: 0;
+
+  @media ${Breakpoints.TABLET_LANDSCAPE} {
+    font-size: ${FontSizes.XX_LARGE};
+  }
 `;
 
 HeadingOne.defaultProps = {

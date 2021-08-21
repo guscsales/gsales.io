@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Box } from 'reflexbox';
-import { BorderRadiuses, Colors } from '../../../core/Tokens';
+import { BorderRadiuses, Colors, Shadows } from '../../../core/Tokens';
 
 type Props = {
   backgroundColor: Colors;
@@ -12,6 +12,7 @@ export const Card = styled(Box)<Props>`
   height: 100%;
   border-radius: ${({ borderRadius }) => borderRadius};
   background-color: ${({ backgroundColor }) => backgroundColor};
+  box-shadow: ${Shadows.ONE};
 `;
 
 Card.defaultProps = {
