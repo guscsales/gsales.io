@@ -8,8 +8,9 @@ import {
   Shadows,
   Spaces,
 } from '@design-system/core/Tokens';
-import rectanglesBackgroundSrc from '@assets/images/home-header-retangles.svg';
-import dotsBackgroundSrc from '@assets/images/home-header-dot-grid.svg';
+
+const rectanglesBackgroundSrc = require('@public/images/home-header-retangles.svg');
+const dotsBackgroundSrc = require('@public/images/home-header-dot-grid.svg');
 
 export const StyledHeaderWrapper = styled(Box)`
   width: 100%;
@@ -37,6 +38,7 @@ export const GusPhoto = styled(Box)`
   border: 0.6rem solid ${Colors.NEUTRAL_WHITE};
   width: 12.4rem;
   height: 12.4rem;
+  overflow: hidden;
 
   img {
     border-radius: 100%;

@@ -7,7 +7,7 @@ import { Box } from 'reflexbox';
 import { Spaces } from '@design-system/core/Tokens';
 
 export const getStaticProps = async () => {
-  const gusPhoto = await getPlaiceholder('/gus-sales.png');
+  const gusPhoto = await getPlaiceholder('/images/gus-sales.png');
 
   return {
     props: {

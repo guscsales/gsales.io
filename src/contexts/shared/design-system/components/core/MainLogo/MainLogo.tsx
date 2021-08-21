@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import logoSrc from '@assets/images/gus-sales-logo.svg';
+
+const logoSrc = require('@public/images/gus-sales-logo.svg');
 
 const MainLogo = styled.img.attrs({
   src: logoSrc,

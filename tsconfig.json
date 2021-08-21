@@ -17,11 +17,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "@assets/*": ["assets/*"],
-      "@contexts/*": ["contexts/*"],
-      "@design-system/*": ["contexts/shared/design-system/*"]
+      "@public/*": ["public/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@design-system/*": ["src/contexts/shared/design-system/*"]
     }
   },
   "include": [

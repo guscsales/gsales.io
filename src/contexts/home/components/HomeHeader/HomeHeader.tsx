@@ -2,11 +2,8 @@ import { Box, Flex } from 'reflexbox';
 import Image from 'next/image';
 import MainLogo from '@design-system/components/core/MainLogo/MainLogo';
 import Container from '@design-system/components/core/Container/Container';
-import { Colors, FontAlignments, Spaces } from '@design-system/core/Tokens';
-import {
-  HeadingOne,
-  HeadingTwo,
-} from '@design-system/components/base/Typography';
+import { Colors, Spaces } from '@design-system/core/Tokens';
+import { HeadingOne } from '@design-system/components/base/Typography';
 
 import {
   CodeLine,
@@ -16,7 +13,6 @@ import {
   HeadingsGroup,
   RectanglesBackground,
   StyledHeaderWrapper,
-  Greetings,
 } from './HomeHeader.styles';
 
 type Props = {
