@@ -77,6 +77,7 @@ export enum BorderRadiuses {
 }
 
 export enum Shadows {
+  HALF = '0 0 0.5rem rgba(0, 0, 0, 0.15)',
   ONE = '0 0 1.2rem rgba(0, 0, 0, 0.15)',
 }
 

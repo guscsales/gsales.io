@@ -3,16 +3,29 @@ import { Box } from 'reflexbox';
 import { BorderRadiuses, Colors, Shadows } from '../../../core/Tokens';
 
 type Props = {
-  backgroundColor: Colors;
-  borderRadius: BorderRadiuses;
+  backgroundColor?: Colors;
+  borderRadius?: BorderRadiuses;
+  clickable?: boolean;
 };
 
 export const Card = styled(Box)<Props>`
-  width: 100%;
-  height: 100%;
   border-radius: ${({ borderRadius }) => borderRadius};
   background-color: ${({ backgroundColor }) => backgroundColor};
   box-shadow: ${Shadows.ONE};
+
+  ${({ clickable }) =>
+    clickable &&
+    `
+    cursor: pointer;
+    
+    &:active {
+      box-shadow: ${Shadows.HALF};
+    }
+  `}
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 Card.defaultProps = {

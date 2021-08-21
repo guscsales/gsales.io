@@ -5,6 +5,7 @@ import type { InferGetStaticPropsType } from 'next';
 import { SummaryAboutMe } from '@contexts/home/components/SummaryAboutMe/SummaryAboutMe';
 import { Box } from 'reflexbox';
 import { Spaces } from '@design-system/core/Tokens';
+import { SocialMedia } from '@contexts/home/components/SocialMedia/SocialMedia';
 
 export const getStaticProps = async () => {
   const gusPhoto = await getPlaiceholder('/images/gus-sales.png');
@@ -31,7 +32,12 @@ export default function Home({
       </Head>
       <HomeHeader gusPhoto={images.gusPhoto} />
       <Box as="main" my={Spaces.FOUR}>
-        <SummaryAboutMe />
+        <Box>
+          <SummaryAboutMe />
+        </Box>
+        <Box mt={[Spaces.FOUR, Spaces.TEN]}>
+          <SocialMedia />
+        </Box>
       </Box>
     </>
   );
