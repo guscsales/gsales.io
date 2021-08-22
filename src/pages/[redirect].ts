@@ -1,6 +1,6 @@
 const RedirectUrlsMapper = {
   node: 'https://www.youtube.com/watch?v=q0DQEKDEFZk&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=2&ab_channel=GusQuemFala',
-  'curso-de-ingles': 'https://go.hotmart.com/S56903817H',
+  'curso-de-ingles': 'https://go.hotmart.com/S56903817H?dp=1',
   'ola-mundo':
     'https://www.youtube.com/watch?v=p8LtuO9XC7w&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=6&ab_channel=GusQuemFala',
 };
