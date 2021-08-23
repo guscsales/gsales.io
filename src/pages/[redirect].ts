@@ -3,6 +3,8 @@ const RedirectUrlsMapper = {
   'curso-de-ingles': 'https://go.hotmart.com/S56903817H?dp=1',
   'ola-mundo':
     'https://www.youtube.com/watch?v=p8LtuO9XC7w&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=6&ab_channel=GusQuemFala',
+  'instalar-node':
+    'https://www.youtube.com/watch?v=zgDlT7bzUi4&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=3',
 };
 
 function Redirect() {
