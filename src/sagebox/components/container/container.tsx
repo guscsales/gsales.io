@@ -1,8 +1,8 @@
 import React from 'react';
 
 type Props = {
-  className: string;
   children: React.ReactNode;
+  className?: string;
   sub?: boolean;
 };
 
@@ -15,6 +15,7 @@ function Container({ children, className, sub }: Props) {
 }
 
 Container.defaultProps = {
+  className: '',
   sub: false,
 };
 

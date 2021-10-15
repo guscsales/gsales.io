@@ -11,5 +11,10 @@ module.exports = {
       heading: ['Poppins', 'sans-serif'],
       code: ['Courier Prime', 'monospace'],
     },
+    extend: {
+      width: {
+        112: '25rem',
+      },
+    },
   },
 };
