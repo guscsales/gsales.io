@@ -21,7 +21,7 @@
     "paths": {
       "@public/*": ["public/*"],
       "@contexts/*": ["src/contexts/*"],
-      "@design-system/*": ["src/contexts/shared/design-system/*"]
+      "@sagebox/*": ["src/sagebox/*"]
     }
   },
   "include": [

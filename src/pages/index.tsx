@@ -1,44 +1,25 @@
+import React from 'react';
 import Head from 'next/head';
-import HomeHeader from '@contexts/home/components/HomeHeader/HomeHeader';
-import { getPlaiceholder } from 'plaiceholder';
-import type { InferGetStaticPropsType } from 'next';
-import { SummaryAboutMe } from '@contexts/home/components/SummaryAboutMe/SummaryAboutMe';
-import { Box } from 'reflexbox';
-import { Spaces } from '@design-system/core/Tokens';
-import { SocialMedia } from '@contexts/home/components/SocialMedia/SocialMedia';
+import Container from '@sagebox/components/container/container';
+import ButtonLink from '@sagebox/components/button-link/button-link';
 
-export const getStaticProps = async () => {
-  const gusPhoto = await getPlaiceholder('/images/gus-sales.png');
-
-  return {
-    props: {
-      images: {
-        gusPhoto: {
-          ...gusPhoto.img,
-          blurDataURL: gusPhoto.base64,
-        },
-      },
-    },
-  };
-};
-
-export default function Home({
-  images,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home() {
   return (
     <>
       <Head>
         <title>Gus! | gsales.io</title>
       </Head>
-      <HomeHeader gusPhoto={images.gusPhoto} />
-      <Box as="main" my={Spaces.FOUR}>
-        <Box>
-          <SummaryAboutMe />
-        </Box>
-        <Box mt={[Spaces.FOUR, Spaces.TEN]}>
-          <SocialMedia />
-        </Box>
-      </Box>
+      <Container className=" py-4 flex justify-between items-center">
+        <div className="font-code text-xs text-green-200">
+          {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
+          {`// doing what you love is just fun; _`}
+        </div>
+        <div className="grid grid-cols-2 gap-1">
+          <ButtonLink href="/en">EN</ButtonLink>
+          <ButtonLink href="/pt">PT</ButtonLink>
+        </div>
+      </Container>
+      <div className="w-full h-px bg-gray-800 mb-6" />
     </>
   );
 }

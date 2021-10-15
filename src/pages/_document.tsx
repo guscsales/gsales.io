@@ -9,14 +9,14 @@ class Document extends NextDocument {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin="true"
+            crossOrigin="crossOrigin"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Maven+Pro:wght@700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Poppins:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap"
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body className="bg-gray-900">
           <Main />
           <NextScript />
         </body>
