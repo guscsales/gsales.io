@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  margin-inline: auto;
+  padding-inline: 0.5rem /* 9px */;
+  width: 100%;
+}
+
+.sub-container {
+  margin-inline: auto;
+  padding-inline: 0.5rem /* 9px */;
+  width: 100%;
+}
+
+@screen lg {
+  .container {
+    padding-inline: 0;
+    max-width: 800px;
+  }
+
+  .sub-container {
+    padding-inline: 0;
+    max-width: 700px;
+  }
+}

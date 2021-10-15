@@ -1,10 +1,10 @@
 import { AppProps } from 'next/app';
-import NormalizeStyles from '../contexts/shared/design-system/core/NormalizeStyles';
+
+import '@sagebox/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <NormalizeStyles />
       <Component {...pageProps} />
     </>
   );
