@@ -77,8 +77,6 @@ function Text({ children, as, heading, size, ...props }: Props) {
     props.className
   );
 
-  console.log(className);
-
   return React.createElement(
     as,
     {
