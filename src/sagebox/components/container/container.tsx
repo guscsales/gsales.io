@@ -4,19 +4,21 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   sub?: boolean;
+  as?: 'div' | 'section';
 };
 
-function Container({ children, className, sub }: Props) {
-  return (
-    <div className={`${sub ? 'sub-' : ''}container ${className}`}>
-      {children}
-    </div>
+function Container({ children, className, sub, as }: Props) {
+  return React.createElement(
+    as,
+    { className: `${sub ? 'sub-' : ''}container ${className}` },
+    children
   );
 }
 
 Container.defaultProps = {
   className: '',
   sub: false,
+  as: 'div',
 };
 
 export default Container;
