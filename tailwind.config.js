@@ -3,7 +3,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/contexts/**/*.{js,ts,jsx,tsx}',
   ],
-  mode: 'jit',
+
   darkMode: false,
   theme: {
     fontFamily: {
