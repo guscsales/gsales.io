@@ -1,9 +1,10 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   purge: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/contexts/**/*.{js,ts,jsx,tsx}',
   ],
-
   darkMode: false,
   theme: {
     fontFamily: {
@@ -17,4 +18,11 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        body: { fontSize: theme('fontSize.base') },
+      });
+    }),
+  ],
 };
