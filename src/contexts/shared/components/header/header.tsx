@@ -28,12 +28,18 @@ function Header() {
           </Link>
         </h1>
         <nav className="grid gap-2 grid-flow-col">
-          <ButtonLink href="/en" active>
+          <ButtonLink href="/en" active className="w-16">
             Home
           </ButtonLink>
-          <ButtonLink href="/en">Blog</ButtonLink>
-          <ButtonLink href="/en">Wall</ButtonLink>
-          <ButtonLink href="/en">Codes</ButtonLink>
+          <ButtonLink href="/en" className="w-16">
+            Blog
+          </ButtonLink>
+          <ButtonLink href="/en" className="w-16">
+            Wall
+          </ButtonLink>
+          <ButtonLink href="/en" className="w-16">
+            Codes
+          </ButtonLink>
         </nav>
       </Container>
     </header>
