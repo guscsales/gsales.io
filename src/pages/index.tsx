@@ -41,6 +41,7 @@ export default function Home() {
       <Container
         as="section"
         className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:mt-16 mb-16"
+        sub
       >
         <div className="sm:w-28 sm:h-28 w-20 h-20 relative">
           <Image
@@ -69,7 +70,7 @@ export default function Home() {
         </div>
       </Container>
 
-      <Container as="section" className="mb-20">
+      <Container as="section" className="mb-20" sub>
         <Text heading as="h2" className="text-white text-2xl">
           What I do
         </Text>
@@ -95,7 +96,7 @@ export default function Home() {
         </div>
       </Container>
 
-      <Container as="section" className="mb-20">
+      <Container as="section" sub>
         <Text heading as="h2" className="text-white text-2xl">
           10 years on the street
         </Text>
@@ -119,7 +120,7 @@ export default function Home() {
           />
         </div>
 
-        <ul className="gap-3 flex flex-wrap text-sm mt-2 sm:grid-cols-8 text-gray-700 justify-center">
+        <ul className="gap-3 flex flex-wrap text-sm mt-2 sm:grid-cols-8 text-gray-700 justify-center cursor-default">
           <li className="text-center relative">
             Boulevard
             <Bullet />
