@@ -23,6 +23,12 @@ export interface ILanguageMetadataStructure {
     description: string;
     mosaicAltText: string;
   };
+  topVideos: {
+    title: string;
+    description: string;
+    views: string;
+    moreVideos: string;
+  };
   footer: {
     verse: {
       content: string;
@@ -76,6 +82,13 @@ export const en: ILanguageMetadataStructure = {
     description:
       "Each company that I've been passed and each person that I've worked together has a special part in my history as a professional. I'm really proud to have had a chance to be part of the journey of each one.",
     mosaicAltText: "A mosaic of photos of Gus' professional timeline",
+  },
+  topVideos: {
+    title: 'Featured videos',
+    description:
+      'I believe that creating code can be easier than people think. Knowing this I like to share my knowledge and experience to generate value for other people through videos.',
+    views: 'views',
+    moreVideos: 'Watch more videos',
   },
   footer: {
     verse: {
@@ -132,6 +145,13 @@ export const pt: ILanguageMetadataStructure = {
       'Cada empresa que passei e cada pessoa com quem trabalhei tem uma parte especial na minha história como profissional. Tenho muito orgulhoso pela chance de ter feito parte da jornada de cada um.',
     mosaicAltText:
       'Um moisaíco com fotos da linha do tempo profissional do Gus',
+  },
+  topVideos: {
+    title: 'Vídeos mais vistos',
+    description:
+      'Eu acredito que criar código pode ser mais fácil do que as pessoas imaginam. Sabendo disso eu gosto de compartilhar meu conhecimento e experiência para gerar valor para os outras pessoas através de vídeos.',
+    views: 'visualizações',
+    moreVideos: 'Ver mais vídeos',
   },
   footer: {
     verse: {

@@ -10,7 +10,7 @@ function Bio() {
   return (
     <Container
       as="section"
-      className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:mt-16 mb-16"
+      className="flex flex-col sm:flex-row items-center sm:items-start justify-center "
       sub
     >
       <div className="sm:w-28 sm:h-28 w-20 h-20 relative">

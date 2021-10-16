@@ -22,7 +22,7 @@ function WhatIDo() {
   } = useContext(LanguageContext);
 
   return (
-    <Container as="section" className="mb-20" sub>
+    <Container as="section" sub>
       <Text heading as="h2" className="text-white text-2xl">
         {whatIDo.title}
       </Text>

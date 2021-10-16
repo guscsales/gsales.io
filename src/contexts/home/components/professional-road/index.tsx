@@ -2,16 +2,7 @@ import React, { useContext } from 'react';
 import Container from '@sagebox/components/container/container';
 import Text from '@sagebox/components/text/text';
 import LanguageContext from '@contexts/shared/contexts/language-context';
-
-// eslint-disable-next-line react/require-default-props
-function Bullet({ className }: { className?: string }) {
-  return (
-    <span
-      className={`w-1 h-1 bg-gray-700 rounded-full absolute ${className}`}
-      style={{ right: '-8px', top: 'calc(50% - 1px)' }}
-    />
-  );
-}
+import Bullet from '@contexts/shared/components/bullet';
 
 function ProfessionalRoad() {
   const {
