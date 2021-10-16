@@ -30,6 +30,7 @@ function Footer() {
         <nav className="flex flex-row sm:flex-col justify-between sm:justify-start sm:gap-2 mt-10 sm:mt-0">
           {socialMedia.map(({ name, url }) => (
             <ButtonLink
+              key={name}
               href={url}
               align="left"
               ghost

@@ -30,7 +30,6 @@ type Props = {
   children: React.ReactNode;
   as?: TextElements;
   className?: string;
-  sub?: boolean;
   heading?: boolean;
 };
 
@@ -55,7 +54,6 @@ function Text({ children, as, heading, ...props }: Props) {
 Text.defaultProps = {
   className: '',
   as: 'span',
-  sub: false,
   heading: false,
 };
 
