@@ -9,6 +9,7 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   active?: boolean;
   ghost?: boolean;
   align?: 'left' | 'center' | 'right';
+  locale?: string | false;
 }
 
 function ButtonLink({
@@ -19,6 +20,7 @@ function ButtonLink({
   href,
   ghost,
   align,
+  locale,
   ...props
 }: Props) {
   const cx = classnames({
@@ -32,7 +34,7 @@ function ButtonLink({
   });
 
   return (
-    <Link href={href}>
+    <Link href={href} locale={locale}>
       <a
         {...props}
         className={`rounded no-underline text-${align} text-white transition-colors ${cx} ${className}`}
@@ -49,6 +51,7 @@ ButtonLink.defaultProps = {
   active: false,
   ghost: false,
   align: 'center',
+  locale: false,
 };
 
 export default ButtonLink;

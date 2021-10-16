@@ -1,23 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from '@sagebox/components/container/container';
 import Link from 'next/link';
+import LanguageContext from '@contexts/shared/contexts/language-context';
+import ButtonLink from '@sagebox/components/button-link/button-link';
+import { useRouter } from 'next/router';
 
 function Header() {
+  const { pathname } = useRouter();
+  const { metadata, locale, locales } = useContext(LanguageContext);
+
   return (
     <header>
       <Container className="py-4 flex justify-between items-center">
         <div className="font-code text-xs text-green-200">
           {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
-          {`// doing what you love is just fun; _`}
+          {`// ${metadata.headerCodePhrases[0]}; _`}
         </div>
-        {/* <div className="grid grid-cols-2 gap-1">
-          <ButtonLink href="/en" size="small" active>
-            EN
-          </ButtonLink>
-          <ButtonLink href="/pt" size="small">
-            PT
-          </ButtonLink>
-        </div> */}
+        <div className="grid grid-cols-2 gap-1">
+          {locales.map((_locale) => (
+            <ButtonLink
+              key={_locale}
+              href={pathname}
+              size="small"
+              active={_locale === locale}
+              className="uppercase"
+              locale={_locale}
+            >
+              {_locale}
+            </ButtonLink>
+          ))}
+        </div>
       </Container>
       <div className="w-full h-px bg-gray-800 mb-6" />
       <Container className="mb-4 flex justify-between items-center">
