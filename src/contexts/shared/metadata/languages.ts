@@ -35,6 +35,8 @@ export const en: ILanguageMetadataStructure = {
   headerCodePhrases: [
     'doing what you love is just fun',
     'do something awesome!',
+    'spread the bad news',
+    'communication is everything',
   ],
   name: 'Gustavo Sales',
   nickname: 'Gus',
@@ -88,6 +90,8 @@ export const pt: ILanguageMetadataStructure = {
   headerCodePhrases: [
     'fazer o que ama é apenas diversão',
     'crie algo incrível!',
+    'espalhe as más notícias',
+    'comunicação é tudo',
   ],
   name: 'Gustavo Sales',
   nickname: 'Gus',

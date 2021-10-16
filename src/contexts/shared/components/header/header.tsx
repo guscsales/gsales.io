@@ -1,20 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import Container from '@sagebox/components/container/container';
 import Link from 'next/link';
 import LanguageContext from '@contexts/shared/contexts/language-context';
 import ButtonLink from '@sagebox/components/button-link/button-link';
 import { useRouter } from 'next/router';
+import Typewriter from 'typewriter-effect';
+import { shuffle } from 'lodash';
+
+function prepareTypewriter(typewriter, firstPhrase, otherPhrases) {
+  let codeTypewriter = typewriter;
+
+  shuffle(otherPhrases).forEach((phrase) => {
+    codeTypewriter = typewriter
+      .typeString(`${phrase}; `)
+      .pauseFor(700)
+      .deleteAll();
+  });
+
+  codeTypewriter.typeString(`${firstPhrase}; `).start();
+}
 
 function Header() {
   const { pathname } = useRouter();
   const { metadata, locale, locales } = useContext(LanguageContext);
+  const [firstPhrase, ...otherPhrases] = metadata.headerCodePhrases;
+  const shuffleOtherPhrases = shuffle(otherPhrases);
+  const typewriterProps = {
+    options: { cursor: '_', delay: 60 },
+    onInit: (typewriter) => {
+      prepareTypewriter(typewriter, firstPhrase, shuffleOtherPhrases);
+    },
+  };
 
   return (
     <header>
       <Container className="py-4 flex justify-between items-center">
-        <div className="font-code text-xs text-green-200">
+        <div className="font-code text-xs text-green-200 flex items-center">
           {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
-          {`// ${metadata.headerCodePhrases[0]}; _`}
+          <div className="mr-1">{'//'}</div>
+          {locale === 'en' && <Typewriter {...typewriterProps} />}
+          {locale === 'pt' && <Typewriter {...typewriterProps} />}
         </div>
         <div className="grid grid-cols-2 gap-1">
           {locales.map((_locale) => (

@@ -32,7 +32,9 @@ function WhatIDo() {
 
       <div className="grid sm:grid-cols-3 gap-3 sm:gap-6 mt-3">
         {whatIDo.actuations.map(({ title, description }) => (
-          <JobCard title={title}>{description}</JobCard>
+          <JobCard key={title} title={title}>
+            {description}
+          </JobCard>
         ))}
       </div>
     </Container>
