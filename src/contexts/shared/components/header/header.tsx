@@ -11,14 +11,14 @@ function Header() {
           {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
           {`// doing what you love is just fun; _`}
         </div>
-        <div className="grid grid-cols-2 gap-1">
+        {/* <div className="grid grid-cols-2 gap-1">
           <ButtonLink href="/en" size="small" active>
             EN
           </ButtonLink>
           <ButtonLink href="/pt" size="small">
             PT
           </ButtonLink>
-        </div>
+        </div> */}
       </Container>
       <div className="w-full h-px bg-gray-800 mb-6" />
       <Container className="mb-4 flex justify-between items-center">
@@ -27,7 +27,7 @@ function Header() {
             <a className="no-underline select-none">Gus!</a>
           </Link>
         </h1>
-        <nav className="grid gap-2 grid-flow-col">
+        {/* <nav className="grid gap-2 grid-flow-col">
           <ButtonLink href="/en" active>
             Home
           </ButtonLink>
@@ -35,7 +35,7 @@ function Header() {
           <ButtonLink href="/en">Wall</ButtonLink>
           <ButtonLink href="/en">Projects</ButtonLink>
           <ButtonLink href="/en">Codes</ButtonLink>
-        </nav>
+        </nav> */}
       </Container>
     </header>
   );
