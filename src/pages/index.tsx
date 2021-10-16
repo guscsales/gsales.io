@@ -39,6 +39,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { topVideos },
-    revalidate: 5,
+    revalidate: 300,
   };
 };
