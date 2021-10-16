@@ -30,3 +30,12 @@
     max-width: 700px;
   }
 }
+
+.street-photos-grid {
+  display: flex;
+  width: auto;
+}
+
+.street-photos-grid-column {
+  background-clip: padding-box;
+}
