@@ -1,4 +1,3 @@
-const API_KEY = 'AIzaSyC1gpPvqMuHdQfCGZHzi4-cqACggG8uGUk';
 const YOUTUBE_BASE_URL = 'https://youtube.googleapis.com/youtube/v3';
 const CHANNEL_ID = 'UCQmw7Ty7UN8i7_dan_uKNfQ';
 
@@ -20,7 +19,7 @@ const YoutubeApi = {
     const topVideosStatisticsResponse = await fetch(
       `${YOUTUBE_BASE_URL}/videos?part=statistics&id=${videosIds.join(
         '&id='
-      )}&key=${API_KEY}`
+      )}&key=${process.env.YOUTUBE_API_KEY}`
     );
     const { items: topVideosStatistics } =
       await topVideosStatisticsResponse.json();
