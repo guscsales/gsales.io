@@ -11,7 +11,7 @@ export type TopVideo = {
 const YoutubeApi = {
   getTopVideos: async (limit: number) => {
     const topVideosResponse = await fetch(
-      `${YOUTUBE_BASE_URL}/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=${limit}&order=viewCount&key=${API_KEY}`
+      `${YOUTUBE_BASE_URL}/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=${limit}&order=viewCount&key=${process.env.YOUTUBE_API_KEY}`
     );
     const { items: topVideos } = await topVideosResponse.json();
     const videosIds = topVideos.map((topVideo) => topVideo.id.videoId);
