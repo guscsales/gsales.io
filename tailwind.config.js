@@ -5,7 +5,9 @@ module.exports = {
   purge: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/contexts/**/*.{js,ts,jsx,tsx}',
+    './src/sagebox/**/*.{js,ts,jsx,tsx}',
   ],
+  jit: true,
   darkMode: false,
   theme: {
     fontFamily: {
