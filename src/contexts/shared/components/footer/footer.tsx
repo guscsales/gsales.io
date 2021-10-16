@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from '@sagebox/components/container/container';
 import ButtonLink from '@sagebox/components/button-link/button-link';
 import { socialMedia } from '@contexts/shared/metadata/general';
+import LanguageContext from '@contexts/shared/contexts/language-context';
 
 function Footer() {
+  const {
+    metadata: { footer },
+  } = useContext(LanguageContext);
+
   return (
     <footer>
       <div className="w-full h-px bg-gray-800 mt-24" />
@@ -21,9 +26,10 @@ function Footer() {
             </a>
           </div>
           <p className="italic text-gray-400 sm:mt-7 text-sm text-right sm:text-left">
-            Wait on the Lord: be of good courage, and he shall strengthen thine
-            heart: wait, I say, on the Lord. <br />
-            <span className="text-gray-500 text-xs">PSalm 27:14</span>
+            {footer.verse.content} <br />
+            <span className="text-gray-500 text-xs">
+              {footer.verse.reference}
+            </span>
           </p>
         </div>
         <div className="hidden sm:block w-px h-full bg-gray-800 mx-11" />

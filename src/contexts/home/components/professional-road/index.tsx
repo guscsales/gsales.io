@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from '@sagebox/components/container/container';
 import Text from '@sagebox/components/text/text';
+import LanguageContext from '@contexts/shared/contexts/language-context';
 
 // eslint-disable-next-line react/require-default-props
 function Bullet({ className }: { className?: string }) {
@@ -13,27 +14,28 @@ function Bullet({ className }: { className?: string }) {
 }
 
 function ProfessionalRoad() {
+  const {
+    metadata: { professionalRoad },
+  } = useContext(LanguageContext);
+
   return (
     <Container as="section" sub>
       <Text heading as="h2" className="text-white text-2xl">
-        10 years on the street
+        {professionalRoad.title}
       </Text>
       <Text as="p" className="text-gray-300 mt-1 mb-3">
-        Each company that I&apos;ve been passed and each person that I&apos;ve
-        worked together has a special part in my history as a professional.
-        I&apos;m really proud to have had a chance to be part of the journey of
-        each one.
+        {professionalRoad.description}
       </Text>
 
       <div className="rounded-lg border border-solid border-gray-600 overflow-hidden">
         <img
           src="/images/street-photo-sm.png"
-          alt="A mosaic of photos during the Gus professional timeline"
+          alt={professionalRoad.mosaicAltText}
           className="hidden sm:block"
         />
         <img
           src="/images/street-photo-xs.png"
-          alt="A mosaic of photos during the Gus professional timeline"
+          alt={professionalRoad.mosaicAltText}
           className="block sm:hidden"
         />
       </div>

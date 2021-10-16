@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import Container from '@sagebox/components/container/container';
 import Text from '@sagebox/components/text/text';
+import LanguageContext from '@contexts/shared/contexts/language-context';
 
 function Bio() {
+  const { metadata } = useContext(LanguageContext);
+
   return (
     <Container
       as="section"
@@ -13,25 +16,26 @@ function Bio() {
       <div className="sm:w-28 sm:h-28 w-20 h-20 relative">
         <Image
           src="/images/me.png"
-          alt="A picture of Gustavo"
+          alt={metadata.profilePictureAltText}
           layout="fill"
           className="rounded-full"
         />
       </div>
       <div className="sm:w-112 mt-2 sm:mt-0 sm:ml-3 text-center sm:text-left">
         <Text as="h1" heading className="text-white text-4xl">
-          Gustavo Sales
+          {metadata.name}
         </Text>
         <Text className="text-white text-lg">
-          Frontend Engineer @ <Text className="font-semibold">Boulevard</Text>
+          {metadata.role} {metadata.at}{' '}
+          <Text className="font-semibold">{metadata.currentCompany}</Text>
         </Text>
         <div className="mt-3">
           <Text as="p" className="mb-3 text-gray-300">
-            Coding awesome things since 2012, with many attention of details,
-            feeling owner and giving and receiving feedback.
+            {metadata.homeBio.content}
           </Text>
           <Text as="p" className="font-semibold text-gray-300">
-            You can call me <span className="underline">Gus</span>. 😁
+            {metadata.homeBio.greetings}{' '}
+            <span className="underline">{metadata.nickname}</span>. 😁
           </Text>
         </div>
       </div>
