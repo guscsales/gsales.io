@@ -97,7 +97,7 @@ export const pt: ILanguageMetadataStructure = {
   profilePictureAltText: 'Uma foto preta e branca de perfil do Gustavo',
   homeBio: {
     content:
-      'Criando coisas incríveis desde 2012, com muita atenção aos detalhes, sentimento de dono e trabando o feedback.',
+      'Criando coisas incríveis desde 2012, com muita atenção aos detalhes, sentimento de dono e exercendo o feedback.',
     greetings: 'Você pode me chamar de',
   },
   whatIDo: {
@@ -118,14 +118,14 @@ export const pt: ILanguageMetadataStructure = {
       {
         title: 'Conteúdo',
         description:
-          'Eu compartilho minha experiência e conhecimento em formato de vídeo ou texto.',
+          'Compartilho minha experiência e conhecimento em formato de vídeo ou texto.',
       },
     ],
   },
   professionalRoad: {
     title: '10 anos na estrada',
     description:
-      'Cada empresa por que passei e cada pessoa com quem trabalhei tem uma parte especial na minha história como profissional. Tenho muito orgulhoso pela chance de ter feito parte da jornada de cada um.',
+      'Cada empresa que passei e cada pessoa com quem trabalhei tem uma parte especial na minha história como profissional. Tenho muito orgulhoso pela chance de ter feito parte da jornada de cada um.',
     mosaicAltText:
       'Um moisaíco com fotos da linha do tempo profissional do Gus',
   },
