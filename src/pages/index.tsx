@@ -51,12 +51,12 @@ export default function Home() {
       <div className="mb-20">
         <ProfessionalRoad />
       </div>
-      <div className="mb-20">
+      {/* <div className="mb-20">
         <TopVideos />
       </div>
       <div className="mb-20">
         <LatestTweet />
-      </div>
+      </div> */}
     </>
   );
 }
