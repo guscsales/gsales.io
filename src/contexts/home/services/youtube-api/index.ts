@@ -1,5 +1,4 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import Cache from '@contexts/shared/services/cache';
 
 const YOUTUBE_BASE_URL = 'https://youtube.googleapis.com/youtube/v3';
 const CHANNEL_ID = 'UCQmw7Ty7UN8i7_dan_uKNfQ';
@@ -14,12 +13,8 @@ export type TopVideo = {
 const YoutubeApi = {
   getTopVideos: async (limit: number) => {
     if (process.env.ENVIRONMENT === 'development') {
-      const data = await fs.readFile(
-        path.resolve('__generated__/getTopVideos.json'),
-        { encoding: 'utf-8' }
-      );
-
-      return JSON.parse(data);
+      const topVideos = await Cache.readCache('getTopVideos');
+      return topVideos;
     }
 
     try {
@@ -44,20 +39,14 @@ const YoutubeApi = {
           .statistics.viewCount,
       })) as TopVideo[];
 
-      fs.writeFile(
-        path.resolve('__generated__/getTopVideos.json'),
-        JSON.stringify(mappedTopVideos)
-      );
+      Cache.saveCacheAsync({ name: 'getTopVideos', data: mappedTopVideos });
 
       return mappedTopVideos;
     } catch (e) {
       console.log(e.message);
 
-      const data = await fs.readFile(
-        path.resolve('__generated__/getTopVideos.json'),
-        { encoding: 'utf-8' }
-      );
-      return JSON.parse(data);
+      const topVideos = await Cache.readCache('getTopVideos');
+      return topVideos;
     }
   },
 };
