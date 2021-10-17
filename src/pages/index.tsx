@@ -41,6 +41,8 @@ export const getStaticProps: GetStaticProps = async () => {
     TwitterApi.getLatestTweet(),
   ]);
 
+  console.log(latestTweet);
+
   return {
     props: { topVideos, latestTweet },
     revalidate: 300,
