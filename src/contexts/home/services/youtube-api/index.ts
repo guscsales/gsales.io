@@ -12,10 +12,10 @@ export type TopVideo = {
 
 const YoutubeApi = {
   getTopVideos: async (limit: number) => {
-    if (process.env.ENVIRONMENT === 'development') {
-      const topVideos = await Cache.readCache('getTopVideos');
-      return topVideos;
-    }
+    // if (process.env.ENVIRONMENT === 'development') {
+    //   const topVideos = await Cache.readCache('getTopVideos');
+    //   return topVideos;
+    // }
 
     try {
       const topVideosResponse = await fetch(
