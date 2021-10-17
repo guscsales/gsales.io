@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "ENVIRONMENT=development next dev",
 		"build": "next build",
 		"prestart": "npm install && next build",
 		"start": "next start"
