@@ -9,6 +9,12 @@ export interface ILanguageMetadataStructure {
   currentCompany: string;
   profilePictureAltText: string;
   twitter: string;
+  metaTags: {
+    home: {
+      title: string;
+      description: string;
+    };
+  };
   homeBio: {
     content: string;
     greetings: string;
@@ -67,6 +73,13 @@ export const en: ILanguageMetadataStructure = {
   currentCompany: 'Boulevard',
   profilePictureAltText: "A black and white Gustavo's profile picture",
   twitter: '@gussalesdev',
+  metaTags: {
+    home: {
+      title: 'Gustavo Sales - Software Engineer and Content Creator.',
+      description:
+        'Coding awesome things since 2012, with many attention of details, feeling owner and giving and receiving feedback. You can call me Gus.',
+    },
+  },
   homeBio: {
     content:
       'Coding awesome things since 2012, with many attention of details, feeling owner and giving and receiving feedback.',
@@ -143,6 +156,13 @@ export const pt: ILanguageMetadataStructure = {
   currentCompany: 'Boulevard',
   profilePictureAltText: 'Uma foto preta e branca de perfil do Gustavo',
   twitter: '@gussalesdev',
+  metaTags: {
+    home: {
+      title: 'Gustavo Sales - Engenheiro de Software e Criador de Conteúdo.',
+      description:
+        'Criando coisas incríveis desde 2012, com muita atenção aos detalhes, sentimento de dono e exercendo o feedback. Você pode me chamar de Gus.',
+    },
+  },
   homeBio: {
     content:
       'Criando coisas incríveis desde 2012, com muita atenção aos detalhes, sentimento de dono e exercendo o feedback.',
