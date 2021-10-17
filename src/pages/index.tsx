@@ -77,6 +77,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { topVideos, latestTweet },
-    revalidate: 300,
+    revalidate: 60,
   };
 };
