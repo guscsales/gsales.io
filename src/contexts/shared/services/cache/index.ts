@@ -1,7 +1,7 @@
 import { promises as fs, existsSync } from 'fs';
 import path from 'path';
 
-const CACHE_FOLDER_NAME = 'public/__generated__';
+const CACHE_FOLDER_NAME = '__generated__';
 
 function getCacheFolderPath() {
   return path.resolve(CACHE_FOLDER_NAME);
@@ -24,7 +24,10 @@ export type CacheSettings = {
 
 function saveCacheAsync({ name, data }: CacheSettings) {
   createCacheFolder();
-  fs.writeFile(`${getCacheFolderPath()}/${name}.json`, JSON.stringify(data));
+  fs.writeFile(
+    `public/${getCacheFolderPath()}/${name}.json`,
+    JSON.stringify(data)
+  );
 }
 
 async function readCache(name: string) {
