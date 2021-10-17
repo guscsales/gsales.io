@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 type TextElements =
   | 'div'
@@ -33,7 +33,12 @@ type Props = {
   heading?: boolean;
 };
 
-function Text({ children, as, heading, ...props }: Props) {
+function Text({
+  children,
+  as,
+  heading,
+  ...props
+}: Props & HTMLAttributes<HTMLElement>) {
   const className = classNames(
     {
       'font-heading font-bold': heading,

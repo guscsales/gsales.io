@@ -6,13 +6,15 @@ import WhatIDo from '@contexts/home/components/what-i-do';
 import ProfessionalRoad from '@contexts/home/components/professional-road';
 import YoutubeApi, { TopVideo } from '@contexts/home/services/youtube-api';
 import TopVideos from '@contexts/home/components/top-videos';
-import TwitterApi from '@contexts/home/services/twitter-api';
+import TwitterApi, { Tweet } from '@contexts/home/services/twitter-api';
+import LatestTweet from '@contexts/home/components/latest-tweet';
 
 type Props = {
   topVideos: TopVideo[];
+  latestTweet: Tweet;
 };
 
-export default function Home({ topVideos }: Props) {
+export default function Home({ topVideos, latestTweet }: Props) {
   return (
     <>
       <Head>
@@ -31,6 +33,9 @@ export default function Home({ topVideos }: Props) {
       <div className="mb-20">
         <TopVideos topVideos={topVideos} />
       </div>
+      <div className="mb-20">
+        <LatestTweet latestTweet={latestTweet} />
+      </div>
     </>
   );
 }
@@ -40,8 +45,6 @@ export const getStaticProps: GetStaticProps = async () => {
     YoutubeApi.getTopVideos(3),
     TwitterApi.getLatestTweet(),
   ]);
-
-  console.log(latestTweet);
 
   return {
     props: { topVideos, latestTweet },

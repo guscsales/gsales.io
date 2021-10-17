@@ -1,4 +1,6 @@
 export interface ILanguageMetadataStructure {
+  hourFormat: string;
+  dateFormat: string;
   headerCodePhrases: string[];
   name: string;
   nickname: string;
@@ -6,6 +8,7 @@ export interface ILanguageMetadataStructure {
   at: string;
   currentCompany: string;
   profilePictureAltText: string;
+  twitter: string;
   homeBio: {
     content: string;
     greetings: string;
@@ -29,6 +32,9 @@ export interface ILanguageMetadataStructure {
     views: string;
     moreVideos: string;
   };
+  latestTweet: {
+    title: string;
+  };
   footer: {
     verse: {
       content: string;
@@ -38,6 +44,8 @@ export interface ILanguageMetadataStructure {
 }
 
 export const en: ILanguageMetadataStructure = {
+  dateFormat: 'PP',
+  hourFormat: 'p',
   headerCodePhrases: [
     'doing what you love is just fun',
     'do something awesome!',
@@ -50,6 +58,7 @@ export const en: ILanguageMetadataStructure = {
   at: '@',
   currentCompany: 'Boulevard',
   profilePictureAltText: "A black and white Gustavo's profile picture",
+  twitter: '@gussalesdev',
   homeBio: {
     content:
       'Coding awesome things since 2012, with many attention of details, feeling owner and giving and receiving feedback.',
@@ -90,6 +99,9 @@ export const en: ILanguageMetadataStructure = {
     views: 'views',
     moreVideos: 'Watch more videos',
   },
+  latestTweet: {
+    title: 'Latest tweet',
+  },
   footer: {
     verse: {
       content:
@@ -100,6 +112,8 @@ export const en: ILanguageMetadataStructure = {
 };
 
 export const pt: ILanguageMetadataStructure = {
+  dateFormat: 'PP',
+  hourFormat: 'p',
   headerCodePhrases: [
     'fazer o que ama é apenas diversão',
     'crie algo incrível!',
@@ -112,6 +126,7 @@ export const pt: ILanguageMetadataStructure = {
   at: 'na',
   currentCompany: 'Boulevard',
   profilePictureAltText: 'Uma foto preta e branca de perfil do Gustavo',
+  twitter: '@gussalesdev',
   homeBio: {
     content:
       'Criando coisas incríveis desde 2012, com muita atenção aos detalhes, sentimento de dono e exercendo o feedback.',
@@ -152,6 +167,9 @@ export const pt: ILanguageMetadataStructure = {
       'Eu acredito que criar código pode ser mais fácil do que as pessoas imaginam. Sabendo disso eu gosto de compartilhar meu conhecimento e experiência para gerar valor para os outras pessoas através de vídeos.',
     views: 'visualizações',
     moreVideos: 'Ver mais vídeos',
+  },
+  latestTweet: {
+    title: 'Último tweet',
   },
   footer: {
     verse: {
