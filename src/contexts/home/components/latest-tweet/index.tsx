@@ -19,7 +19,7 @@ function LatestTweet({ latestTweet }: Props) {
 
   return (
     <Container as="section" sub>
-      <Text heading as="h2" className="text-white text-2xl">
+      <Text heading as="h2" className="text-white text-2xl mb-2">
         {metadata.latestTweet.title}
       </Text>
 
