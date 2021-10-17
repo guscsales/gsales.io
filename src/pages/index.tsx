@@ -6,6 +6,7 @@ import WhatIDo from '@contexts/home/components/what-i-do';
 import ProfessionalRoad from '@contexts/home/components/professional-road';
 import YoutubeApi, { TopVideo } from '@contexts/home/services/youtube-api';
 import TopVideos from '@contexts/home/components/top-videos';
+import TwitterApi from '@contexts/home/services/twitter-api';
 
 type Props = {
   topVideos: TopVideo[];
@@ -35,10 +36,13 @@ export default function Home({ topVideos }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const topVideos = await YoutubeApi.getTopVideos(3);
+  const [topVideos, latestTweet] = await Promise.all([
+    YoutubeApi.getTopVideos(3),
+    TwitterApi.getLatestTweet(),
+  ]);
 
   return {
-    props: { topVideos },
+    props: { topVideos, latestTweet },
     revalidate: 300,
   };
 };
