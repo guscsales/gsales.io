@@ -1,7 +1,9 @@
 import Cache from '@contexts/shared/services/cache';
+import axios from 'axios';
 
 const YOUTUBE_BASE_URL = 'https://youtube.googleapis.com/youtube/v3';
 const CHANNEL_ID = 'UCQmw7Ty7UN8i7_dan_uKNfQ';
+const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
 export type TopVideo = {
   id: string;
@@ -12,25 +14,17 @@ export type TopVideo = {
 
 const YoutubeApi = {
   getTopVideos: async (limit: number) => {
-    // if (process.env.ENVIRONMENT === 'development') {
-    //   const topVideos = await Cache.readCache('getTopVideos');
-    //   return topVideos;
-    // }
-
     try {
-      const topVideosResponse = await fetch(
-        `${YOUTUBE_BASE_URL}/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=${limit}&order=viewCount&key=${process.env.YOUTUBE_API_KEY}`
+      const { data: topVideos } = await axios.get<any>(
+        `${YOUTUBE_BASE_URL}/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=${limit}&order=viewCount&key=${API_KEY}`
       );
-      const { items: topVideos } = await topVideosResponse.json();
       const videosIds = topVideos.map((topVideo) => topVideo.id.videoId);
 
-      const topVideosStatisticsResponse = await fetch(
+      const { data: topVideosStatistics } = await axios.get<any>(
         `${YOUTUBE_BASE_URL}/videos?part=statistics&id=${videosIds.join(
           '&id='
-        )}&key=${process.env.YOUTUBE_API_KEY}`
+        )}&key=${API_KEY}`
       );
-      const { items: topVideosStatistics } =
-        await topVideosStatisticsResponse.json();
       const mappedTopVideos = topVideos.map(({ id, snippet }) => ({
         id: id.videoId,
         title: snippet.title,
@@ -39,14 +33,16 @@ const YoutubeApi = {
           .statistics.viewCount,
       })) as TopVideo[];
 
-      Cache.saveCacheAsync({ name: 'getTopVideos', data: mappedTopVideos });
+      Cache.save({
+        name: 'topVideos',
+        data: mappedTopVideos,
+      });
 
       return mappedTopVideos;
     } catch (e) {
       console.log(e.message);
 
-      const topVideos = await Cache.readCache('getTopVideos');
-      return topVideos;
+      return Cache.read('topVideos');
     }
   },
 };

@@ -1,47 +1,32 @@
-import { promises as fs, existsSync } from 'fs';
-import path from 'path';
+import Database from '../database';
 
-const CACHE_FOLDER_NAME = '__generated__';
-
-function getCacheFolderPath() {
-  return path.resolve(CACHE_FOLDER_NAME);
-}
-
-async function createCacheFolder() {
-  const cacheFolderSrc = getCacheFolderPath();
-
-  const cacheFolderExists = existsSync(cacheFolderSrc);
-
-  if (!cacheFolderExists) {
-    await fs.mkdir(cacheFolderSrc);
-  }
-}
+const CACHE_TABLE_NAME = 'cache';
 
 export type CacheSettings = {
   name: string;
   data: any;
 };
 
-function saveCacheAsync({ name, data }: CacheSettings) {
-  createCacheFolder();
-  fs.writeFile(
-    `public/${getCacheFolderPath()}/${name}.json`,
-    JSON.stringify(data)
-  );
+function save({ name, data }: CacheSettings) {
+  Database.updateById({
+    table: CACHE_TABLE_NAME,
+    id: name,
+    data: { value: JSON.stringify(data) },
+  });
 }
 
-async function readCache(name: string) {
-  const data = await fs.readFile(`${getCacheFolderPath()}/${name}.json`, {
-    encoding: 'utf-8',
+async function read(name: string) {
+  const { value } = await Database.findById({
+    table: CACHE_TABLE_NAME,
+    id: name,
   });
 
-  return JSON.parse(data);
+  return JSON.parse(value);
 }
 
 const Cache = {
-  getCacheFolderPath,
-  saveCacheAsync,
-  readCache,
+  save,
+  read,
 };
 
 export default Cache;

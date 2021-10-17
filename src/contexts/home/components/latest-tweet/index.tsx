@@ -6,15 +6,13 @@ import Container from '@sagebox/components/container/container';
 import Text from '@sagebox/components/text/text';
 import LanguageContext from '@contexts/shared/contexts/language-context';
 import Card from '@sagebox/components/card';
-import { Tweet } from '@contexts/home/services/twitter-api';
 import Bullet from '@contexts/shared/components/bullet';
 import useSWR from 'swr';
 import Skeleton from 'react-loading-skeleton';
 
 function LatestTweet() {
   const { metadata, locale } = useContext(LanguageContext);
-  const { data: latestTweet, isValidating } =
-    useSWR<Tweet>('/api/tweets/latest');
+  const { data: latestTweet, isValidating } = useSWR('/api/tweets/latest');
   const tweetDate = new Date(latestTweet?.createdAt);
 
   return (

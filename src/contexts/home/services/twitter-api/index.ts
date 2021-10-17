@@ -28,14 +28,16 @@ const TwitterApi = {
         createdAt: latestTweet.created_at,
       };
 
-      Cache.saveCacheAsync({ name: 'getLatestTweet', data: mappedLatestTweet });
+      Cache.save({
+        name: 'latestTweet',
+        data: mappedLatestTweet,
+      });
 
       return mappedLatestTweet;
     } catch (e) {
       console.log(e.message);
 
-      const latestTweet = await Cache.readCache('getLatestTweet');
-      return latestTweet;
+      return Cache.read('latestTweet');
     }
   },
 };

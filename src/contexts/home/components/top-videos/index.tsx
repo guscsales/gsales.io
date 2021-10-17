@@ -3,7 +3,7 @@ import Container from '@sagebox/components/container/container';
 import Text from '@sagebox/components/text/text';
 import LanguageContext from '@contexts/shared/contexts/language-context';
 import Bullet from '@contexts/shared/components/bullet';
-import { TopVideo } from '@contexts/home/services/youtube-api';
+import YoutubeApi, { TopVideo } from '@contexts/home/services/youtube-api';
 import ButtonLink from '@sagebox/components/button-link/button-link';
 import useSWR from 'swr';
 import { ILanguageMetadataStructure } from '@contexts/shared/metadata/languages';
@@ -74,7 +74,9 @@ function VideoListItemLoading() {
 
 function TopVideos() {
   const { metadata } = useContext(LanguageContext);
-  const { data: topVideos, isValidating } = useSWR<TopVideo[]>('/api/videos');
+  const { data: topVideos, isValidating } = useSWR('topVideos', () =>
+    YoutubeApi.getTopVideos(3)
+  );
 
   return (
     <Container as="section" sub>
