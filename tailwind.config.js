@@ -22,28 +22,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('tailwindcss-pseudo-elements'),
-    plugin(({ addUtilities, theme }) => {
-      const newUtilities = {
-        '.small-circle': {
-          content: "''",
-          width: '4px',
-          height: '4px',
-          borderRadius: '9999px',
-          backgroundColor: colors.coolGray[700],
-          position: 'absolute',
-          right: '-8px',
-          top: 'calc(50% - 1px)',
-          '@screen sm': {
-            display: 'none',
-          },
-        },
-      };
-      addUtilities(newUtilities, {
-        variants: ['before', 'after'],
-      });
-    }),
-    plugin(function ({ addBase, theme }) {
+    plugin(({ addBase, theme }) => {
       addBase({
         body: { fontSize: theme('fontSize.base') },
       });

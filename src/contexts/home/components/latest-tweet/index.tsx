@@ -8,14 +8,14 @@ import LanguageContext from '@contexts/shared/contexts/language-context';
 import Card from '@sagebox/components/card';
 import { Tweet } from '@contexts/home/services/twitter-api';
 import Bullet from '@contexts/shared/components/bullet';
+import useSWR from 'swr';
+import Skeleton from 'react-loading-skeleton';
 
-type Props = {
-  latestTweet: Tweet;
-};
-
-function LatestTweet({ latestTweet }: Props) {
+function LatestTweet() {
   const { metadata, locale } = useContext(LanguageContext);
-  const tweetDate = new Date(latestTweet.createdAt);
+  const { data: latestTweet, isValidating } =
+    useSWR<Tweet>('/api/tweets/latest');
+  const tweetDate = new Date(latestTweet?.createdAt);
 
   return (
     <Container as="section" sub>
@@ -47,17 +47,21 @@ function LatestTweet({ latestTweet }: Props) {
                 rel="noopener noreferrer"
                 className="flex no-underline -mt-px"
               >
-                <Text className="text-blue-300 hover:text-blue-500 text-xs transition-colors ease-in-out">
+                <Text className="text-blue-300 hover:text-blue-200 text-xs transition-colors ease-in-out">
                   {metadata.twitter}
                 </Text>
               </a>
             </div>
           </div>
-          <Text className="flex items-center h-5 text-sm text-gray-500">
-            {format(tweetDate, metadata.hourFormat, { locale: i18n[locale] })}
-            <Bullet float={false} className="mx-1" />{' '}
-            {format(tweetDate, metadata.dateFormat, { locale: i18n[locale] })}
-          </Text>
+          {!isValidating ? (
+            <Text className="flex items-center h-5 text-sm text-gray-500">
+              {format(tweetDate, metadata.hourFormat, { locale: i18n[locale] })}
+              <Bullet float={false} className="mx-1" />{' '}
+              {format(tweetDate, metadata.dateFormat, { locale: i18n[locale] })}
+            </Text>
+          ) : (
+            <Skeleton width={128} height={20} />
+          )}
         </header>
 
         <section className="relative grid grid-flow-col justify-between">
@@ -72,9 +76,17 @@ function LatestTweet({ latestTweet }: Props) {
             as="span"
             className="text-white text-xl sm:text-2xl px-5 sm:px-6"
           >
-            {React.createElement('span', {
-              dangerouslySetInnerHTML: { __html: latestTweet.text },
-            })}
+            {!isValidating ? (
+              <>
+                {React.createElement('span', {
+                  dangerouslySetInnerHTML: { __html: latestTweet.text },
+                })}
+              </>
+            ) : (
+              <div className="latest-tweet-loader">
+                <Skeleton height={65} />
+              </div>
+            )}
           </Text>
           <Text
             heading

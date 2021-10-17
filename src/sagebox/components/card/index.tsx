@@ -12,7 +12,7 @@ function Card({
   hoverable?: boolean;
 }) {
   const cx = classNames({
-    'transition-all ease-in-out transform hover:scale-105': hoverable,
+    'transition-all ease-out delay-75 transform hover:scale-105': hoverable,
   });
 
   return (

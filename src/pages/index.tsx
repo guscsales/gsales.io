@@ -1,21 +1,13 @@
 import React, { useContext } from 'react';
-import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Bio from '@contexts/home/components/bio';
 import WhatIDo from '@contexts/home/components/what-i-do';
 import ProfessionalRoad from '@contexts/home/components/professional-road';
-import YoutubeApi, { TopVideo } from '@contexts/home/services/youtube-api';
 import TopVideos from '@contexts/home/components/top-videos';
-import TwitterApi, { Tweet } from '@contexts/home/services/twitter-api';
 import LatestTweet from '@contexts/home/components/latest-tweet';
 import LanguageContext from '@contexts/shared/contexts/language-context';
 
-type Props = {
-  topVideos: TopVideo[];
-  latestTweet: Tweet;
-};
-
-export default function Home({ topVideos, latestTweet }: Props) {
+export default function Home() {
   const { metadata } = useContext(LanguageContext);
 
   return (
@@ -60,23 +52,11 @@ export default function Home({ topVideos, latestTweet }: Props) {
         <ProfessionalRoad />
       </div>
       <div className="mb-20">
-        <TopVideos topVideos={topVideos} />
+        <TopVideos />
       </div>
       <div className="mb-20">
-        <LatestTweet latestTweet={latestTweet} />
+        <LatestTweet />
       </div>
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const [topVideos, latestTweet] = await Promise.all([
-    YoutubeApi.getTopVideos(3),
-    TwitterApi.getLatestTweet(),
-  ]);
-
-  return {
-    props: { topVideos, latestTweet },
-    revalidate: 60,
-  };
-};

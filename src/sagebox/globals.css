@@ -25,11 +25,18 @@
   }
 }
 
-.street-photos-grid {
-  display: flex;
-  width: auto;
+.latest-tweet-loader > span > span {
+  width: 210px;
 }
 
-.street-photos-grid-column {
-  background-clip: padding-box;
+@screen sm {
+  .latest-tweet-loader > span > span {
+    width: 480px;
+  }
+}
+
+@screen lg {
+  .latest-tweet-loader > span > span {
+    width: 550px;
+  }
 }

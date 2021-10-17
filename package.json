@@ -9,13 +9,17 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"axios": "^0.23.0",
 		"classnames": "^2.3.1",
 		"date-fns": "^2.25.0",
 		"lodash": "^4.17.21",
 		"next": "11.1.0",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
-		"typewriter-effect": "^2.18.2"
+		"react-loading-skeleton": "^2.2.0",
+		"swr": "^1.0.1",
+		"typewriter-effect": "^2.18.2",
+		"tailwindcss": "^2.2.17"
 	},
 	"devDependencies": {
 		"@types/date-fns": "^2.6.0",
@@ -33,8 +37,6 @@
 		"eslint-plugin-react-hooks": "^4.2.0",
 		"postcss": "^8.3.9",
 		"prettier": "^2.3.2",
-		"tailwindcss": "^2.2.17",
-		"tailwindcss-pseudo-elements": "^2.0.0",
 		"typescript": "^4.3.5"
 	}
 }
