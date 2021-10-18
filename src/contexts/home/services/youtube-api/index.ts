@@ -15,6 +15,11 @@ export type TopVideo = {
 const YoutubeApi = {
   getTopVideos: async (limit: number) => {
     try {
+      if (process.env.NEXT_PUBLIC_ENVIRONMENT === 'development') {
+        console.log('topVideos: return from cache');
+        return await Cache.read('topVideos');
+      }
+
       const { data: topVideos } = await axios.get<any>(
         `${YOUTUBE_BASE_URL}/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=${limit}&order=viewCount&key=${API_KEY}`
       );

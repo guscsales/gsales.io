@@ -11,6 +11,11 @@ export type Tweet = {
 const TwitterApi = {
   getLatestTweet: async (): Promise<Tweet> => {
     try {
+      if (process.env.NEXT_PUBLIC_ENVIRONMENT === 'development') {
+        console.log('latestTweet: return from cache');
+        return await Cache.read('latestTweet');
+      }
+
       const res = await fetch(
         `${TWITTER_BASE_URL}/tweets/search/recent?query=from:${ACCOUNT}&tweet.fields=text,created_at`,
         {
