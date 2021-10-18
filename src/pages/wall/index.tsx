@@ -73,6 +73,8 @@ export default function Wall() {
       data,
     });
     mutate([...usersMessages, { ...data, id: random(1000, 9999) }]);
+
+    form.reset();
   }
 
   async function deleteMessage(id) {
@@ -92,8 +94,6 @@ export default function Wall() {
     } else {
       await saveMessage(user, data.message);
     }
-
-    form.reset();
   }
 
   return (
