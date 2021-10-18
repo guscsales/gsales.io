@@ -3,6 +3,7 @@ import Container from '@sagebox/components/container/container';
 import ButtonLink from '@sagebox/components/button-link/button-link';
 import { socialMedia } from '@contexts/shared/metadata/general';
 import LanguageContext from '@contexts/shared/contexts/language-context';
+import navigator from '@contexts/shared/services/navigator';
 
 function Footer() {
   const {
@@ -33,20 +34,29 @@ function Footer() {
           </p>
         </div>
         <div className="hidden sm:block w-px h-full bg-gray-800 mx-11" />
-        <nav className="flex flex-row sm:flex-col justify-between sm:justify-start sm:gap-2 mt-10 sm:mt-0">
-          {socialMedia.map(({ name, url }) => (
-            <ButtonLink
-              key={name}
-              href={url}
-              align="left"
-              ghost
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {name}
-            </ButtonLink>
-          ))}
-        </nav>
+        <div className="flex mt-7 sm:mt-0">
+          <nav className="flex flex-col justify-start gap-2 mr-16">
+            {navigator.map(({ copy, url }) => (
+              <ButtonLink key={copy} href={url} align="left" ghost>
+                {copy}
+              </ButtonLink>
+            ))}
+          </nav>
+          <nav className="flex flex-col justify-start gap-2 mt-0 mr-14">
+            {socialMedia.map(({ name, url }) => (
+              <ButtonLink
+                key={name}
+                href={url}
+                align="left"
+                ghost
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {name}
+              </ButtonLink>
+            ))}
+          </nav>
+        </div>
       </Container>
     </footer>
   );

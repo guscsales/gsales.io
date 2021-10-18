@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 import Container from '@sagebox/components/container/container';
 import Link from 'next/link';
 import LanguageContext from '@contexts/shared/contexts/language-context';
@@ -6,6 +6,7 @@ import ButtonLink from '@sagebox/components/button-link/button-link';
 import { useRouter } from 'next/router';
 import Typewriter from 'typewriter-effect';
 import { shuffle } from 'lodash';
+import navigator from '@contexts/shared/services/navigator';
 
 function prepareTypewriter(typewriter, firstPhrase, otherPhrases) {
   let codeTypewriter = typewriter;
@@ -63,15 +64,18 @@ function Header() {
             <a className="no-underline select-none">Gus!</a>
           </Link>
         </h1>
-        {/* <nav className="grid gap-2 grid-flow-col">
-          <ButtonLink href="/en" active>
-            Home
-          </ButtonLink>
-          <ButtonLink href="/en">Blog</ButtonLink>
-          <ButtonLink href="/en">Wall</ButtonLink>
-          <ButtonLink href="/en">Projects</ButtonLink>
-          <ButtonLink href="/en">Codes</ButtonLink>
-        </nav> */}
+        <nav className="grid gap-2 grid-flow-col">
+          {navigator.map(({ copy, url }) => (
+            <ButtonLink
+              key={copy}
+              href={url}
+              locale={locale}
+              active={url === pathname}
+            >
+              {copy}
+            </ButtonLink>
+          ))}
+        </nav>
       </Container>
     </header>
   );
