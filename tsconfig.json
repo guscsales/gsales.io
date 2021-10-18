@@ -22,8 +22,7 @@
       "@public/*": ["public/*"],
       "@contexts/*": ["src/contexts/*"],
       "@sagebox/*": ["src/sagebox/*"],
-      "@firebase/init": ["src/contexts/shared/services/firebase/index.ts"],
-      "@firebase/use-analytics": ["src/contexts/shared/services/firebase/analytics.ts"]
+      "@firebase/init": ["src/contexts/shared/services/firebase/index.ts"]
     }
   },
   "include": [
