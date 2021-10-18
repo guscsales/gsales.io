@@ -86,7 +86,9 @@ export default function Wall() {
   async function onSubmit(data) {
     if (!user) {
       const authUser = await handleLogin();
-      await saveMessage(authUser, data.message);
+      if (authUser) {
+        await saveMessage(authUser, data.message);
+      }
     } else {
       await saveMessage(user, data.message);
     }
