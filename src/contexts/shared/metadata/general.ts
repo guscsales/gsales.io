@@ -1,22 +1,4 @@
-export const navigatorItems = [
-  {
-    name: 'Home',
-    url: '/',
-  },
-  {
-    name: 'Blog',
-    url: '/blog',
-  },
-  {
-    name: 'Wall',
-    url: '/wall',
-  },
-  {
-    name: 'Codes',
-    url: '/codes',
-  },
-];
-
+// eslint-disable-next-line import/prefer-default-export
 export const socialMedia = [
   {
     name: 'Twitter',
