@@ -6,8 +6,10 @@ const analytics = () =>
 
 export function logAnalyticsEvent(url) {
   const instance = analytics();
-  setCurrentScreen(instance, url);
-  logEvent(instance, 'screen_view');
+  if (instance) {
+    setCurrentScreen(instance, url);
+    logEvent(instance, 'screen_view');
+  }
 }
 
 export default analytics;
