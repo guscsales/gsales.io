@@ -40,6 +40,7 @@ function Text({
   ...props
 }: Props & HTMLAttributes<HTMLElement>) {
   const className = classNames(
+    'whitespace-pre-wrap',
     {
       'font-heading font-bold': heading,
     },

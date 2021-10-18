@@ -47,6 +47,25 @@ export interface ILanguageMetadataStructure {
       reference: string;
     };
   };
+  wall: {
+    title: string;
+    description: string;
+    form: {
+      message: {
+        placeholder: string;
+        error: string;
+        callout: string;
+      };
+      submit: string;
+    };
+    cards: {
+      remove: string;
+    };
+    metatags: {
+      title: string;
+      description: string;
+    };
+  };
 }
 
 export const en: ILanguageMetadataStructure = {
@@ -128,6 +147,29 @@ export const en: ILanguageMetadataStructure = {
       content:
         'Wait on the Lord: be of good courage, and he shall strengthen thine heart: wait, I say, on the Lord.',
       reference: 'PSalm 27:14',
+    },
+  },
+  wall: {
+    title: 'The Gus Wall',
+    description: `Have you ever heard about "The Facebook Wall"? Post any message here for me or anyone else to read.
+
+It could be inspirational, some feedback, a reminder for the future or from the future, or anything you want to share. Be creative! 🤓`,
+    form: {
+      message: {
+        placeholder: 'Type your message...',
+        callout:
+          'Will be needed to log in with your Google account just to show your name.',
+        error: 'Type something on the field above.',
+      },
+      submit: 'Post',
+    },
+    cards: {
+      remove: 'Remove',
+    },
+    metatags: {
+      title: 'Type something on The Gus Wall - Gustavo Sales',
+      description:
+        'Have you ever heard about "The Facebook Wall"? Post any message here for me or anyone else to read. Be creative!',
     },
   },
 };
@@ -212,6 +254,29 @@ export const pt: ILanguageMetadataStructure = {
       content:
         'Espera no Senhor e sê forte! Fortifique-se o teu coração e espera no Senhor!',
       reference: 'Salmo 27:14',
+    },
+  },
+  wall: {
+    title: 'The Gus Wall',
+    description: `Ja viu a parede de assinaturas do Facebook? Deixe aqui qualquer mensagem para eu ou qualquer outra pessoa ler.
+
+Pode ser algo inspiracional, um feedback, um aviso para o futuro ou do futuro, ou qualquer coisa que você queira compartilhar. Manda ver na criatividade! 🤓`,
+    form: {
+      message: {
+        placeholder: 'Escreva sua mensagem...',
+        callout:
+          'Será preciso logar com sua conta do Google apenas para mostrar seu nome.',
+        error: 'Escreva algo no campo acima.',
+      },
+      submit: 'Postar',
+    },
+    cards: {
+      remove: 'Apagar',
+    },
+    metatags: {
+      title: 'Escreva algo na The Gus Wall - Gustavo Sales',
+      description:
+        'Ja viu a parede de assinaturas do Facebook? Deixe aqui qualquer mensagem para eu ou qualquer outra pessoa ler. Manda ver na criatividade!',
     },
   },
 };

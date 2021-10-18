@@ -40,3 +40,32 @@
     width: 550px;
   }
 }
+
+.wall-masonry-grid {
+  display: flex;
+  margin-left: -16px;
+  width: auto;
+}
+
+.wall-masonry-grid__column {
+  padding-left: 16px;
+  background-clip: padding-box;
+}
+
+.wall-masonry-grid__column > div {
+  margin-bottom: 16px;
+}
+
+@screen lg {
+  .wall-masonry-grid {
+    margin-left: -24px;
+  }
+
+  .wall-masonry-grid__column {
+    padding-left: 24px;
+  }
+
+  .wall-masonry-grid__column > div {
+    margin-bottom: 24px;
+  }
+}

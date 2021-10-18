@@ -12,6 +12,7 @@ function save({ name, data }: CacheSettings) {
     table: CACHE_TABLE_NAME,
     id: name,
     data: { value: JSON.stringify(data) },
+    options: { includeEnvironmentSuffix: false },
   });
 }
 
@@ -19,6 +20,7 @@ async function read(name: string) {
   const { value } = await Database.findById({
     table: CACHE_TABLE_NAME,
     id: name,
+    options: { includeEnvironmentSuffix: false },
   });
 
   return JSON.parse(value);
