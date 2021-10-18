@@ -18,18 +18,18 @@ const YoutubeApi = {
       const { data: topVideos } = await axios.get<any>(
         `${YOUTUBE_BASE_URL}/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=${limit}&order=viewCount&key=${API_KEY}`
       );
-      const videosIds = topVideos.map((topVideo) => topVideo.id.videoId);
+      const videosIds = topVideos.items.map((topVideo) => topVideo.id.videoId);
 
       const { data: topVideosStatistics } = await axios.get<any>(
         `${YOUTUBE_BASE_URL}/videos?part=statistics&id=${videosIds.join(
           '&id='
         )}&key=${API_KEY}`
       );
-      const mappedTopVideos = topVideos.map(({ id, snippet }) => ({
+      const mappedTopVideos = topVideos.items.map(({ id, snippet }) => ({
         id: id.videoId,
         title: snippet.title,
         publishedAt: snippet.publishedAt,
-        viewCount: topVideosStatistics.find((x) => x.id === id.videoId)
+        viewCount: topVideosStatistics.items.find((x) => x.id === id.videoId)
           .statistics.viewCount,
       })) as TopVideo[];
 
