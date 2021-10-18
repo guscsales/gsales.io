@@ -9,6 +9,7 @@ import { SkeletonTheme } from 'react-loading-skeleton';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfigFile from '../../tailwind.config';
 
+import '@firebase/use-analytics';
 import '@sagebox/globals.css';
 
 const tailwindConfig = resolveConfig(tailwindConfigFile);
