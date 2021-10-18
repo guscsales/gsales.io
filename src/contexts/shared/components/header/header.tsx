@@ -65,14 +65,14 @@ function Header() {
           </Link>
         </h1>
         <nav className="grid gap-2 grid-flow-col">
-          {navigator.map(({ copy, url }) => (
+          {navigator.map(({ key, url }) => (
             <ButtonLink
-              key={copy}
+              key={key}
               href={url}
               locale={locale}
               active={url === pathname}
             >
-              {copy}
+              {metadata.navigator[key]}
             </ButtonLink>
           ))}
         </nav>

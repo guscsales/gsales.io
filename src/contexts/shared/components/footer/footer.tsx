@@ -6,9 +6,7 @@ import LanguageContext from '@contexts/shared/contexts/language-context';
 import navigator from '@contexts/shared/services/navigator';
 
 function Footer() {
-  const {
-    metadata: { footer },
-  } = useContext(LanguageContext);
+  const { metadata } = useContext(LanguageContext);
 
   return (
     <footer>
@@ -27,18 +25,18 @@ function Footer() {
             </a>
           </div>
           <p className="italic text-gray-400 sm:mt-7 text-sm text-right sm:text-left">
-            {footer.verse.content} <br />
+            {metadata.footer.verse.content} <br />
             <span className="text-gray-500 text-xs">
-              {footer.verse.reference}
+              {metadata.footer.verse.reference}
             </span>
           </p>
         </div>
         <div className="hidden sm:block w-px h-full bg-gray-800 mx-11" />
         <div className="flex mt-7 sm:mt-0">
           <nav className="flex flex-col justify-start gap-2 mr-16">
-            {navigator.map(({ copy, url }) => (
-              <ButtonLink key={copy} href={url} align="left" ghost>
-                {copy}
+            {navigator.map(({ key, url }) => (
+              <ButtonLink key={key} href={url} align="left" ghost>
+                {metadata.navigator[key]}
               </ButtonLink>
             ))}
           </nav>

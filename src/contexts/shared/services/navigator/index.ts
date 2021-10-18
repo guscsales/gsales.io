@@ -1,15 +1,15 @@
 type NavigatorItem = {
-  copy: string;
+  key: string;
   url: string;
 };
 
 const navigator: NavigatorItem[] = [
   {
-    copy: 'Home',
+    key: 'home',
     url: '/',
   },
   {
-    copy: 'Wall',
+    key: 'wall',
     url: '/wall',
   },
 ];

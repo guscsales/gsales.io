@@ -9,6 +9,10 @@ export interface ILanguageMetadataStructure {
   currentCompany: string;
   profilePictureAltText: string;
   twitter: string;
+  navigator: {
+    home: string;
+    wall: string;
+  };
   metaTags: {
     home: {
       title: string;
@@ -92,6 +96,10 @@ export const en: ILanguageMetadataStructure = {
   currentCompany: 'Boulevard',
   profilePictureAltText: "A black and white Gustavo's profile picture",
   twitter: '@gussalesdev',
+  navigator: {
+    home: 'Home',
+    wall: 'Wall',
+  },
   metaTags: {
     home: {
       title: 'Gustavo Sales - Software Engineer and Content Creator.',
@@ -198,6 +206,10 @@ export const pt: ILanguageMetadataStructure = {
   currentCompany: 'Boulevard',
   profilePictureAltText: 'Uma foto preta e branca de perfil do Gustavo',
   twitter: '@gussalesdev',
+  navigator: {
+    home: 'Home',
+    wall: 'Mural',
+  },
   metaTags: {
     home: {
       title: 'Gustavo Sales - Engenheiro de Software e Criador de Conteúdo.',
