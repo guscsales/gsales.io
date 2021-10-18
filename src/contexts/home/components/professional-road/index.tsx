@@ -20,12 +20,12 @@ function ProfessionalRoad() {
 
       <div className="rounded-lg border border-solid border-gray-600 overflow-hidden">
         <img
-          src="/images/street-photo-sm.png"
+          src="/images/street-photo-sm.webp"
           alt={professionalRoad.mosaicAltText}
           className="hidden sm:block"
         />
         <img
-          src="/images/street-photo-xs.png"
+          src="/images/street-photo-xs.webp"
           alt={professionalRoad.mosaicAltText}
           className="block sm:hidden"
         />

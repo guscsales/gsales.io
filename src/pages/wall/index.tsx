@@ -130,7 +130,7 @@ export default function Wall() {
         <div className="grid sm:grid-flow-col">
           <div className="w-44 h-32 mx-auto relative mb-4 sm:mb-0 sm:mr-4">
             <Image
-              src="/images/the-facebook-wall.png"
+              src="/images/the-facebook-wall.webp"
               alt={`Retrato da parede de assinaturas do Facebook, no começo da parede está escrito "The Facebook Wall" e logo abaixo escrito "Write Something..."`}
               layout="fill"
               className="rounded-lg shadow-xl"

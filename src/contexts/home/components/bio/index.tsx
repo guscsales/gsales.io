@@ -15,7 +15,7 @@ function Bio() {
     >
       <div className="sm:w-28 sm:h-28 w-20 h-20 relative">
         <Image
-          src="/images/me.png"
+          src="/images/me.webp"
           alt={metadata.profilePictureAltText}
           layout="fill"
           className="rounded-full"

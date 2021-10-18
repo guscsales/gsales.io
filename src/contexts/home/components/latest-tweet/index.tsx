@@ -26,7 +26,7 @@ function LatestTweet() {
           <div className="grid grid-flow-col items-center">
             <div className="w-10 h-10 relative">
               <Image
-                src="/images/me.png"
+                src="/images/me.webp"
                 alt={metadata.profilePictureAltText}
                 layout="fill"
                 className="rounded-full"
