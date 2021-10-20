@@ -158,7 +158,7 @@ export const en: ILanguageMetadataStructure = {
     },
   },
   wall: {
-    title: 'The Gus Wall',
+    title: 'Drop a message',
     description: `Have you ever heard about "The Facebook Wall"? Post any message here for me or anyone else to read.
 
 It could be inspirational, some feedback, a reminder for the future or from the future, or anything you want to share. Be creative! 🤓`,
@@ -269,7 +269,7 @@ export const pt: ILanguageMetadataStructure = {
     },
   },
   wall: {
-    title: 'The Gus Wall',
+    title: 'Deixe uma mensagem',
     description: `Ja viu a parede de assinaturas do Facebook? Deixe aqui qualquer mensagem para eu ou qualquer outra pessoa ler.
 
 Pode ser algo inspiracional, um feedback, um aviso para o futuro ou do futuro, ou qualquer coisa que você queira compartilhar. Manda ver na criatividade! 🤓`,
