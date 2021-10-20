@@ -1,5 +1,4 @@
 const plugin = require('tailwindcss/plugin');
-const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: [
@@ -20,7 +19,7 @@ module.exports = {
         112: '25rem',
       },
       gridTemplateColumns: {
-        'jouney-info': '124px 1fr',
+        'jouney-info': '145px 1fr',
       },
     },
   },
