@@ -19,6 +19,9 @@ module.exports = {
       width: {
         112: '25rem',
       },
+      gridTemplateColumns: {
+        'jouney-info': '124px 1fr',
+      },
     },
   },
   plugins: [
