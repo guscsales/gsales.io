@@ -51,6 +51,7 @@ export interface ILanguageMetadataStructure {
       content: string;
       reference: string;
     };
+    nothingPlaying: string;
   };
   wall: {
     title: string;
@@ -191,6 +192,7 @@ export const en: ILanguageMetadataStructure = {
         'Wait on the Lord: be of good courage, and he shall strengthen thine heart: wait, I say, on the Lord.',
       reference: 'PSalm 27:14',
     },
+    nothingPlaying: 'Nothing playing',
   },
   wall: {
     title: 'Drop a message',
@@ -440,6 +442,7 @@ export const pt: ILanguageMetadataStructure = {
         'Espera no Senhor e sê forte! Fortifique-se o teu coração e espera no Senhor!',
       reference: 'Salmo 27:14',
     },
+    nothingPlaying: 'Nada tocando',
   },
   wall: {
     title: 'Deixe uma mensagem',

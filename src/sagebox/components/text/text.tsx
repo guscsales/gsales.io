@@ -27,7 +27,7 @@ type TextElements =
   | 'b';
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   as?: TextElements;
   className?: string;
   heading?: boolean;

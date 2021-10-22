@@ -4,14 +4,45 @@ import ButtonLink from '@sagebox/components/button-link/button-link';
 import { socialMedia } from '@contexts/shared/metadata/general';
 import LanguageContext from '@contexts/shared/contexts/language-context';
 import navigator from '@contexts/shared/services/navigator';
+import RealtimeDatabase from '@contexts/shared/services/realtime-database';
+import Text from '@sagebox/components/text/text';
+import Typewriter from 'typewriter-effect/dist/core';
 
 function Footer() {
-  const { metadata } = useContext(LanguageContext);
+  const { metadata, locale } = useContext(LanguageContext);
+
+  React.useEffect(() => {
+    const typewriter = new Typewriter('#current-song', {
+      cursor: '_',
+      delay: 60,
+    });
+
+    RealtimeDatabase.get({
+      table: 'currentSong',
+      callback: (data) => {
+        typewriter
+          .deleteAll()
+          .typeString(
+            data
+              ? `'${data.title} - ${data.artist};' `
+              : `'${metadata.footer.nothingPlaying};' `
+          )
+          .start();
+      },
+    });
+  }, [locale]);
 
   return (
     <footer>
       <div className="w-full h-px bg-gray-800 mt-24" />
-      <Container className="flex flex-col sm:flex-row sm:h-52 py-6" sub>
+      <Container className="mt-6" sub>
+        <div className="font-code text-sm text-green-200 flex items-center">
+          {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
+          <div className="mr-1">{'//'} const listeningNow = </div>
+          <Text className="font-semibold" id="current-song" />
+        </div>
+      </Container>
+      <Container className="flex flex-col sm:flex-row sm:h-52 py-5" sub>
         <div className="flex justify-between gap-14 sm:gap-0 items-center sm:block w-full sm:w-72">
           <div className="sm:mt-4">
             <div className="font-heading font-bold text-xl italic text-white select-none">
