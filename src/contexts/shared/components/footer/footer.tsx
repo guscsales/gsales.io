@@ -10,24 +10,30 @@ import Typewriter from 'typewriter-effect/dist/core';
 
 function Footer() {
   const { metadata, locale } = useContext(LanguageContext);
+  let previousSong = '';
 
   React.useEffect(() => {
     const typewriter = new Typewriter('#current-song', {
       cursor: '_',
       delay: 60,
+      deleteSpeed: 30,
     });
+
+    typewriter.typeString('// const listeningNow =  ');
 
     RealtimeDatabase.get({
       table: 'currentSong',
       callback: (data) => {
+        const currentSong = data
+          ? `'${data.title} - ${data.artist};' `
+          : `'${metadata.footer.nothingPlaying};' `;
+
         typewriter
-          .deleteAll()
-          .typeString(
-            data
-              ? `'${data.title} - ${data.artist};' `
-              : `'${metadata.footer.nothingPlaying};' `
-          )
+          .deleteChars(previousSong.length || 1)
+          .typeString(currentSong)
           .start();
+
+        previousSong = currentSong;
       },
     });
   }, [locale]);
@@ -38,8 +44,7 @@ function Footer() {
       <Container className="mt-6" sub>
         <div className="font-code text-sm text-green-200 flex items-center">
           {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
-          <div className="mr-1">{'//'} const listeningNow = </div>
-          <Text className="font-semibold" id="current-song" />
+          <Text id="current-song" />
         </div>
       </Container>
       <Container className="flex flex-col sm:flex-row sm:h-52 py-5" sub>
