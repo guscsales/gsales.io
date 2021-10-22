@@ -19,7 +19,7 @@ function Footer() {
       deleteSpeed: 30,
     });
 
-    typewriter.typeString('// const listeningNow =  ');
+    typewriter.typeString('// let listeningNow =  ');
 
     RealtimeDatabase.get({
       table: 'currentSong',
