@@ -25,8 +25,8 @@ function Footer() {
       table: 'currentSong',
       callback: (data) => {
         const currentSong = data
-          ? `'${data.title} - ${data.artist};' `
-          : `'${metadata.footer.nothingPlaying};' `;
+          ? `'${data.title} - ${data.artist}'; `
+          : `'${metadata.footer.nothingPlaying}'; `;
 
         typewriter
           .deleteChars(previousSong.length || 1)
