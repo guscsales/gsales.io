@@ -19,16 +19,21 @@ const tailwindConfig = resolveConfig(tailwindConfigFile);
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const isAdmin = router.pathname.indexOf('/admin') !== -1;
 
   useEffect(() => {
-    analytics();
+    if (!isAdmin) {
+      analytics();
 
-    logAnalyticsEvent(router.pathname);
-    router.events.on('routeChangeComplete', logAnalyticsEvent);
+      logAnalyticsEvent(router.pathname);
+      router.events.on('routeChangeComplete', logAnalyticsEvent);
 
-    return () => {
-      router.events.off('routeChangeComplete', logAnalyticsEvent);
-    };
+      return () => {
+        router.events.off('routeChangeComplete', logAnalyticsEvent);
+      };
+    }
+
+    return null;
   }, []);
 
   return (
@@ -38,9 +43,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           color={tailwindConfig.theme.colors.gray['800']}
           highlightColor={tailwindConfig.theme.colors.gray['700']}
         >
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
+          {!isAdmin ? (
+            <>
+              <Header />
+              <Component {...pageProps} />
+              <Footer />
+            </>
+          ) : (
+            <Component {...pageProps} />
+          )}
         </SkeletonTheme>
       </LanguageProvider>
     </SWRConfig>
