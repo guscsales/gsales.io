@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import '@firebase/init';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -97,6 +98,14 @@ export default function Login() {
               <Button className="w-full" type="submit">
                 Sign In
               </Button>
+
+              <div className="text-center mt-4">
+                <Link href="/">
+                  <a className="text-sm text-blue-500 transition-colors ease-in-out hover:text-blue-400">
+                    Return to site
+                  </a>
+                </Link>
+              </div>
             </div>
           </form>
         </div>
