@@ -8,6 +8,8 @@ import Text from '@sagebox/components/text/text';
 import Input from '@sagebox/components/input';
 import Button from '@sagebox/components/button';
 import InputMessage from '@sagebox/components/input-message';
+import useAuth from '@contexts/auth/hooks/useAuth';
+import { useRouter } from 'next/router';
 
 interface IFormData {
   email: string;
@@ -26,12 +28,20 @@ export default function Login() {
   } = useForm<IFormData>({
     resolver: yupResolver(validationSchema),
   });
+  const { signIn } = useAuth();
+  const router = useRouter();
+  const [signInError, setSignInError] = React.useState(null);
 
-  function onSubmit(data: IFormData) {
-    console.log(data);
+  async function onSubmit({ email, password }: IFormData) {
+    try {
+      setSignInError(null);
+      await signIn(email, password);
+
+      router.replace('/admin/blog');
+    } catch (e) {
+      setSignInError(e);
+    }
   }
-
-  console.log(errors);
 
   return (
     <>
@@ -74,13 +84,15 @@ export default function Login() {
             </div>
 
             <div className="mt-6 w-full">
-              <InputMessage
-                type="error"
-                className="text-center mb-4"
-                withSpace={false}
-              >
-                Invalid credentials
-              </InputMessage>
+              {signInError && (
+                <InputMessage
+                  type="error"
+                  className="text-center mb-4"
+                  withSpace={false}
+                >
+                  Invalid credentials
+                </InputMessage>
+              )}
 
               <Button className="w-full" type="submit">
                 Sign In

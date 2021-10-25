@@ -17,9 +17,14 @@ function read(key: string) {
   return null;
 }
 
+function remove(key: string) {
+  localStorage.removeItem(key);
+}
+
 const Storage = {
   save,
   read,
+  remove,
 };
 
 export default Storage;
