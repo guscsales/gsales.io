@@ -24,5 +24,5 @@ export default function IsAuthenticated({
     }
   }, [user]);
 
-  return isAuthenticated || isAdminLogin ? children : null;
+  return <>{isAuthenticated || isAdminLogin ? children : null}</>;
 }
