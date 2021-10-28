@@ -10,7 +10,9 @@
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^2.8.2",
+		"@notionhq/client": "^0.4.4",
 		"axios": "^0.23.0",
+		"camelcase-keys": "^7.0.1",
 		"classnames": "^2.3.1",
 		"date-fns": "^2.25.0",
 		"firebase": "^9.1.3",
