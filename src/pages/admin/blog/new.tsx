@@ -6,11 +6,11 @@ export default function Blog() {
   return (
     <>
       <Head>
-        <title>All posts - Blog - Gus CMS</title>
+        <title>New post - Blog - Gus CMS</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Container className="mt-10">
-        <span className="text-white">blog index</span>
+        <span className="text-white">blog new post</span>
       </Container>
     </>
   );
