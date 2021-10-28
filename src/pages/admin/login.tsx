@@ -48,6 +48,7 @@ export default function Login() {
     <>
       <Head>
         <title>Welcome to Gus CMS</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
 
       <div className="w-full h-full absolute flex items-center justify-center">

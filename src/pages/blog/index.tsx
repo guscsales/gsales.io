@@ -25,6 +25,7 @@ function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
     <>
       <Head>
         <title>Posts about programming - Gustavo Sales</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Container as="section" sub className="mt-10">
         <Text heading as="h1" className="text-white text-3xl">
