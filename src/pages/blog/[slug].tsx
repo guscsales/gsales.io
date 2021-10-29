@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogDatabase, {
   IBlogPostDetail,
@@ -6,9 +6,6 @@ import BlogDatabase, {
 import Container from '@sagebox/components/container/container';
 import Text from '@sagebox/components/text/text';
 import Head from 'next/head';
-import { format } from 'date-fns';
-import * as i18n from 'date-fns/locale';
-import LanguageContext from '@contexts/shared/contexts/language-context';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await BlogDatabase.getPosts();
@@ -29,8 +26,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 function Blog({ post }: { post: IBlogPostDetail }) {
-  const { metadata, locale } = useContext(LanguageContext);
-
   return (
     <>
       <Head>
