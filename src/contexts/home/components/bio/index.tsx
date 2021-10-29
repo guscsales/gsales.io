@@ -9,19 +9,19 @@ function Bio() {
 
   return (
     <Container
-      as="section"
+      as="article"
       className="flex flex-col sm:flex-row items-center sm:items-start justify-center "
       sub
     >
-      <div className="sm:w-28 sm:h-28 w-20 h-20 relative">
+      <picture className="sm:w-28 sm:h-28 w-20 h-20 relative">
         <Image
           src="/images/me.webp"
           alt={metadata.profilePictureAltText}
           layout="fill"
           className="rounded-full"
         />
-      </div>
-      <div className="sm:w-112 mt-2 sm:mt-0 sm:ml-3 text-center sm:text-left">
+      </picture>
+      <section className="sm:w-112 mt-2 sm:mt-0 sm:ml-3 text-center sm:text-left">
         <Text as="h1" heading className="text-white text-4xl">
           {metadata.name}
         </Text>
@@ -29,16 +29,14 @@ function Bio() {
           {metadata.role} {metadata.at}{' '}
           <Text className="font-semibold">{metadata.currentCompany}</Text>
         </Text>
-        <div className="mt-3">
-          <Text as="p" className="mb-3 text-gray-300">
-            {metadata.homeBio.content}
-          </Text>
-          <Text as="p" className="font-semibold text-gray-300">
-            {metadata.homeBio.greetings}{' '}
-            <span className="underline">{metadata.nickname}</span>. 😁
-          </Text>
-        </div>
-      </div>
+        <Text as="p" className="mb-3 mt-3 text-gray-300">
+          {metadata.homeBio.content}
+        </Text>
+        <Text as="p" className="font-semibold text-gray-300">
+          {metadata.homeBio.greetings}{' '}
+          <span className="underline">{metadata.nickname}</span>. 😁
+        </Text>
+      </section>
     </Container>
   );
 }

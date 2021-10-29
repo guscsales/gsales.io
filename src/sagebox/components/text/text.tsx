@@ -24,7 +24,8 @@ type TextElements =
   | 'sub'
   | 'small'
   | 'i'
-  | 'b';
+  | 'b'
+  | 'time';
 
 type Props = {
   children?: React.ReactNode;

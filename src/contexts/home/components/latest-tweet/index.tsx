@@ -16,7 +16,7 @@ function LatestTweet() {
   const tweetDate = new Date(latestTweet?.createdAt);
 
   return (
-    <Container as="section" sub>
+    <Container as="article" sub>
       <Text heading as="h2" className="text-white text-2xl mb-2">
         {metadata.latestTweet.title}
       </Text>
@@ -24,15 +24,15 @@ function LatestTweet() {
       <Card>
         <header className="flex justify-between mb-4">
           <div className="grid grid-flow-col items-center">
-            <div className="w-10 h-10 relative">
+            <picture className="w-10 h-10 relative">
               <Image
                 src="/images/me.webp"
                 alt={metadata.profilePictureAltText}
                 layout="fill"
                 className="rounded-full"
               />
-            </div>
-            <div className="flex flex-col ml-2">
+            </picture>
+            <section className="flex flex-col ml-2">
               <Text as="h3" heading className="flex text-white text-sm">
                 {metadata.name}
               </Text>
@@ -49,10 +49,13 @@ function LatestTweet() {
                   {metadata.twitter}
                 </Text>
               </a>
-            </div>
+            </section>
           </div>
           {!isValidating ? (
-            <Text className="flex items-center h-5 text-sm text-gray-500">
+            <Text
+              as="time"
+              className="flex items-center h-5 text-sm text-gray-500"
+            >
               {format(tweetDate, metadata.hourFormat, { locale: i18n[locale] })}
               <Bullet float={false} className="mx-1" />{' '}
               {format(tweetDate, metadata.dateFormat, { locale: i18n[locale] })}

@@ -79,7 +79,7 @@ function TopVideos() {
   );
 
   return (
-    <Container as="section" sub>
+    <Container as="article" sub>
       <Text heading as="h2" className="text-white text-2xl">
         {metadata.topVideos.title}
       </Text>
@@ -105,15 +105,17 @@ function TopVideos() {
             />
           ))}
       </ol>
-      <ButtonLink
-        href="https://www.youtube.com/c/GusQuemFala"
-        rel="noopener noreferrer"
-        target="blank"
-        size="small"
-        className="flex justify-center sm:inline-flex mt-7 sm:mt-4 text-gray-400 hover:text-white"
-      >
-        {metadata.topVideos.moreVideos}
-      </ButtonLink>
+      <footer>
+        <ButtonLink
+          href="https://www.youtube.com/c/GusQuemFala"
+          rel="noopener noreferrer"
+          target="blank"
+          size="small"
+          className="flex justify-center sm:inline-flex mt-7 sm:mt-4 text-gray-400 hover:text-white"
+        >
+          {metadata.topVideos.moreVideos}
+        </ButtonLink>
+      </footer>
     </Container>
   );
 }

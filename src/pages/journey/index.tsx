@@ -24,35 +24,33 @@ function JourneyInfo({
 }: JourneyInfoProps) {
   return (
     <div className="grid sm:grid-cols-jouney-info">
-      <div className="mr-10">
-        <Text
-          as="div"
-          className="text-gray-300 font-semibold flex items-center text-sm mt-1 mb-1"
-        >
-          {startDate}
-          {endDate && (
-            <>
-              <Bullet
-                float={false}
-                className="mx-1 mt-px"
-                backgroundColor="bg-gray-300"
-              />{' '}
-              {endDate}
-            </>
-          )}
-        </Text>
-      </div>
-      <div>
+      <Text
+        as="time"
+        className="text-gray-300 font-semibold flex items-center text-sm mt-1 mb-1 mr-10 self-start"
+      >
+        {startDate}
+        {endDate && (
+          <>
+            <Bullet
+              float={false}
+              className="mx-1 mt-px"
+              backgroundColor="bg-gray-300"
+            />{' '}
+            {endDate}
+          </>
+        )}
+      </Text>
+      <article>
         <Text as="h4" className="text-white font-semibold text-lg">
           {title}
         </Text>
         {position && (
-          <Text as="div" className="text-gray-400 italic text-sm mb-2">
+          <Text as="h5" className="text-gray-400 italic text-sm mb-2">
             {position}
           </Text>
         )}
         {children}
-      </div>
+      </article>
     </div>
   );
 }
@@ -98,98 +96,104 @@ export default function Journey() {
         />
       </Head>
 
-      <Container as="section" sub className="mt-10">
-        <div className="grid sm:grid-flow-col">
-          <div className="w-24 h-56 mx-auto relative mb-4 sm:mb-0 sm:mr-4">
-            <Image
-              src="/images/me-years-ago.png"
-              alt=""
-              layout="fill"
-              className="rounded-lg shadow-xl"
-            />
-            <Image
-              src="/images/me-now.png"
-              alt=""
-              layout="fill"
-              className="rounded-lg shadow-xl transition-opacity ease-in-out delay-75 opacity-0 hover:opacity-100"
-            />
-          </div>
-          <div>
-            <Text heading as="h1" className="text-white text-3xl">
-              {metadata.journey.title}
-            </Text>
-            <Text as="p" className="text-gray-300 mt-2">
-              {React.createElement('span', {
-                dangerouslySetInnerHTML: {
-                  __html: metadata.journey.description,
-                },
-              })}
-            </Text>
-          </div>
-        </div>
-      </Container>
-
-      <Container as="section" sub>
-        <Text as="p" className="text-gray-300 mt-7 sm:mt-4">
-          {metadata.journey.descriptionPartTwo}
-        </Text>
-
-        <Text heading as="h3" className="text-white text-xl mt-9 mb-4">
-          {metadata.journey.experienceTitle}
-        </Text>
-
-        <div className="grid gap-10">
-          {metadata.journey.experiences.map((xp) => (
-            <JourneyInfo {...xp}>
-              <Text as="p" className="text-gray-300">
-                {xp.description}
-              </Text>
-
-              {xp.site && (
-                <ButtonLink
-                  href={`https://${xp.site}`}
-                  rel="noopener noreferrer"
-                  target="blank"
-                  size="small"
-                  className="inline-flex mt-4 text-gray-400 hover:text-white -ml-2"
-                >
-                  {xp.site}
-                </ButtonLink>
-              )}
-            </JourneyInfo>
-          ))}
-        </div>
-
-        <Text heading as="h3" className="text-white text-xl mt-9 mb-4">
-          {metadata.journey.educationTitle}
-        </Text>
-
-        <div className="grid gap-4">
-          {metadata.journey.educations.map((education) => (
-            <JourneyInfo {...education} position={education.institution} />
-          ))}
-        </div>
-
-        <Text heading as="h3" className="text-white text-xl mt-9 mb-4">
-          {metadata.journey.awardsTitle}
-        </Text>
-
-        <div className="grid gap-7">
-          {metadata.journey.awards.map((award) => (
-            <JourneyInfo {...award}>
-              <Text as="p" className="text-gray-300 mb-2">
-                {award.description}
-              </Text>
-
-              <img
-                src={`/images/${award.photo}`}
+      <article>
+        <Container as="section" sub className="mt-10">
+          <div className="grid sm:grid-flow-col">
+            <picture className="w-24 h-56 mx-auto relative mb-4 sm:mb-0 sm:mr-4">
+              <Image
+                src="/images/me-years-ago.png"
                 alt=""
-                className="rounded-lg shadow-xl h-36"
+                layout="fill"
+                className="rounded-lg shadow-xl"
               />
-            </JourneyInfo>
-          ))}
-        </div>
-      </Container>
+              <Image
+                src="/images/me-now.png"
+                alt=""
+                layout="fill"
+                className="rounded-lg shadow-xl transition-opacity ease-in-out delay-75 opacity-0 hover:opacity-100"
+              />
+            </picture>
+            <article>
+              <Text heading as="h1" className="text-white text-3xl">
+                {metadata.journey.title}
+              </Text>
+              <Text as="p" className="text-gray-300 mt-2">
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: metadata.journey.description,
+                  }}
+                />
+              </Text>
+            </article>
+          </div>
+
+          <Text as="p" className="text-gray-300 mt-7 sm:mt-4">
+            {metadata.journey.descriptionPartTwo}
+          </Text>
+        </Container>
+
+        <Container as="article" sub>
+          <Text heading as="h3" className="text-white text-xl mt-9 mb-4">
+            {metadata.journey.experienceTitle}
+          </Text>
+
+          <section className="grid gap-10">
+            {metadata.journey.experiences.map((xp) => (
+              <JourneyInfo {...xp}>
+                <Text as="p" className="text-gray-300">
+                  {xp.description}
+                </Text>
+
+                {xp.site && (
+                  <ButtonLink
+                    href={`https://${xp.site}`}
+                    rel="noopener noreferrer"
+                    target="blank"
+                    size="small"
+                    className="inline-flex mt-4 text-gray-400 hover:text-white -ml-2"
+                  >
+                    {xp.site}
+                  </ButtonLink>
+                )}
+              </JourneyInfo>
+            ))}
+          </section>
+        </Container>
+
+        <Container as="article" sub>
+          <Text heading as="h3" className="text-white text-xl mt-9 mb-4">
+            {metadata.journey.educationTitle}
+          </Text>
+
+          <section className="grid gap-4">
+            {metadata.journey.educations.map((education) => (
+              <JourneyInfo {...education} position={education.institution} />
+            ))}
+          </section>
+        </Container>
+
+        <Container as="article" sub>
+          <Text heading as="h3" className="text-white text-xl mt-9 mb-4">
+            {metadata.journey.awardsTitle}
+          </Text>
+
+          <section className="grid gap-7">
+            {metadata.journey.awards.map((award) => (
+              <JourneyInfo {...award}>
+                <Text as="p" className="text-gray-300 mb-2">
+                  {award.description}
+                </Text>
+
+                <img
+                  src={`/images/${award.photo}`}
+                  alt=""
+                  className="rounded-lg shadow-xl h-36"
+                />
+              </JourneyInfo>
+            ))}
+          </section>
+        </Container>
+      </article>
     </>
   );
 }

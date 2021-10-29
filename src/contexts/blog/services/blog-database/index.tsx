@@ -1,22 +1,36 @@
 import Normalizer from '@contexts/shared/services/normalizer';
 import { Client as NotionClient } from '@notionhq/client';
+import NotionPageToHtml from 'notion-page-to-html';
 
 const notion = new NotionClient({ auth: process.env.NOTION_SECRET_KEY });
+const databaseId = process.env.NOTION_POSTS_DATABASE_ID.toString();
 
 interface IBlogPost {
   id: string;
   title: string;
   slugs: { [key in string]: string };
+  slug: string;
   createdAt: string;
   description: string;
+  url: string;
 }
 
-async function getPosts(locale: string): Promise<IBlogPost[]> {
-  const databaseId = process.env.NOTION_POSTS_DATABASE_ID.toString();
+export interface IBlogPostDetail extends IBlogPost {
+  content: string;
+}
 
-  const { results } = await notion.databases.query({
-    database_id: databaseId,
-    filter: {
+type PostsFilter = {
+  locale?: string;
+  slug?: string;
+};
+
+async function getPosts({ locale, slug }: PostsFilter = {}): Promise<
+  IBlogPost[]
+> {
+  let filter: any;
+
+  if (locale) {
+    filter = {
       and: [
         {
           property: 'language',
@@ -25,7 +39,26 @@ async function getPosts(locale: string): Promise<IBlogPost[]> {
           },
         },
       ],
-    },
+    };
+  }
+
+  if (slug) {
+    filter = {
+      and: [
+        ...(filter?.and || []),
+        {
+          property: 'slug',
+          rich_text: {
+            equals: slug,
+          },
+        },
+      ],
+    };
+  }
+
+  const { results } = await notion.databases.query({
+    database_id: databaseId,
+    filter,
   });
 
   if (!results) {
@@ -35,18 +68,35 @@ async function getPosts(locale: string): Promise<IBlogPost[]> {
   const posts = Normalizer.objectKeys(results);
 
   return posts.map(
-    ({ id, createdTime, properties: { title, description, slugs } }) => ({
+    ({
+      id,
+      createdTime,
+      url,
+      properties: { title, description, slugs, slug },
+    }) => ({
       id,
       title: title.title[0].plainText,
       slugs: JSON.parse(slugs.richText[0].plainText),
+      slug: slug.richText[0].plainText,
       description: description.richText[0].plainText,
       createdAt: createdTime,
+      url,
     })
   );
 }
 
+async function getPostBySlug(slug: string): Promise<IBlogPostDetail> {
+  const [post] = await getPosts({ slug });
+  const { title, html } = await NotionPageToHtml.convert(post.url, {
+    bodyContentOnly: true,
+  });
+
+  return { ...post, title, content: html };
+}
+
 const BlogDatabase = {
   getPosts,
+  getPostBySlug,
 };
 
 export default BlogDatabase;

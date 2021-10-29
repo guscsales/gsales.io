@@ -128,32 +128,33 @@ export default function Wall() {
         />
       </Head>
 
-      <Container as="section" sub className="mt-10">
-        <div className="grid sm:grid-flow-col">
-          <div className="w-44 h-32 mx-auto relative mb-4 sm:mb-0 sm:mr-4">
-            <Image
-              src="/images/the-facebook-wall.webp"
-              alt={`Retrato da parede de assinaturas do Facebook, no começo da parede está escrito "The Facebook Wall" e logo abaixo escrito "Write Something..."`}
-              layout="fill"
-              className="rounded-lg shadow-xl"
-            />
+      <article>
+        <Container as="section" sub className="mt-10">
+          <div className="grid sm:grid-flow-col">
+            <picture className="w-44 h-32 mx-auto relative mb-4 sm:mb-0 sm:mr-4">
+              <Image
+                src="/images/the-facebook-wall.webp"
+                alt={`Retrato da parede de assinaturas do Facebook, no começo da parede está escrito "The Facebook Wall" e logo abaixo escrito "Write Something..."`}
+                layout="fill"
+                className="rounded-lg shadow-xl"
+              />
+            </picture>
+            <article>
+              <Text heading as="h1" className="text-white text-3xl">
+                {metadata.wall.title}
+              </Text>
+              <Text as="p" className="text-gray-300 mt-2">
+                {metadata.wall.description}
+              </Text>
+            </article>
           </div>
-          <div>
-            <Text heading as="h1" className="text-white text-3xl">
-              {metadata.wall.title}
-            </Text>
-            <Text as="p" className="text-gray-300 mt-2">
-              {metadata.wall.description}
-            </Text>
-          </div>
-        </div>
 
-        <form className="mt-8" onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="flex gap-2">
-            <input
-              type="text"
-              placeholder={metadata.wall.form.message.placeholder}
-              className={`bg-transparent border border-transparent border-solid
+          <form className="mt-8" onSubmit={form.handleSubmit(onSubmit)}>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder={metadata.wall.form.message.placeholder}
+                className={`bg-transparent border border-transparent border-solid
                         w-full text-lg bg-gray-800 text-white
                         focus:outline-none
                         p-3 rounded-lg shadow-md ${classNames({
@@ -161,90 +162,94 @@ export default function Wall() {
                             !form.formState.errors.message,
                           'border-red-500': form.formState.errors.message,
                         })}`}
-              maxLength={400}
-              {...form.register('message', { required: true, maxLength: 400 })}
-            />
-            <button
-              type="submit"
-              className="w-24 py-3 rounded-lg bg-blue-700 text-white transition-colors ease-in-out hover:bg-blue-600 shadow-md"
-            >
-              {metadata.wall.form.submit}
-            </button>
-          </div>
-          {form.formState.errors.message && (
-            <Text as="div" className="text-red-500 text-sm mt-1 ml-1">
-              {metadata.wall.form.message.error}
-            </Text>
-          )}
-          {!user && (
-            <Text className="text-gray-400 text-xs ml-1">
-              {metadata.wall.form.message.callout}
-            </Text>
-          )}
-        </form>
-      </Container>
-      <section className="px-4 lg:px-8 mt-8">
-        {usersMessages?.length === 0 && isValidating && (
-          <div className="grid lg:grid-cols-5 gap-6">
-            <Card hoverable>
-              <Skeleton width="80%" height={24} />
-              <Skeleton width="75%" height={16} className="mb-1" />
-              <div className="leading-4">
-                <Skeleton height={12} count={3} />
-              </div>
-            </Card>
-            <Card hoverable>
-              <Skeleton width="80%" height={24} />
-              <Skeleton width="75%" height={16} className="mb-1" />
-              <div className="leading-4">
-                <Skeleton height={12} count={3} />
-              </div>
-            </Card>
-            <Card hoverable>
-              <Skeleton width="80%" height={24} />
-              <Skeleton width="75%" height={16} className="mb-1" />
-              <div className="leading-4">
-                <Skeleton height={12} count={3} />
-              </div>
-            </Card>
-          </div>
-        )}
-        <Mansory
-          breakpointCols={{ default: 6, 640: 1, 1024: 3, 1280: 5 }}
-          className="wall-masonry-grid"
-          columnClassName="wall-masonry-grid__column"
-        >
-          {usersMessages &&
-            usersMessages.map((userMessage) => (
-              <Card key={userMessage.id} hoverable>
-                <Text as="h3" heading className="text-white">
-                  {userMessage.name}
-                </Text>
-                <Text as="div" className="text-gray-500 text-xs mb-1">
-                  {format(
-                    new Date(userMessage.createdAt),
-                    `${metadata.dateFormat} ${metadata.hourFormat}`,
-                    { locale: i18n[locale] }
-                  )}
-                </Text>
-                <Text className="text-gray-300 text-sm">
-                  {userMessage.message}
-                </Text>
-                {user?.email === userMessage.email && (
-                  <div className="flex justify-center mt-2">
-                    <button
-                      onClick={() => deleteMessage(userMessage.id)}
-                      type="button"
-                      className="text-sm text-red-500 transition-colors ease-in-out hover:text-red-400"
-                    >
-                      {metadata.wall.cards.remove}
-                    </button>
-                  </div>
-                )}
+                maxLength={400}
+                {...form.register('message', {
+                  required: true,
+                  maxLength: 400,
+                })}
+              />
+              <button
+                type="submit"
+                className="w-24 py-3 rounded-lg bg-blue-700 text-white transition-colors ease-in-out hover:bg-blue-600 shadow-md"
+              >
+                {metadata.wall.form.submit}
+              </button>
+            </div>
+            {form.formState.errors.message && (
+              <Text as="div" className="text-red-500 text-sm mt-1 ml-1">
+                {metadata.wall.form.message.error}
+              </Text>
+            )}
+            {!user && (
+              <Text className="text-gray-400 text-xs ml-1">
+                {metadata.wall.form.message.callout}
+              </Text>
+            )}
+          </form>
+        </Container>
+        <section className="px-4 lg:px-8 mt-8">
+          {usersMessages?.length === 0 && isValidating && (
+            <div className="grid lg:grid-cols-5 gap-6">
+              <Card hoverable>
+                <Skeleton width="80%" height={24} />
+                <Skeleton width="75%" height={16} className="mb-1" />
+                <div className="leading-4">
+                  <Skeleton height={12} count={3} />
+                </div>
               </Card>
-            ))}
-        </Mansory>
-      </section>
+              <Card hoverable>
+                <Skeleton width="80%" height={24} />
+                <Skeleton width="75%" height={16} className="mb-1" />
+                <div className="leading-4">
+                  <Skeleton height={12} count={3} />
+                </div>
+              </Card>
+              <Card hoverable>
+                <Skeleton width="80%" height={24} />
+                <Skeleton width="75%" height={16} className="mb-1" />
+                <div className="leading-4">
+                  <Skeleton height={12} count={3} />
+                </div>
+              </Card>
+            </div>
+          )}
+          <Mansory
+            breakpointCols={{ default: 6, 640: 1, 1024: 3, 1280: 5 }}
+            className="wall-masonry-grid"
+            columnClassName="wall-masonry-grid__column"
+          >
+            {usersMessages &&
+              usersMessages.map((userMessage) => (
+                <Card key={userMessage.id} hoverable>
+                  <Text as="h3" heading className="text-white">
+                    {userMessage.name}
+                  </Text>
+                  <Text as="time" className="flex text-gray-500 text-xs mb-1">
+                    {format(
+                      new Date(userMessage.createdAt),
+                      `${metadata.dateFormat} ${metadata.hourFormat}`,
+                      { locale: i18n[locale] }
+                    )}
+                  </Text>
+                  <Text className="text-gray-300 text-sm">
+                    {userMessage.message}
+                  </Text>
+                  {user?.email === userMessage.email && (
+                    <div className="flex justify-center mt-2">
+                      <button
+                        onClick={() => deleteMessage(userMessage.id)}
+                        type="button"
+                        className="text-sm text-red-500 transition-colors ease-in-out hover:text-red-400"
+                      >
+                        {metadata.wall.cards.remove}
+                      </button>
+                    </div>
+                  )}
+                </Card>
+              ))}
+          </Mansory>
+        </section>
+      </article>
     </>
   );
 }

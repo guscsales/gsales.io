@@ -10,7 +10,7 @@ function WhatIDo() {
   } = useContext(LanguageContext);
 
   return (
-    <Container as="section" sub>
+    <Container as="article" sub>
       <Text heading as="h2" className="text-white text-2xl">
         {whatIDo.title}
       </Text>
@@ -18,7 +18,7 @@ function WhatIDo() {
         {whatIDo.description}
       </Text>
 
-      <div className="grid sm:grid-cols-3 gap-3 sm:gap-6 mt-3">
+      <section className="grid sm:grid-cols-3 gap-3 sm:gap-6 mt-3">
         {whatIDo.actuations.map(({ title, description }) => (
           <Card key={title} title={title} hoverable>
             <Text as="p" className="text-sm text-center text-gray-300">
@@ -26,7 +26,7 @@ function WhatIDo() {
             </Text>
           </Card>
         ))}
-      </div>
+      </section>
     </Container>
   );
 }

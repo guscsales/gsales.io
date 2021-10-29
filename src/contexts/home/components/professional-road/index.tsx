@@ -10,7 +10,7 @@ function ProfessionalRoad() {
   } = useContext(LanguageContext);
 
   return (
-    <Container as="section" sub>
+    <Container as="article" sub>
       <Text heading as="h2" className="text-white text-2xl">
         {professionalRoad.title}
       </Text>
@@ -18,7 +18,7 @@ function ProfessionalRoad() {
         {professionalRoad.description}
       </Text>
 
-      <div className="rounded-lg border border-solid border-gray-600 overflow-hidden">
+      <picture className="flex rounded-lg border border-solid border-gray-600 overflow-hidden">
         <img
           src="/images/street-photo-sm.webp"
           alt={professionalRoad.mosaicAltText}
@@ -29,7 +29,7 @@ function ProfessionalRoad() {
           alt={professionalRoad.mosaicAltText}
           className="block sm:hidden"
         />
-      </div>
+      </picture>
 
       <ul className="gap-3 flex flex-wrap text-sm mt-2 sm:grid-cols-8 text-gray-700 justify-center cursor-default">
         <li className="text-center relative">

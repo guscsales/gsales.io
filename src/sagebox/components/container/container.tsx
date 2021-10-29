@@ -4,7 +4,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   sub?: boolean;
-  as?: 'div' | 'section';
+  as?: 'div' | 'section' | 'article';
 };
 
 function Container({ children, className, sub, as }: Props) {
