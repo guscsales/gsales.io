@@ -42,21 +42,23 @@ export default function Home() {
         />
       </Head>
 
-      <div className="sm:mt-16 mb-16">
-        <Bio />
-      </div>
-      <div className="mb-20">
-        <WhatIDo />
-      </div>
-      <div className="mb-20">
-        <ProfessionalRoad />
-      </div>
-      <div className="mb-20">
-        <TopVideos />
-      </div>
-      <div className="mb-20">
-        <LatestTweet />
-      </div>
+      <article>
+        <section className="sm:mt-16 mb-16">
+          <Bio />
+        </section>
+        <section className="mb-20">
+          <WhatIDo />
+        </section>
+        <section className="mb-20">
+          <ProfessionalRoad />
+        </section>
+        <section className="mb-20">
+          <TopVideos />
+        </section>
+        <section className="mb-20">
+          <LatestTweet />
+        </section>
+      </article>
     </>
   );
 }
