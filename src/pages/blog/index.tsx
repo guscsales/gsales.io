@@ -10,7 +10,7 @@ import * as i18n from 'date-fns/locale';
 import LanguageContext from '@contexts/shared/contexts/language-context';
 
 export const getStaticProps = async ({ locale }) => {
-  const posts = await BlogDatabase.getPosts(locale);
+  const posts = await BlogDatabase.getPosts({ locale });
 
   return {
     props: { posts },
@@ -24,7 +24,7 @@ function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
-        <title>Posts about programming - Gustavo Sales</title>
+        <title>Posts about programming - Blog - Gustavo Sales</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Container as="section" sub className="mt-10">

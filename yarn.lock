@@ -3291,6 +3291,11 @@ normalize-range@^0.1.2:
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
 
+notion-page-to-html@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/notion-page-to-html/-/notion-page-to-html-1.1.2.tgz#11ce5cf9d53a7168aecb6ccea6237153ba78a81d"
+  integrity sha512-0hDsiri68ufM3ZDmXTtV5VxiOd4mVfeRjduqL01CDlPDYdM7oDjWG9q2RrA5hXo31GQymhwG8PV55HTwArO0kQ==
+
 object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"

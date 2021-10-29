@@ -7,7 +7,8 @@
     "react/jsx-props-no-spreading": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "jsx-a11y/anchor-has-content": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "@typescript-eslint/no-shadow": 0
   },
   "parserOptions": {
     "project": "./tsconfig.json"
