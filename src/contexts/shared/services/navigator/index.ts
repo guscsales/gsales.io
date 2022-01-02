@@ -13,6 +13,10 @@ const navigator: NavigatorItem[] = [
     url: '/journey',
   },
   {
+    key: 'blog',
+    url: '/blog',
+  },
+  {
     key: 'wall',
     url: '/wall',
   },

@@ -9,8 +9,8 @@ import { format } from 'date-fns';
 import * as i18n from 'date-fns/locale';
 import LanguageContext from '@contexts/shared/contexts/language-context';
 
-export const getStaticProps = async ({ locale }) => {
-  const posts = await BlogDatabase.getPosts({ locale });
+export const getStaticProps = async () => {
+  const posts = await BlogDatabase.getPosts({ locale: 'pt' });
 
   return {
     props: { posts },
@@ -25,14 +25,41 @@ function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
     <>
       <Head>
         <title>Posts about programming - Blog - Gustavo Sales</title>
-        <meta name="robots" content="noindex, nofollow" />
+
+        <title>{metadata.blog.metatags.title}</title>
+        {/* Primary Meta Tags */}
+        <meta name="title" content={metadata.blog.metatags.title} />
+        <meta name="description" content={metadata.blog.metatags.description} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gsales.io/blog" />
+        <meta property="og:title" content={metadata.blog.metatags.title} />
+        <meta
+          property="og:description"
+          content={metadata.blog.metatags.description}
+        />
+        <meta property="og:image" content="https://gsales.io/og-image.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://gsales.io/blog" />
+        <meta property="twitter:title" content={metadata.blog.metatags.title} />
+        <meta
+          property="twitter:description"
+          content={metadata.blog.metatags.description}
+        />
+        <meta
+          property="twitter:image"
+          content="https://gsales.io/og-image.png"
+        />
       </Head>
       <Container as="section" sub className="mt-10">
         <Text heading as="h1" className="text-white text-3xl">
-          Blog
+          {metadata.blog.title}
         </Text>
         <Text as="p" className="text-gray-300 mt-2">
-          Blog description
+          {metadata.blog.description}
         </Text>
       </Container>
 

@@ -69,3 +69,7 @@
     margin-bottom: 24px;
   }
 }
+
+#nprogress .spinner {
+  display: none !important;
+}

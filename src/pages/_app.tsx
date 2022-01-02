@@ -13,6 +13,7 @@ import analytics, {
 } from '@contexts/shared/services/firebase/analytics';
 import IsAuthenticated from '@contexts/auth/components/IsAuthenticated';
 import HeaderCMS from '@contexts/shared/components/header-cms';
+import ProgressBar from 'nextjs-progressbar';
 import tailwindConfigFile from '../../tailwind.config';
 
 import '@sagebox/globals.css';
@@ -46,6 +47,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           color={tailwindConfig.theme.colors.gray['800']}
           highlightColor={tailwindConfig.theme.colors.gray['700']}
         >
+          <ProgressBar
+            color={tailwindConfig.theme.colors.green['200']}
+            height={1}
+          />
           {!isAdmin ? (
             <>
               <Header />

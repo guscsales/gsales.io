@@ -27,11 +27,28 @@ type PostsFilter = {
 async function getPosts({ locale, slug }: PostsFilter = {}): Promise<
   IBlogPost[]
 > {
-  let filter: any;
+  const sorts: any = [
+    {
+      property: 'customDate',
+      direction: 'descending',
+    },
+  ];
+
+  let filter: any = {
+    and: [
+      {
+        property: 'active',
+        select: {
+          equals: 'true',
+        },
+      },
+    ],
+  };
 
   if (locale) {
     filter = {
       and: [
+        ...filter?.and,
         {
           property: 'language',
           select: {
@@ -45,7 +62,7 @@ async function getPosts({ locale, slug }: PostsFilter = {}): Promise<
   if (slug) {
     filter = {
       and: [
-        ...(filter?.and || []),
+        ...filter?.and,
         {
           property: 'slug',
           rich_text: {
@@ -59,6 +76,7 @@ async function getPosts({ locale, slug }: PostsFilter = {}): Promise<
   const { results } = await notion.databases.query({
     database_id: databaseId,
     filter,
+    sorts,
   });
 
   if (!results) {
@@ -71,15 +89,17 @@ async function getPosts({ locale, slug }: PostsFilter = {}): Promise<
     ({
       id,
       createdTime,
+      lastEditedTime,
       url,
-      properties: { title, description, slugs, slug },
+      properties: { title, description, slugs, slug, customDate },
     }) => ({
       id,
       title: title.title[0].plainText,
       slugs: JSON.parse(slugs.richText[0].plainText),
       slug: slug.richText[0].plainText,
       description: description.richText[0].plainText,
-      createdAt: createdTime,
+      createdAt: customDate?.date?.start || createdTime,
+      lastEditedTime,
       url,
     })
   );

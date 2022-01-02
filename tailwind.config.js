@@ -21,6 +21,9 @@ module.exports = {
       gridTemplateColumns: {
         'jouney-info': '145px 1fr',
       },
+      fontWeight: {
+        'weight-inherit': 'inherit',
+      },
     },
   },
   plugins: [

@@ -13,6 +13,7 @@ export interface ILanguageMetadataStructure {
     home: string;
     wall: string;
     journey: string;
+    blog: string;
   };
   metaTags: {
     home: {
@@ -105,6 +106,14 @@ export interface ILanguageMetadataStructure {
       photoAlt: string;
     }[];
   };
+  blog: {
+    title: string;
+    description: string;
+    metatags: {
+      title: string;
+      description: string;
+    };
+  };
 }
 
 export const en: ILanguageMetadataStructure = {
@@ -135,6 +144,7 @@ export const en: ILanguageMetadataStructure = {
     home: 'Home',
     wall: 'Wall',
     journey: 'Journey',
+    blog: 'Blog',
   },
   metaTags: {
     home: {
@@ -354,10 +364,20 @@ I have done maintenance of web services in PHP (CakePHP), including some crawler
         "I've been on the road for 10 years, it's a lot of history, a lot of projects and a lot of people. Here I want to share my journey since 2012 in a little more detail.",
     },
   },
+  blog: {
+    title: 'Blog',
+    description:
+      "Writing is one of the coolest ways to express yourself, and it wouldn't be different to talk about career and technology and a few posts about my life. Note that the articles are only in portuguese for now.",
+    metatags: {
+      title: 'Articles and posts - Blog - Gustavo Sales',
+      description:
+        'Writing is one of the coolest ways to express yourself, here is my personal blog, a place where I write tech articles and posts about carrier and my life.',
+    },
+  },
 };
 
 export const pt: ILanguageMetadataStructure = {
-  dateFormat: 'PP',
+  dateFormat: "dd 'de' MMM 'de' yyyy",
   hourFormat: 'p',
   headerCodePhrases: [
     'fazer o que ama é apenas diversão',
@@ -384,6 +404,7 @@ export const pt: ILanguageMetadataStructure = {
     home: 'Home',
     wall: 'Mural',
     journey: 'Jornada',
+    blog: 'Blog',
   },
   metaTags: {
     home: {
@@ -603,6 +624,16 @@ Tenho feito manutenção de web services em PHP (CakePHP), incluindo alguns craw
       title: 'A jornada de um engenheiro de software - Gustavo Sales',
       description:
         'Estou 10 anos na estrada, é muita historia, muitos projetos e muitas pessoas. Aqui eu quero compartilhar com um pouco mais de detalhes a minha jornada desde 2012.',
+    },
+  },
+  blog: {
+    title: 'Blog',
+    description:
+      'A escrita é uma das maneiras mais legais de se expressar, e não seria diferente para falar sobre carreira e tecnologia e de quebra alguns posts sobre minha vida.',
+    metatags: {
+      title: 'Artigos e posts - Blog - Gustavo Sales',
+      description:
+        'A escrita é uma das maneiras mais legais de se expressar, este é o meu blog pessoal, um lugar onde escrevo artigos técnicos e posts sobre carreira e minha vida.',
     },
   },
 };

@@ -70,7 +70,7 @@ function Header() {
               key={key}
               href={url}
               locale={locale}
-              active={url === pathname}
+              active={pathname.split('/')[1] === url.split('/')[1]}
             >
               {metadata.navigator[key]}
             </ButtonLink>

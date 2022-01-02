@@ -6,6 +6,7 @@ import BlogDatabase, {
 import Container from '@sagebox/components/container/container';
 import Text from '@sagebox/components/text/text';
 import Head from 'next/head';
+import BlogContent from '@contexts/blog/components/blog-content';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await BlogDatabase.getPosts();
@@ -40,10 +41,7 @@ function Blog({ post }: { post: IBlogPostDetail }) {
           {post.description}
         </Text>
 
-        <section
-          className="mt-8"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <BlogContent post={post} />
       </Container>
     </>
   );
