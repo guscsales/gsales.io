@@ -136,9 +136,9 @@ export const en: ILanguageMetadataStructure = {
   ],
   name: 'Gustavo Sales',
   nickname: 'Gus',
-  role: 'Frontend Engineer',
+  role: 'Founder Frontend Engineer',
   at: '@',
-  currentCompany: 'Boulevard',
+  currentCompany: 'BlastRadius',
   profilePictureAltText: "A black and white Gustavo's profile picture",
   twitter: '@gussalesdev',
   navigator: {
