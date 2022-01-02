@@ -83,7 +83,7 @@ function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
               </Text>
               <span className="flex items-center gap-1 text-sm text-gray-500">
                 <Text>
-                  Posted at{' '}
+                  {metadata.blog.postedAt}{' '}
                   {format(new Date(post.createdAt), metadata.dateFormat, {
                     locale: i18n[locale],
                   })}

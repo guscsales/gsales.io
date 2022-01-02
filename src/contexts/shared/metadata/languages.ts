@@ -109,6 +109,7 @@ export interface ILanguageMetadataStructure {
   blog: {
     title: string;
     description: string;
+    postedAt: string;
     metatags: {
       title: string;
       description: string;
@@ -373,6 +374,7 @@ I have done maintenance of web services in PHP (CakePHP), including some crawler
       description:
         'Writing is one of the coolest ways to express yourself, here is my personal blog, a place where I write tech articles and posts about carrier and my life.',
     },
+    postedAt: 'Posted at',
   },
 };
 
@@ -635,5 +637,6 @@ Tenho feito manutenção de web services em PHP (CakePHP), incluindo alguns craw
       description:
         'A escrita é uma das maneiras mais legais de se expressar, este é o meu blog pessoal, um lugar onde escrevo artigos técnicos e posts sobre carreira e minha vida.',
     },
+    postedAt: 'Postado em',
   },
 };
