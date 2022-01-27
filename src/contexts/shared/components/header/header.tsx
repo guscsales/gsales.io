@@ -58,19 +58,23 @@ function Header() {
         </div>
       </Container>
       <div className="w-full h-px bg-gray-800 mb-6" />
-      <Container className="mb-4 flex justify-between items-center">
+      <Container className="mb-4 flex flex-col md:flex-row justify-between items-center">
         <h1 className="font-heading font-bold italic text-white text-2xl">
           <Link href="/">
             <a className="no-underline select-none">Gus!</a>
           </Link>
         </h1>
         <nav className="grid gap-2 grid-flow-col">
-          {navigator.map(({ key, url }) => (
+          {navigator.map(({ key, url, ...rest }) => (
             <ButtonLink
               key={key}
               href={url}
               locale={locale}
-              active={pathname.split('/')[1] === url.split('/')[1]}
+              active={
+                pathname.split('/')[1] === url.split('/')[1] &&
+                !url.startsWith('http')
+              }
+              {...rest}
             >
               {metadata.navigator[key]}
             </ButtonLink>

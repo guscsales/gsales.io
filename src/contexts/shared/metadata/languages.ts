@@ -14,6 +14,7 @@ export interface ILanguageMetadataStructure {
     wall: string;
     journey: string;
     blog: string;
+    channel: string;
   };
   metaTags: {
     home: {
@@ -146,6 +147,7 @@ export const en: ILanguageMetadataStructure = {
     wall: 'Wall',
     journey: 'Journey',
     blog: 'Blog',
+    channel: 'Channel',
   },
   metaTags: {
     home: {
@@ -407,6 +409,7 @@ export const pt: ILanguageMetadataStructure = {
     wall: 'Mural',
     journey: 'Jornada',
     blog: 'Blog',
+    channel: 'Canal',
   },
   metaTags: {
     home: {

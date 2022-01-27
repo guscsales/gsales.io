@@ -1,6 +1,10 @@
 // eslint-disable-next-line import/prefer-default-export
 export const socialMedia = [
   {
+    name: 'Instagram',
+    url: 'https://instagram.com/guscsales',
+  },
+  {
     name: 'Twitter',
     url: 'https://twitter.com/gussalesdev',
   },

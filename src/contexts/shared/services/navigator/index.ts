@@ -1,6 +1,7 @@
 type NavigatorItem = {
   key: string;
   url: string;
+  target?: string;
 };
 
 const navigator: NavigatorItem[] = [
@@ -19,6 +20,11 @@ const navigator: NavigatorItem[] = [
   {
     key: 'wall',
     url: '/wall',
+  },
+  {
+    key: 'channel',
+    url: 'https://canal.gsales.io',
+    target: '_blank',
   },
 ];
 
