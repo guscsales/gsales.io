@@ -28,8 +28,6 @@ const TwitterApi = {
         data: [latestTweet],
       } = await res.json();
 
-      console.log(latestTweet);
-
       const mappedLatestTweet = {
         text: latestTweet.text,
         createdAt: latestTweet.created_at,
