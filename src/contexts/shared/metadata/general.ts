@@ -6,15 +6,15 @@ export const socialMedia = [
   },
   {
     name: 'Twitter',
-    url: 'https://twitter.com/gussalesdev',
+    url: 'https://twitter.com/guscsales',
   },
   {
     name: 'GitHub',
-    url: 'https://github.com/gussalesdev',
+    url: 'https://github.com/guscsales',
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/gsaless/',
+    url: 'https://www.linkedin.com/in/guscsales/',
   },
   {
     name: 'YouTube',
