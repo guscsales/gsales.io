@@ -1,7 +1,7 @@
 import Cache from '@contexts/shared/services/cache';
 
 const TWITTER_BASE_URL = 'https://api.twitter.com/2';
-const ACCOUNT = 'gussalesdev';
+const ACCOUNT = 'guscsales';
 
 export type Tweet = {
   text: string;
@@ -27,6 +27,8 @@ const TwitterApi = {
       const {
         data: [latestTweet],
       } = await res.json();
+
+      console.log(latestTweet);
 
       const mappedLatestTweet = {
         text: latestTweet.text,
