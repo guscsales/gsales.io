@@ -5,6 +5,8 @@ const RedirectUrlsMapper = {
     'https://www.youtube.com/watch?v=p8LtuO9XC7w&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=6&ab_channel=GusQuemFala',
   'instalar-node':
     'https://www.youtube.com/watch?v=zgDlT7bzUi4&list=PLFRnIPKyoBHhlXP2RQsJHuicj4e6sM0ys&index=3',
+  'package-json-docs':
+    'https://docs.npmjs.com/cli/v8/configuring-npm/package-json',
 };
 
 function Redirect() {
