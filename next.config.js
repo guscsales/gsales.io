@@ -3,4 +3,5 @@ module.exports = {
     locales: ['en', 'pt'],
     defaultLocale: 'en',
   },
+  webpack5: false,
 };

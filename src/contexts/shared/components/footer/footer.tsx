@@ -24,7 +24,7 @@ function Footer() {
     RealtimeDatabase.get({
       table: 'currentSong',
       callback: (data) => {
-        const currentSong = data
+        const currentSong = data?.title
           ? `'${data.title} - ${data.artist}'; `
           : `'${metadata.footer.nothingPlaying}'; `;
 

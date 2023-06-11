@@ -11,10 +11,10 @@ export type Tweet = {
 const TwitterApi = {
   getLatestTweet: async (): Promise<Tweet> => {
     try {
-      if (process.env.NEXT_PUBLIC_ENVIRONMENT === 'development') {
-        console.log('latestTweet: return from cache');
-        return await Cache.read('latestTweet');
-      }
+      // if (process.env.NEXT_PUBLIC_ENVIRONMENT === 'development') {
+      //   console.log('latestTweet: return from cache');
+      //   return await Cache.read('latestTweet');
+      // }
 
       const res = await fetch(
         `${TWITTER_BASE_URL}/tweets/search/recent?query=from:${ACCOUNT}&tweet.fields=text,created_at`,
@@ -24,6 +24,11 @@ const TwitterApi = {
           },
         }
       );
+      console.log(
+        `${TWITTER_BASE_URL}/tweets/search/recent?query=from:${ACCOUNT}&tweet.fields=text,created_at`,
+        `Bearer ${process.env.TWITTER_BEARER_TOKEN}`
+      );
+
       const {
         data: [latestTweet],
       } = await res.json();
@@ -40,7 +45,7 @@ const TwitterApi = {
 
       return mappedLatestTweet;
     } catch (e) {
-      console.log(e.message);
+      console.log(e);
 
       return Cache.read('latestTweet');
     }

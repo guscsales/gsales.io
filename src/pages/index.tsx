@@ -55,9 +55,6 @@ export default function Home() {
         <section className="mb-20">
           <TopVideos />
         </section>
-        <section className="mb-20">
-          <LatestTweet />
-        </section>
       </article>
     </>
   );

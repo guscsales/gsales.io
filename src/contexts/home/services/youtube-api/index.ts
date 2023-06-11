@@ -1,5 +1,6 @@
 import Cache from '@contexts/shared/services/cache';
 import axios from 'axios';
+import unescape from 'lodash/unescape';
 
 const YOUTUBE_BASE_URL = 'https://youtube.googleapis.com/youtube/v3';
 const CHANNEL_ID = 'UCQmw7Ty7UN8i7_dan_uKNfQ';
@@ -32,7 +33,7 @@ const YoutubeApi = {
       );
       const mappedTopVideos = topVideos.items.map(({ id, snippet }) => ({
         id: id.videoId,
-        title: snippet.title,
+        title: unescape(snippet.title),
         publishedAt: snippet.publishedAt,
         viewCount: topVideosStatistics.items.find((x) => x.id === id.videoId)
           .statistics.viewCount,
