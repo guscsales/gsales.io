@@ -33,6 +33,10 @@ function ProfessionalRoad() {
 
       <ul className="gap-3 flex flex-wrap text-sm mt-2 sm:grid-cols-8 text-gray-700 justify-center cursor-default">
         <li className="text-center relative">
+          Radiant Security
+          <Bullet />
+        </li>
+        <li className="text-center relative">
           Boulevard
           <Bullet />
         </li>
