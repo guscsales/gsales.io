@@ -4,7 +4,6 @@ import Bio from '@contexts/home/components/bio';
 import WhatIDo from '@contexts/home/components/what-i-do';
 import ProfessionalRoad from '@contexts/home/components/professional-road';
 import TopVideos from '@contexts/home/components/top-videos';
-import LatestTweet from '@contexts/home/components/latest-tweet';
 import LanguageContext from '@contexts/shared/contexts/language-context';
 
 export default function Home() {
