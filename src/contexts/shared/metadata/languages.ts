@@ -139,7 +139,7 @@ export const en: ILanguageMetadataStructure = {
   nickname: 'Gus',
   role: 'Founder Frontend Engineer',
   at: '@',
-  currentCompany: 'BlastRadius',
+  currentCompany: 'Radiant Security',
   profilePictureAltText: "A black and white Gustavo's profile picture",
   twitter: '@gussalesdev',
   navigator: {
@@ -244,11 +244,11 @@ Do this: click on the photo and then you will be able to see me in an almost cur
       {
         startDate: '11.2021',
         endDate: 'Current',
-        title: 'BlastRadius',
+        title: 'Radiant Security',
         description:
-          "First frontend engineer, I'm participating in the development of BlastRadius frontend app from zero, building the UI library and the structure of other apps using monorepo.",
+          "First frontend engineer, I'm participating in the development of Radiant Security frontend app from zero, building the UI library and the structure of other apps using monorepo.",
         position: 'Founder Frontend Engineer',
-        site: 'blastradius.ai',
+        site: 'radiantsecurity.ai',
       },
       {
         startDate: '08.2021',
@@ -410,7 +410,7 @@ export const pt: ILanguageMetadataStructure = {
   nickname: 'Gus',
   role: 'Engenheiro Frontend',
   at: 'na',
-  currentCompany: 'BlastRadius',
+  currentCompany: 'Radiant Security',
   profilePictureAltText: 'Uma foto preta e branca de perfil do Gustavo',
   twitter: '@gussalesdev',
   navigator: {
@@ -516,11 +516,11 @@ Faz assim: clica em cima dessa foto e aí você vai poder me ver em uma versão 
       {
         startDate: '11.2021',
         endDate: 'Atual',
-        title: 'BlastRadius',
+        title: 'Radiant Security',
         description:
-          'Primeiro engenheiro frontend, estou participando do desenvolvimento do aplicativo frontend BlastRadius do zero, construindo a biblioteca de components e a estrutura de outros aplicativos usando monorepo.',
+          'Primeiro engenheiro frontend, estou participando do desenvolvimento do aplicativo frontend Radiant Security do zero, construindo a biblioteca de components e a estrutura de outros aplicativos usando monorepo.',
         position: 'Engenheiro Frontend Fundador',
-        site: 'blastradius.ai',
+        site: 'radiantsecurity.ai',
       },
       {
         startDate: '08.2021',
