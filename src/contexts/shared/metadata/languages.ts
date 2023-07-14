@@ -153,12 +153,12 @@ export const en: ILanguageMetadataStructure = {
     home: {
       title: 'Gustavo Sales - Software Engineer and Content Creator.',
       description:
-        'Coding awesome things since 2012, with many attention of details, feeling owner and giving and receiving feedback. You can call me Gus.',
+        'Coding awesome things since 2009, with many attention of details, feeling owner and giving and receiving feedback. You can call me Gus.',
     },
   },
   homeBio: {
     content:
-      'Coding awesome things since 2012, with many attention of details, feeling owner and giving and receiving feedback.',
+      'Coding awesome things since 2009, with many attention of details, feeling owner and giving and receiving feedback.',
     greetings: 'You can call me',
   },
   whatIDo: {
@@ -184,7 +184,7 @@ export const en: ILanguageMetadataStructure = {
     ],
   },
   professionalRoad: {
-    title: '10 years on the road',
+    title: '14 years on the road',
     description:
       "Each company that I've been passed and each person that I've worked together has a special part in my history as a professional. I'm really proud to have had a chance to be part of the journey of each one.",
     mosaicAltText: "A mosaic of photos of Gus' professional timeline",
@@ -236,7 +236,7 @@ It could be inspirational, some feedback, a reminder for the future or from the 
 
 Do this: click on the photo and then you will be able to see me in an almost current version. So, did you notice the similarity? 😁`,
     descriptionPartTwo:
-      "On the first page of the site I commented that I'm 10 years on the road and here I want to share my journey in a little more detail, i.e.: the companies I went through, where I studied and competitions I participated.",
+      "On the first page of the site I commented that I'm 14 years on the road and here I want to share my journey in a little more detail, i.e.: the companies I went through, where I studied and competitions I participated.",
     awardsTitle: 'Competition & Awards',
     educationTitle: 'Education',
     experienceTitle: 'Experience',
@@ -246,8 +246,18 @@ Do this: click on the photo and then you will be able to see me in an almost cur
         endDate: 'Current',
         title: 'Radiant Security',
         description:
-          "First frontend engineer, I'm participating in the development of Radiant Security frontend app from zero, building the UI library and the structure of other apps using monorepo.",
+          "I started working on RS in the first days of existence as a Founder Frontend Engineer, when I started the company had zero repos on GH, and I was responsible for creating all the frontend workspace. Today there is an awesome frontend monorepo using Typescript, Next.js, TailwindCSS, and other useful tools, a UI library with 50+ components - basically, we build pages like building lego - many other features and 2k+ tests running in an automated CI. I'm proud to be part of this because I learned a lot and understand how a company starts from zero to first and more clients.",
         position: 'Founder Frontend Engineer',
+        site: 'radiantsecurity.ai',
+      },
+      {
+        startDate: '03.2023',
+        endDate: '07.2023',
+        title: 'FIAP',
+        description: `I taught frontend from fundamentals (HTML, CSS, Sass, Javascript) until modern frameworks, techniques, and libraries (React, SWR, Forms, etc). The main focus is to start from zero and finish with many projects to be part of the portfolio.
+
+I've created the book and videos for the graduation course "System for the Internet". The content was focused on how to start developing with React and also has other insights about web development and the technology market.`,
+        position: 'Professor de Graduação e Cursos SHIFT',
         site: 'radiantsecurity.ai',
       },
       {
@@ -277,7 +287,7 @@ I have contributions in the backend discussions and also technical contributions
         startDate: '09.2019',
         endDate: '03.2020',
         title: 'Itaú Unibanco',
-        description: `My main activity was to act as a cross helping several other teams with their doubts and help giving better solutions for demands. Working directly on the foundation team.
+        description: `Itaú is the biggest bank in Latin America. My main activity was to act as a cross helping several other teams with their doubts and help giving better solutions for demands. Working directly on the foundation team.
 
 I have shared the experience of agile methods and created platforms to be able to use micro frontends using React, Redux, NextJS, and similar libraries. I also did inner sources to create and update Angular 8 components.`,
         position: 'Senior Frontend Engineer',
@@ -339,13 +349,19 @@ I have done maintenance of web services in PHP (CakePHP), including some crawler
     ],
     educations: [
       {
-        title: 'Digital Games',
+        title: 'Information Technology Management - MBA',
+        institution: 'FIAP',
+        startDate: '2022',
+        endDate: '2023',
+      },
+      {
+        title: 'Digital Games - Graduation',
         institution: 'FIAP',
         startDate: '2016',
         endDate: '2017',
       },
       {
-        title: 'Science Computer',
+        title: 'Science Computer - Graduation',
         institution: 'Uninove',
         startDate: '2012',
         endDate: '2015',
@@ -373,7 +389,7 @@ I have done maintenance of web services in PHP (CakePHP), including some crawler
     metatags: {
       title: 'A journey of a software engineer - Gustavo Sales',
       description:
-        "I've been on the road for 10 years, it's a lot of history, a lot of projects and a lot of people. Here I want to share my journey since 2012 in a little more detail.",
+        "I've been on the road for 14 years, it's a lot of history, a lot of projects and a lot of people. Here I want to share my journey since 2009 in a little more detail.",
     },
   },
   blog: {
@@ -424,12 +440,12 @@ export const pt: ILanguageMetadataStructure = {
     home: {
       title: 'Gustavo Sales - Engenheiro de Software e Criador de Conteúdo.',
       description:
-        'Criando coisas incríveis desde 2012, com muita atenção aos detalhes, sentimento de dono e exercendo o feedback. Você pode me chamar de Gus.',
+        'Criando coisas incríveis desde 2009, com muita atenção aos detalhes, sentimento de dono e exercendo o feedback. Você pode me chamar de Gus.',
     },
   },
   homeBio: {
     content:
-      'Criando coisas incríveis desde 2012, com muita atenção aos detalhes, sentimento de dono e exercendo o feedback.',
+      'Criando coisas incríveis desde 2009, com muita atenção aos detalhes, sentimento de dono e exercendo o feedback.',
     greetings: 'Você pode me chamar de',
   },
   whatIDo: {
@@ -455,7 +471,7 @@ export const pt: ILanguageMetadataStructure = {
     ],
   },
   professionalRoad: {
-    title: '10 anos na estrada',
+    title: '14 anos na estrada',
     description:
       'Cada empresa que passei e cada pessoa com quem trabalhei tem uma parte especial na minha história como profissional. Tenho muito orgulhoso pela chance de ter feito parte da jornada de cada um.',
     mosaicAltText:
@@ -508,7 +524,7 @@ Pode ser algo inspiracional, um feedback, um aviso para o futuro ou do futuro, o
 
 Faz assim: clica em cima dessa foto e aí você vai poder me ver em uma versão quase atual. E aí, notou a semelhança? 😁`,
     descriptionPartTwo:
-      'Na primeira página do site eu comentei que estou 10 anos na estrada e aqui eu quero compartilhar com um pouco mais de detalhes a minha jornada, ou seja, as empresas que passei, onde estudei e competições que participei.',
+      'Na primeira página do site eu comentei que estou 14 anos na estrada e aqui eu quero compartilhar com um pouco mais de detalhes a minha jornada, ou seja, as empresas que passei, onde estudei e competições que participei.',
     awardsTitle: 'Competições & Conquistas',
     educationTitle: 'Academia',
     experienceTitle: 'Experiência',
@@ -518,8 +534,18 @@ Faz assim: clica em cima dessa foto e aí você vai poder me ver em uma versão 
         endDate: 'Atual',
         title: 'Radiant Security',
         description:
-          'Primeiro engenheiro frontend, estou participando do desenvolvimento do aplicativo frontend Radiant Security do zero, construindo a biblioteca de components e a estrutura de outros aplicativos usando monorepo.',
+          'Comecei a trabalhar na RS nos primeiros dias de existência como Founder Frontend Engineer, quando comecei a empresa não tinha repos no GH, e eu era responsável por criar todo o espaço de trabalho do frontend. Hoje existe um incrível monorepo de front-end usando Typescript, Next.js, TailwindCSS e outras ferramentas úteis, uma biblioteca de interface do usuário com mais de 50 componentes - basicamente, construímos páginas como construir lego - muitos outros recursos e mais de 2 mil testes executados em um CI automatizado. Tenho orgulho de fazer parte disso porque aprendi muito e entendo como uma empresa começa do zero aos primeiros e mais clientes.',
         position: 'Engenheiro Frontend Fundador',
+        site: 'radiantsecurity.ai',
+      },
+      {
+        startDate: '03.2023',
+        endDate: '07.2023',
+        title: 'FIAP',
+        description: `Ensinei frontend desde os fundamentos (HTML, CSS, Sass, Javascript) até frameworks, técnicas e bibliotecas modernas (React, SWR, Forms, etc). O foco principal é começar do zero e terminar com muitos projetos para fazer parte do portfólio.
+
+Criei o livro e vídeos para o curso de graduação "Sistema para Internet". O conteúdo foi focado em como começar a desenvolver com React e também traz outros insights sobre desenvolvimento web e mercado de tecnologia.`,
+        position: 'Professor de Graduação e Cursos SHIFT',
         site: 'radiantsecurity.ai',
       },
       {
@@ -549,7 +575,7 @@ Tenho contribuições nas discussões de backend e também contribuições técn
         startDate: '09.2019',
         endDate: '03.2020',
         title: 'Itaú Unibanco',
-        description: `Minha principal atividade era atuar como uma cruz, ajudando várias outras equipes com suas dúvidas e ajudando a dar melhores soluções para as demandas. Trabalhando diretamente na equipe de fundação.
+        description: `Itaú é o maior banco da América Latina. Minha principal atividade era atuar como uma cruz, ajudando várias outras equipes com suas dúvidas e ajudando a dar melhores soluções para as demandas. Trabalhando diretamente na equipe de fundação.
 
 Eu compartilhei a experiência de métodos ágeis e criei plataformas para poder usar micro frontends usando React, Redux, NextJS e bibliotecas semelhantes. Eu também fiz fontes internas para criar e atualizar componentes do Angular 8.`,
         position: 'Engenheiro de Software Sênior',
@@ -611,13 +637,19 @@ Tenho feito manutenção de web services em PHP (CakePHP), incluindo alguns craw
     ],
     educations: [
       {
-        title: 'Jogos Digitais',
+        title: 'Gestão de Tecnologia da Informação - MBA',
+        institution: 'FIAP',
+        startDate: '2022',
+        endDate: '2023',
+      },
+      {
+        title: 'Jogos Digitais - Graduação',
         institution: 'FIAP',
         startDate: '2016',
         endDate: '2017',
       },
       {
-        title: 'Ciência da Computação',
+        title: 'Ciência da Computação - Graduação',
         institution: 'Uninove',
         startDate: '2012',
         endDate: '2015',
@@ -646,7 +678,7 @@ Tenho feito manutenção de web services em PHP (CakePHP), incluindo alguns craw
     metatags: {
       title: 'A jornada de um engenheiro de software - Gustavo Sales',
       description:
-        'Estou 10 anos na estrada, é muita historia, muitos projetos e muitas pessoas. Aqui eu quero compartilhar com um pouco mais de detalhes a minha jornada desde 2012.',
+        'Estou 14 anos na estrada, é muita historia, muitos projetos e muitas pessoas. Aqui eu quero compartilhar com um pouco mais de detalhes a minha jornada desde 2009.',
     },
   },
   blog: {
