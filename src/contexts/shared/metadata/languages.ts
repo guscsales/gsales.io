@@ -257,8 +257,8 @@ Do this: click on the photo and then you will be able to see me in an almost cur
         description: `I taught frontend from fundamentals (HTML, CSS, Sass, Javascript) until modern frameworks, techniques, and libraries (React, SWR, Forms, etc). The main focus is to start from zero and finish with many projects to be part of the portfolio.
 
 I've created the book and videos for the graduation course "System for the Internet". The content was focused on how to start developing with React and also has other insights about web development and the technology market.`,
-        position: 'Professor de Graduação e Cursos SHIFT',
-        site: 'radiantsecurity.ai',
+        position: 'Professor of Graduation and SHIFT Courses',
+        site: 'fiap.com.br',
       },
       {
         startDate: '08.2021',
@@ -546,7 +546,7 @@ Faz assim: clica em cima dessa foto e aí você vai poder me ver em uma versão 
 
 Criei o livro e vídeos para o curso de graduação "Sistema para Internet". O conteúdo foi focado em como começar a desenvolver com React e também traz outros insights sobre desenvolvimento web e mercado de tecnologia.`,
         position: 'Professor de Graduação e Cursos SHIFT',
-        site: 'radiantsecurity.ai',
+        site: 'fiap.com.br',
       },
       {
         startDate: '08.2021',
