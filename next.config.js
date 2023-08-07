@@ -1,7 +1,4 @@
-module.exports = {
-  i18n: {
-    locales: ['en', 'pt'],
-    defaultLocale: 'en',
-  },
-  webpack5: false,
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {}
+
+module.exports = nextConfig

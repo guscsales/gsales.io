@@ -1,36 +1,18 @@
-const plugin = require('tailwindcss/plugin');
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/contexts/**/*.{js,ts,jsx,tsx}',
-    './src/sagebox/**/*.{js,ts,jsx,tsx}',
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  jit: true,
-  darkMode: false,
   theme: {
-    fontFamily: {
-      sans: ['Source Sans Pro', 'serif'],
-      heading: ['Poppins', 'sans-serif'],
-      code: ['Courier Prime', 'monospace'],
-    },
     extend: {
-      width: {
-        112: '25rem',
-      },
-      gridTemplateColumns: {
-        'jouney-info': '145px 1fr',
-      },
-      fontWeight: {
-        'weight-inherit': 'inherit',
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },
-  plugins: [
-    plugin(({ addBase, theme }) => {
-      addBase({
-        body: { fontSize: theme('fontSize.base') },
-      });
-    }),
-  ],
-};
+  plugins: [],
+}
