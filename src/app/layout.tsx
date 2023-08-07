@@ -1,8 +1,10 @@
 import fonts from '@/libs/ui/core/fonts';
 import './globals.css';
 import type { Metadata } from 'next';
-import Text from '@/libs/ui/components/text';
-import Card from '@/libs/ui/components/card';
+import usFlagIcon from '@/assets/images/us-flag-icon.png';
+import ButtonIconImage from '@/libs/ui/components/button-icon-image';
+import ButtonIcon from '@/libs/ui/components/button-icon';
+import { RiSunFill } from 'react-icons/ri';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +18,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`dark ${fonts.className}`}></body>
+      <body className={`dark ${fonts.className} p-5`}>
+        <ButtonIconImage
+          src={usFlagIcon}
+          width={24}
+          height={16}
+          alt="The US flag"
+        />
+
+        <ButtonIcon icon={RiSunFill} size={18} />
+      </body>
     </html>
   );
 }

@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 const { withTV } = require('tailwind-variants/transformer');
 
 /** @type {import('tailwindcss').Config} */
@@ -8,7 +9,7 @@ module.exports = withTV({
     './src/app/**/*.{js,ts,jsx,tsx,css,svg}',
   ],
   jit: true,
-  dark: 'class',
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ['var(--font-main)'],
@@ -26,5 +27,13 @@ module.exports = withTV({
       'red-to-pink': `linear-gradient(47deg, ${colors.red['500']} 0%, ${colors.pink['500']} 100%)`,
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.transition-base': {
+          transition: 'all 140ms ease-in-out',
+        },
+      });
+    }),
+  ],
 });
