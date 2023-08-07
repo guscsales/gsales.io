@@ -1,18 +1,30 @@
+const colors = require('tailwindcss/colors');
+const { withTV } = require('tailwind-variants/transformer');
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withTV({
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/libs/ui/**/*.{js,ts,jsx,tsx,css,svg}',
+    './src/app/**/*.{js,ts,jsx,tsx,css,svg}',
   ],
+  jit: true,
+  dark: 'class',
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+    fontFamily: {
+      sans: ['var(--font-main)'],
+      blast: ['var(--font-blast)'],
+      code: ['var(--font-code)'],
+    },
+    backgroundImage: {
+      'green-to-purple': `linear-gradient(253deg, ${colors.purple['500']} 0%, ${colors.green['500']} 61.46%)`,
+      'zero-to-white':
+        'linear-gradient(289deg, rgba(250, 250, 250, 0.60) 0%, rgba(250, 250, 250, 0.00) 100%)',
+      'white-to-zero':
+        'linear-gradient(316deg, rgba(250, 250, 250, 0.00) 0%, rgba(250, 250, 250, 0.60) 100%)',
+      'blue-green-to-zero':
+        'linear-gradient(155deg, #60A5FA 0%, rgba(167, 243, 208, 0.1) 75%, rgba(0, 0, 0, 0) 100%)',
+      'red-to-pink': `linear-gradient(47deg, ${colors.red['500']} 0%, ${colors.pink['500']} 100%)`,
     },
   },
   plugins: [],
-}
+});
