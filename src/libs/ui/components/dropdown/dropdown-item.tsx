@@ -16,7 +16,7 @@ export default function DropdownItem({
     <DropdownMenu.Item {...props}>
       <Text
         as={as}
-        className="w-full text-left text-base p-1 rounded hover:bg-zinc-900/[.06] hover:dark:bg-zinc-50/[.06] text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 hover:dark:text-zinc-50 transition-base"
+        className="flex cursor-pointer w-full text-left text-base py-1 px-1.5 rounded hover:bg-zinc-900/[.06] hover:dark:bg-zinc-50/[.06] text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 hover:dark:text-zinc-50 transition-base"
       >
         {children}
       </Text>

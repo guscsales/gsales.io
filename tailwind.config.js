@@ -11,20 +11,22 @@ module.exports = withTV({
   jit: true,
   darkMode: 'class',
   theme: {
-    fontFamily: {
-      sans: ['var(--font-main)'],
-      blast: ['var(--font-blast)'],
-      code: ['var(--font-code)'],
-    },
-    backgroundImage: {
-      'green-to-purple': `linear-gradient(253deg, ${colors.purple['500']} 0%, ${colors.green['500']} 61.46%)`,
-      'zero-to-white':
-        'linear-gradient(289deg, rgba(250, 250, 250, 0.60) 0%, rgba(250, 250, 250, 0.00) 100%)',
-      'white-to-zero':
-        'linear-gradient(316deg, rgba(250, 250, 250, 0.00) 0%, rgba(250, 250, 250, 0.60) 100%)',
-      'blue-green-to-zero':
-        'linear-gradient(155deg, #60A5FA 0%, rgba(167, 243, 208, 0.1) 75%, rgba(0, 0, 0, 0) 100%)',
-      'red-to-pink': `linear-gradient(47deg, ${colors.red['500']} 0%, ${colors.pink['500']} 100%)`,
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-main)'],
+        blast: ['var(--font-blast)'],
+        code: ['var(--font-code)'],
+      },
+      backgroundImage: {
+        'green-to-purple': `linear-gradient(253deg, ${colors.purple['500']} 0%, ${colors.green['500']} 61.46%)`,
+        'zero-to-white':
+          'linear-gradient(289deg, rgba(250, 250, 250, 0.60) 0%, rgba(250, 250, 250, 0.00) 100%)',
+        'white-to-zero':
+          'linear-gradient(316deg, rgba(250, 250, 250, 0.00) 0%, rgba(250, 250, 250, 0.60) 100%)',
+        'blue-green-to-zero':
+          'linear-gradient(155deg, #60A5FA 0%, rgba(167, 243, 208, 0.1) 75%, rgba(0, 0, 0, 0) 100%)',
+        'red-to-pink': `linear-gradient(47deg, ${colors.red['500']} 0%, ${colors.pink['500']} 100%)`,
+      },
     },
   },
   plugins: [
