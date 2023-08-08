@@ -21,7 +21,7 @@ export default function Ticket() {
         style={{ backgroundImage: `url('${ticketDark.src}')` }}
       >
         <div className="flex flex-col gap-1 mt-16 pt-[3.75rem]">
-          <Text className="font-light text-zinc-400">Good Morning</Text>
+          <Text className="font-light text-zinc-400">Hello World!</Text>
           <Text
             className="font-bold text-3xl text-zinc-300"
             id="ticket-guest-name"
