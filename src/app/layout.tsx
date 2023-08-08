@@ -5,6 +5,7 @@ import usFlagIcon from '@/assets/images/us-flag-icon.png';
 import ButtonIconImage from '@/libs/ui/components/button-icon-image';
 import ButtonIcon from '@/libs/ui/components/button-icon';
 import { RiSunFill } from 'react-icons/ri';
+import Dropdown from '@/libs/ui/components/dropdown';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,14 +20,36 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`dark ${fonts.className} p-5`}>
-        <ButtonIconImage
-          src={usFlagIcon}
-          width={24}
-          height={16}
-          alt="The US flag"
-        />
+        <Dropdown.Root>
+          <Dropdown.Trigger>
+            <ButtonIconImage
+              src={usFlagIcon}
+              width={24}
+              height={16}
+              alt="The US flag"
+            />
+          </Dropdown.Trigger>
+          <Dropdown.Portal>
+            <Dropdown.Content>
+              <Dropdown.Label>Choose the language</Dropdown.Label>
+              <Dropdown.Item>English</Dropdown.Item>
+              <Dropdown.Item>Portuguese</Dropdown.Item>
+            </Dropdown.Content>
+          </Dropdown.Portal>
+        </Dropdown.Root>
 
-        <ButtonIcon icon={RiSunFill} size={18} />
+        <Dropdown.Root>
+          <Dropdown.Trigger>
+            <ButtonIcon icon={RiSunFill} size={18} />
+          </Dropdown.Trigger>
+          <Dropdown.Portal>
+            <Dropdown.Content>
+              <Dropdown.Label>Choose the theme</Dropdown.Label>
+              <Dropdown.Item>Dark</Dropdown.Item>
+              <Dropdown.Item>Light</Dropdown.Item>
+            </Dropdown.Content>
+          </Dropdown.Portal>
+        </Dropdown.Root>
       </body>
     </html>
   );
