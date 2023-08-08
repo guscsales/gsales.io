@@ -1,0 +1,17 @@
+{
+  "navigatorHome": "Home",
+  "navigatorJourney": "Journey",
+  "navigatorBlog": "Blog",
+  "navigatorProjects": "Projects",
+  "navigatorWall": "Wall",
+  "navigatorMessageForYou": "Message 4 U",
+  "themeLabel": "Choose the theme",
+  "themeDark": "Dark",
+  "themeLight": "Light",
+  "themeSystem": "System",
+  "langLabel": "Choose the language",
+  "langEnglish": "English",
+  "langPortuguese": "Português",
+  "statusNowCoding": "now coding... 💻",
+  "statusNoCoding": "no coding... 💤"
+}

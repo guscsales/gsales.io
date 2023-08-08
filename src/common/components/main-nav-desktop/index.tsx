@@ -33,8 +33,8 @@ export default function MainNavDesktop(
 
       <div className="w-px h-6 bg-zinc-100 dark:bg-zinc-800" />
 
-      <div className="flex gap-1.5">
-        <Dropdown.Root>
+      <div className="flex gap-3 items-center">
+        {/* <Dropdown.Root>
           <Dropdown.Trigger>
             <ButtonIconImage
               src={usFlagIcon}
@@ -50,7 +50,7 @@ export default function MainNavDesktop(
               <Dropdown.Item as="span">Portuguese</Dropdown.Item>
             </Dropdown.Content>
           </Dropdown.Portal>
-        </Dropdown.Root>
+        </Dropdown.Root> */}
 
         <Dropdown.Root>
           <Dropdown.Trigger>
@@ -67,7 +67,7 @@ export default function MainNavDesktop(
 
         <div className="w-px h-6 bg-zinc-100 dark:bg-zinc-800" />
 
-        <div className="flex gap-1 items-center">
+        <div className="flex gap-1.5 items-center">
           <div className="rounded-full w-1.5 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-300 -mt-0.5" />
           <Text className="font-light text-zinc-900 dark:text-zinc-50">
             now coding...

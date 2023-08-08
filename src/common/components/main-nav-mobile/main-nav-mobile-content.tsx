@@ -96,7 +96,7 @@ export default function MainNavMobileContent({
                 </div>
               </div>
 
-              <div className="grid gap-2">
+              {/* <div className="grid gap-2">
                 <Text className="text-sm flex gap-1 items-center">
                   <RiFlagFill className="-mt-1" /> Language
                 </Text>
@@ -108,7 +108,7 @@ export default function MainNavMobileContent({
                     Portuguese
                   </ButtonTransparent>
                 </div>
-              </div>
+              </div> */}
 
               <div className="grid gap-2">
                 <Text className="text-sm flex gap-1 items-center">
@@ -123,7 +123,7 @@ export default function MainNavMobileContent({
             </div>
 
             <div className="flex items-end">
-              <div className="flex w-full gap-1 justify-center items-center rounded p-0.5 bg-zinc-50 dark:bg-zinc-900">
+              <div className="flex w-full gap-1.5 justify-center items-center rounded p-0.5 bg-zinc-50 dark:bg-zinc-900">
                 <div className="rounded-full w-1.5 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-300 -mt-0.5" />
                 <Text className="font-light text-zinc-900 dark:text-zinc-50">
                   now coding...

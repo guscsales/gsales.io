@@ -1,6 +1,6 @@
 import Logo from '../logo';
-import MainNavDesktop from '@/app/components/main-nav-desktop';
-import MainNavMobile from '@/app/components/main-nav-mobile';
+import MainNavDesktop from '@/common/components/main-nav-desktop';
+import MainNavMobile from '@/common/components/main-nav-mobile';
 
 export default function MainHeader() {
   return (
