@@ -4,7 +4,7 @@ import Text from '@/libs/ui/components/text';
 
 type Props = {
   as?: React.ComponentProps<typeof Text>['as'];
-  status?: 'idle' | 'active';
+  status?: 'idle' | 'active' | 'disabled';
 };
 
 const ButtonTransparent = React.forwardRef(
@@ -27,6 +27,7 @@ const ButtonTransparent = React.forwardRef(
           idle: '',
           active:
             'text-zinc-900 dark:text-zinc-50 bg-zinc-900/[.06] dark:bg-zinc-50/[.06]',
+          disabled: 'opacity-20 pointer-events-none',
         },
       },
     })({ status });

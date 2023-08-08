@@ -8,6 +8,7 @@ module.exports = withTV({
     './src/libs/ui/**/*.{js,ts,jsx,tsx,css,svg}',
     './src/app/**/*.{js,ts,jsx,tsx,css,svg}',
     './src/common/**/*.{js,ts,jsx,tsx,css,svg}',
+    './src/domains/**/*.{js,ts,jsx,tsx,css,svg}',
   ],
   jit: true,
   darkMode: 'class',
