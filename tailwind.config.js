@@ -15,8 +15,11 @@ module.exports = withTV({
     container: {
       center: true,
       padding: {
-        DEFAULT: '0.5rem',
-        lg: '0.75rem',
+        DEFAULT: '0.75rem',
+      },
+      screens: {
+        DEFAULT: '100%',
+        lg: '62.25rem',
       },
     },
     extend: {
