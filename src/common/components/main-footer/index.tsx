@@ -1,13 +1,14 @@
 import Logo from '@/common/components/logo';
 import Text from '@/libs/ui/components/text';
+import MainFooterListeningNow from '@/common/components/main-footer-listening-now';
 import Link from 'next/link';
 
 export default function MainFooter() {
   return (
     <footer className="grid gap-6 py-2 px-3 mt-28 mb-10 container">
-      <Text className="font-code font-normal text-sm text-emerald-700 dark:text-emerald-200">
-        {'// const listeningNow = ”Finesse (Remix) - Bruno Mars & Cardi B” _'}
-      </Text>
+      <div className="min-h-[1.25rem]">
+        <MainFooterListeningNow />
+      </div>
 
       <div className="flex flex-col gap-4 lg:flex-row lg:justify-between items-center">
         <div className="flex flex-col items-center lg:items-start">
