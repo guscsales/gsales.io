@@ -12,6 +12,13 @@ module.exports = withTV({
   jit: true,
   darkMode: 'class',
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '0.5rem',
+        lg: '0.75rem',
+      },
+    },
     extend: {
       fontFamily: {
         sans: ['var(--font-main)'],

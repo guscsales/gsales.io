@@ -13,7 +13,7 @@ const blast = Space_Mono({
 const code = Courier_Prime({
   variable: '--font-code',
   subsets: ['latin'],
-  weight: ['700'],
+  weight: ['400', '700'],
 });
 
 const fonts = {

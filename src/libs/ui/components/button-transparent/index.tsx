@@ -20,7 +20,7 @@ const ButtonTransparent = React.forwardRef(
   ) => {
     const { base } = tv({
       slots: {
-        base: 'flex cursor-pointer p-1 px-2.5 lg:py-2 font-light text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 hover:dark:text-zinc-50 hover:bg-zinc-900/[.06] hover:dark:bg-zinc-50/[.06] transition-base rounded',
+        base: 'flex justify-center items-center cursor-pointer p-1 px-2.5 lg:py-2 font-light text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 hover:dark:text-zinc-50 hover:bg-zinc-900/[.06] hover:dark:bg-zinc-50/[.06] transition-base rounded',
       },
       variants: {
         status: {

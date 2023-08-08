@@ -65,32 +65,32 @@ export default function MainNavMobileContent({
                     <ButtonTransparent
                       as="span"
                       status="active"
-                      className="text-left"
+                      className="justify-start"
                     >
                       Home
                     </ButtonTransparent>
                   </Link>
                   <Link href="/journey">
-                    <ButtonTransparent as="span" className="text-left">
+                    <ButtonTransparent as="span" className="justify-start">
                       Journey
                     </ButtonTransparent>
                   </Link>
                   <Link href="/blog">
-                    <ButtonTransparent as="span" className="text-left">
+                    <ButtonTransparent as="span" className="justify-start">
                       Blog
                     </ButtonTransparent>
                   </Link>
                   <Link href="/projects">
-                    <ButtonTransparent as="span" className="text-left">
+                    <ButtonTransparent as="span" className="justify-start">
                       Projects
                     </ButtonTransparent>
                   </Link>
                   <Link href="/wall">
-                    <ButtonTransparent as="span" className="text-left">
+                    <ButtonTransparent as="span" className="justify-start">
                       Wall
                     </ButtonTransparent>
                   </Link>
-                  <ButtonTransparent className="text-left">
+                  <ButtonTransparent className="justify-start">
                     Message 4 U
                   </ButtonTransparent>
                 </div>
@@ -115,8 +115,8 @@ export default function MainNavMobileContent({
                   <RiSunFill className="-mt-1" /> Theme
                 </Text>
                 <div className="grid grid-flow-col gap-1">
-                  <ButtonTransparent>Dark</ButtonTransparent>
                   <ButtonTransparent>Light</ButtonTransparent>
+                  <ButtonTransparent>Dark</ButtonTransparent>
                   <ButtonTransparent>System</ButtonTransparent>
                 </div>
               </div>

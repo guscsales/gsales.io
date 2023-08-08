@@ -1,6 +1,8 @@
 import fonts from '@/libs/ui/core/fonts';
 import type { Metadata } from 'next';
 import MainHeader from '@/common/components/main-header';
+import MainFooter from '@/common/components/main-footer';
+
 import '@/common/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -18,6 +20,7 @@ export default async function RootLayout({
       <body className={`dark ${fonts.className} pt-14`}>
         <MainHeader />
         <main>{children}</main>
+        <MainFooter />
       </body>
     </html>
   );
