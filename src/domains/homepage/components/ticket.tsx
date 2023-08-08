@@ -12,6 +12,8 @@ export default function Ticket() {
     atvImg(true);
   }, []);
 
+  // test
+
   return (
     <div className="atvImg w-[302px] h-[513px] relative mx-auto">
       <div
