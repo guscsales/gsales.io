@@ -22,7 +22,7 @@ export default function MainHeader() {
   return (
     <header
       className={classNames(
-        'fixed top-0 left-0 z-0 w-full bg-zinc-50 dark:bg-zinc-900 transition-base',
+        'fixed top-0 left-0 z-30 w-full bg-zinc-50 dark:bg-zinc-900 transition-base',
         {
           'shadow-xl': withShadow,
         }
