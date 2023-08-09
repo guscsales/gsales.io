@@ -4,6 +4,9 @@ import MainHeader from '@/common/components/main-header';
 import MainFooter from '@/common/components/main-footer';
 
 import '@/common/styles/globals.css';
+import UserService from '@/domains/users/services/user-service';
+import CreateSession from '@/domains/common/components/create-session';
+import SessionProvider from '@/domains/common/providers/session-provider';
 
 export const metadata: Metadata = {
   title: 'Software Engineer | Javascript Specialist - Gus!',
@@ -18,12 +21,17 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const user = await UserService.getUserFromSession();
+
   return (
     <html lang="en">
       <body className={`dark ${fonts.className} pt-14`}>
-        <MainHeader />
-        <main>{children}</main>
-        <MainFooter />
+        <SessionProvider>
+          <CreateSession userId={user?.id} />
+          <MainHeader />
+          <main>{children}</main>
+          <MainFooter />
+        </SessionProvider>
       </body>
     </html>
   );

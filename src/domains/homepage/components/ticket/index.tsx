@@ -6,12 +6,15 @@ import ticketDark from '@/assets/images/ticket-dark.png';
 import { RiCommandLine, RiRocket2Fill } from 'react-icons/ri';
 import atvImg from '@/common/services/avtimg';
 import '@/common/styles/avtimg.css';
+import { User } from '@prisma/client';
+import { SessionContext } from '@/domains/common/providers/session-provider';
 
 type Props = {
   currentDate: Date;
+  visitor: User | null;
 };
 
-export default function Ticket({ currentDate }: Props) {
+export default function Ticket({ currentDate, visitor }: Props) {
   const greeting = React.useMemo(() => {
     const hours = currentDate.getHours();
 
@@ -21,10 +24,13 @@ export default function Ticket({ currentDate }: Props) {
       ? 'Good Afternoon'
       : 'Good Evening';
   }, [currentDate]);
+  const { visitor: clientSideVisitor } = React.useContext(SessionContext);
 
   React.useEffect(() => {
-    atvImg(true);
-  }, []);
+    if (visitor || clientSideVisitor) {
+      atvImg(true);
+    }
+  }, [visitor, clientSideVisitor]);
 
   return (
     <div className="atvImg w-[302px] h-[513px] relative mx-auto">
@@ -61,9 +67,18 @@ export default function Ticket({ currentDate }: Props) {
         </div>
 
         <div className="flex flex-col mt-10">
-          <Text className="font-light text-zinc-400">Guest Number</Text>
+          <Text className="font-light text-zinc-400">Visitor Number</Text>
           <Text className="font-light text-4xl text-zinc-50">
-            #<Text className="font-blast text-4xl text-zinc-50">000001</Text>
+            #
+            <Text className="font-blast text-4xl text-zinc-50">
+              {(
+                visitor?.visitorNumber ||
+                clientSideVisitor?.visitorNumber ||
+                '------'
+              )
+                .toString()
+                .padStart(6, '0')}
+            </Text>
           </Text>
         </div>
       </div>

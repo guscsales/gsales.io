@@ -1,5 +1,5 @@
 datasource db {
-  url      = env("POSTGRES_PRISMA_URL")
+  url      = env("POSTGRES_URL")
   provider = "postgresql"
 }
 

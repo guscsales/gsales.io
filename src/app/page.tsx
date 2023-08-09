@@ -1,10 +1,12 @@
 import React from 'react';
 import Text from '@/libs/ui/components/text';
 import Ticket from '@/domains/homepage/components/ticket';
+import UserService from '@/domains/users/services/user-service';
 
-export default function Home() {
+export default async function Home() {
   // Date from server
   const currentDate = new Date();
+  const visitor = await UserService.getUserFromSession();
 
   return (
     <section className="container mt-5 lg:mt-20 grid lg:grid-cols-[1fr_24.75rem] gap-11">
@@ -36,7 +38,7 @@ export default function Home() {
         />
       </div>
 
-      <Ticket currentDate={currentDate} />
+      <Ticket visitor={visitor} currentDate={currentDate} />
     </section>
   );
 }
