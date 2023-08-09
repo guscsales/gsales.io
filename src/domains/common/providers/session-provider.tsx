@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { User } from '@prisma/client';
-import { useCookies } from 'react-cookie';
 
 type SessionContextProps = {
   visitor: User | null;

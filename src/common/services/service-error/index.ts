@@ -1,4 +1,4 @@
-import { StatusCodes } from '@domains/shared/enums/status-codes';
+import { StatusCodes } from '@/common/enums/status-codes';
 
 interface ServiceErrorReturn {
   statusCode: StatusCodes;
