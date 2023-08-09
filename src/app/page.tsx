@@ -3,6 +3,7 @@ import Text from '@/libs/ui/components/text';
 import Ticket from '@/domains/homepage/components/ticket';
 import UserService from '@/domains/users/services/user-service';
 import InputName from '@/domains/homepage/components/input-name';
+import Link from 'next/link';
 
 export default async function Home() {
   // Date from server
@@ -23,10 +24,22 @@ export default async function Home() {
           </span>{' '}
           while listening to music.
         </Text>
-        <Text className="font-bold text-2xl text-zinc-900 dark:text-zinc-50 mb-1">
+        <Text className="font-bold text-2xl text-zinc-900 dark:text-zinc-50 mb-3">
           For your ticket: what&apos;s your name?
         </Text>
         <InputName visitor={visitor} />
+        <Text className="font-bold text-zinc-900 dark:text-zinc-50 mt-8">
+          This is a work in progress. You can still check my website{' '}
+          <Link
+            href="https://old.gsales.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-blue-300"
+          >
+            old version
+          </Link>
+          .
+        </Text>
       </div>
 
       <Ticket visitor={visitor} currentDate={currentDate} />
