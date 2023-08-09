@@ -2,6 +2,7 @@ import React from 'react';
 import Text from '@/libs/ui/components/text';
 import Ticket from '@/domains/homepage/components/ticket';
 import UserService from '@/domains/users/services/user-service';
+import InputName from '@/domains/homepage/components/input-name';
 
 export default async function Home() {
   // Date from server
@@ -25,17 +26,7 @@ export default async function Home() {
         <Text className="font-bold text-2xl text-zinc-900 dark:text-zinc-50 mb-1">
           For your ticket: what&apos;s your name?
         </Text>
-        <input
-          type="text"
-          className={`font-bold font-sans bg-transparent text-2xl text-zinc-700 dark:text-zinc-200 
-                      pb-3 border-b border-transparent
-                      focus-visible:outline-none focus-visible:border-b 
-                      focus-visible:border-solid focus-visible:border-zinc-900/[.06] 
-                      focus-visible:dark:border-zinc-50/[.06]`}
-          placeholder="It's focused, you can type..."
-          autoFocus
-          maxLength={100}
-        />
+        <InputName visitor={visitor} />
       </div>
 
       <Ticket visitor={visitor} currentDate={currentDate} />

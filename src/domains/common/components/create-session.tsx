@@ -3,6 +3,7 @@
 import React from 'react';
 import { clientAPI } from '@/common/services/api';
 import { SessionContext } from '@/domains/common/providers/session-provider';
+import { User } from '@prisma/client';
 
 type Props = {
   userId: string | undefined;
@@ -16,6 +17,8 @@ export default function CreateSession({ userId }: Props) {
       clientAPI.post('/guests').then(({ data }) => {
         setVisitor(data);
       });
+    } else {
+      setVisitor({ id: userId } as User);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);

@@ -25,12 +25,13 @@ export default function Ticket({ currentDate, visitor }: Props) {
       : 'Good Evening';
   }, [currentDate]);
   const { visitor: clientSideVisitor } = React.useContext(SessionContext);
+  const visitorData = visitor || clientSideVisitor;
 
   React.useEffect(() => {
-    if (visitor || clientSideVisitor) {
+    if (visitorData) {
       atvImg(true);
     }
-  }, [visitor, clientSideVisitor]);
+  }, [visitorData]);
 
   return (
     <div className="atvImg w-[302px] h-[513px] relative mx-auto">
@@ -41,20 +42,23 @@ export default function Ticket({ currentDate, visitor }: Props) {
         <div className="flex flex-col gap-1 mt-16 pt-[3.75rem]">
           <Text className="font-light text-zinc-400">{greeting}</Text>
           <Text
-            className="font-bold text-3xl text-zinc-300"
+            className="font-bold text-3xl text-zinc-300 h-[72px] max-w-[280px] mx-auto"
             id="ticket-guest-name"
           >
-            Last call!
+            {visitorData?.name || 'Last call!'}
           </Text>
         </div>
 
-        <div className="flex justify-center w-full h-[5.625rem] mt-9">
+        <div className="flex justify-center w-full h-[5.625rem] mt-2">
           <RiRocket2Fill size={90} className="fill-zinc-50" />
         </div>
 
         <div className="flex flex-col gap-1 mt-14">
           <Text className="font-light text-zinc-400">Almost ready.</Text>
-          <div className="flex gap-0.5 justify-center items-center">
+          <Text className="font-light text-zinc-400">
+            The first interactions are here.
+          </Text>
+          {/* <div className="flex gap-0.5 justify-center items-center">
             <Text className="font-light text-zinc-400">Press</Text>
             <div className="flex items-center py-0.5 px-1 rounded bg-zinc-50/[.06]">
               <RiCommandLine size={16} className="fill-zinc-300 -mt-1" />
@@ -63,7 +67,7 @@ export default function Ticket({ currentDate, visitor }: Props) {
             <Text className="font-light text-zinc-400">
               to start the travel
             </Text>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex flex-col mt-10">
@@ -71,11 +75,7 @@ export default function Ticket({ currentDate, visitor }: Props) {
           <Text className="font-light text-4xl text-zinc-50">
             #
             <Text className="font-blast text-4xl text-zinc-50">
-              {(
-                visitor?.visitorNumber ||
-                clientSideVisitor?.visitorNumber ||
-                '------'
-              )
+              {(visitorData?.visitorNumber || '------')
                 .toString()
                 .padStart(6, '0')}
             </Text>

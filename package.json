@@ -26,6 +26,7 @@
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "firebase": "^10.1.0",
+    "lodash": "^4.17.21",
     "negotiator": "^0.6.3",
     "next": "13.4.12",
     "next-api-builder": "^1.0.1",
@@ -41,6 +42,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.196",
     "@types/negotiator": "^0.6.1",
     "prisma": "^5.1.1",
     "server-only": "^0.0.1"

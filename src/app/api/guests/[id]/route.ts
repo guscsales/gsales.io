@@ -34,7 +34,10 @@ export async function PATCH(
     const { name } = payload as UserUpdateRequest;
 
     const user = await DatabaseService.instance<User>((prisma) =>
-      prisma.user.update({ where: { id: params.id }, data: { name } })
+      prisma.user.update({
+        where: { id: params.id },
+        data: { name: name.trim() },
+      })
     );
 
     return NextResponse.json(user);
