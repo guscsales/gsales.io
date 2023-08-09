@@ -1,0 +1,130 @@
+.raycast {
+  [cmdk-root] {
+    @apply max-w-[40rem]
+      bg-zinc-950
+      rounded-lg
+      py-2
+      font-sans
+      shadow-lg
+      border
+      border-solid
+      border-zinc-800
+      relative;
+  }
+
+  [cmdk-wrapper-element] {
+    @apply px-2;
+  }
+
+  [cmdk-input] {
+    @apply font-sans
+      border-none
+      w-full
+      text-lg
+      font-light
+      py-2
+      px-4
+      outline-none
+      bg-zinc-50/[.04]
+      text-zinc-50
+      rounded
+      mb-3;
+
+    &::placeholder {
+      @apply text-zinc-400;
+    }
+  }
+
+  [cmdk-item] {
+    content-visibility: auto;
+
+    @apply cursor-pointer
+      h-10
+      rounded
+      text-base
+      flex
+      items-center
+      gap-2
+      px-2
+      text-zinc-300
+      select-none
+      transition-base;
+
+    &[data-selected='true'] {
+      @apply bg-zinc-50/[.12] 
+        text-zinc-100;
+    }
+
+    &[data-disabled='true'] {
+      @apply pointer-events-none
+        opacity-30;
+    }
+
+    &:active,
+    &.active {
+      @apply bg-zinc-50/[.24] 
+        text-zinc-50;
+    }
+
+    svg {
+      @apply w-5
+        h-5;
+    }
+  }
+
+  [cmdk-group-items] {
+    @apply flex 
+      flex-col
+      gap-2;
+
+    [cmdk-group-items-flex] {
+      @apply flex 
+        gap-2
+        items-center;
+    }
+  }
+
+  [cmdk-list] {
+    @apply px-2
+      overflow-y-auto
+      overscroll-contain
+      transition-base
+      pb-10;
+  }
+
+  [cmdk-group-heading] {
+    @apply capitalize
+      text-sm
+      text-zinc-500
+      font-bold
+      my-2
+      ml-1;
+  }
+
+  *:not([hidden]) + [cmdk-group] {
+    @apply mt-2;
+  }
+
+  [cmdk-raycast-footer] {
+    @apply flex
+      h-10
+      justify-between
+      items-center
+      w-full
+      absolute
+      bg-zinc-900
+      bottom-0
+      p-2
+      rounded-bl-lg
+      rounded-br-lg;
+  }
+
+  [cmdk-empty] {
+    @apply flex
+      items-center
+      justify-center
+      h-16
+      whitespace-pre-wrap
+      text-zinc-100;
+  }
+}

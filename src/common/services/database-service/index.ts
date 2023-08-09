@@ -8,7 +8,10 @@ const prisma = new PrismaClient({
 
 async function instance<T>(execFunc: (prisma: PrismaClient) => Promise<T>) {
   try {
-    return execFunc(prisma);
+    const response = execFunc(prisma);
+    prisma.$disconnect();
+
+    return response;
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error('Error on SQL:', e);

@@ -2,12 +2,21 @@
 
 import ButtonTransparent from '@/libs/ui/components/button-transparent';
 import Text from '@/libs/ui/components/text';
-import { RiEarthFill, RiSunFill, RiCloseFill } from 'react-icons/ri';
+import {
+  RiEarthFill,
+  RiSunFill,
+  RiCloseFill,
+  RiStarSFill,
+} from 'react-icons/ri';
 import { createPortal } from 'react-dom';
 import ButtonIcon from '@/libs/ui/components/button-icon';
 import { tv } from 'tailwind-variants';
 import Link from 'next/link';
 import React from 'react';
+import { mainNavigatorItems } from '@/domains/common/mappers/main-navigator-items';
+import Typewriter from 'typewriter-effect';
+import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
+import { prepareTypewriterMultiPhrases } from '@/common/services/typewriter';
 
 type Props = {
   status: 'opened' | 'closed';
@@ -38,6 +47,12 @@ export default function MainNavMobileContent({
     },
   });
 
+  const [firstPhrase, ...otherPhrases] = myPhilosophy;
+  const typewriterProps = prepareTypewriterMultiPhrases(
+    firstPhrase,
+    otherPhrases
+  );
+
   return ready
     ? createPortal(
         <div className={wrapper({ status, className })}>
@@ -56,57 +71,36 @@ export default function MainNavMobileContent({
                   <RiEarthFill className="-mt-1" /> Planets
                 </Text>
                 <div className="grid gap-3">
-                  <Link href="/">
-                    <ButtonTransparent
-                      as="span"
-                      status="active"
-                      className="justify-start"
-                    >
-                      Home
-                    </ButtonTransparent>
-                  </Link>
-                  {/* <Link href="/journey"> */}
-                  <ButtonTransparent
-                    as="span"
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Journey
-                  </ButtonTransparent>
-                  {/* </Link>
-                  <Link href="/blog"> */}
-                  <ButtonTransparent
-                    as="span"
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Blog
-                  </ButtonTransparent>
-                  {/* </Link>
-                  <Link href="/projects"> */}
-                  <ButtonTransparent
-                    as="span"
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Projects
-                  </ButtonTransparent>
-                  {/* </Link>
-                  <Link href="/wall"> */}
-                  <ButtonTransparent
-                    as="span"
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Wall
-                  </ButtonTransparent>
-                  {/* </Link> */}
-                  <ButtonTransparent
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Message 4 U
-                  </ButtonTransparent>
+                  {mainNavigatorItems.pages.map(({ href, state, label }) =>
+                    state !== 'disabled' ? (
+                      <Link href={href} key={label}>
+                        <ButtonTransparent
+                          as="span"
+                          status={
+                            state as React.ComponentProps<
+                              typeof ButtonTransparent
+                            >['status']
+                          }
+                          className="justify-start"
+                        >
+                          {label}
+                        </ButtonTransparent>
+                      </Link>
+                    ) : (
+                      <ButtonTransparent
+                        as="span"
+                        status={
+                          state as React.ComponentProps<
+                            typeof ButtonTransparent
+                          >['status']
+                        }
+                        className="justify-start"
+                        key={label}
+                      >
+                        {label}
+                      </ButtonTransparent>
+                    )
+                  )}
                 </div>
               </div>
 
@@ -136,7 +130,12 @@ export default function MainNavMobileContent({
               </div> */}
             </div>
 
-            <div className="flex items-end">
+            <div className="flex flex-col justify-center items-center gap-2">
+              <Text className="flex gap-1 items-center text-sm">
+                <RiStarSFill className="-mt-1" />{' '}
+                <Typewriter {...typewriterProps} />
+              </Text>
+
               <div className="flex w-full gap-1.5 justify-center items-center rounded p-0.5 bg-zinc-50 dark:bg-zinc-900">
                 <div className="rounded-full w-1.5 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-300 -mt-0.5" />
                 <Text className="font-light text-zinc-900 dark:text-zinc-50">

@@ -3,7 +3,7 @@
 import React from 'react';
 import Text from '@/libs/ui/components/text';
 import ticketDark from '@/assets/images/ticket-dark.png';
-import { RiCommandLine, RiRocket2Fill } from 'react-icons/ri';
+import { RiCommandLine, RiMenuFill, RiRocket2Fill } from 'react-icons/ri';
 import atvImg from '@/common/services/avtimg';
 import '@/common/styles/avtimg.css';
 import { User } from '@prisma/client';
@@ -12,9 +12,10 @@ import { SessionContext } from '@/domains/common/providers/session-provider';
 type Props = {
   currentDate: Date;
   visitor: User | null;
+  device: { isMobile: boolean; isMac: boolean };
 };
 
-export default function Ticket({ currentDate, visitor }: Props) {
+export default function Ticket({ currentDate, visitor, device }: Props) {
   const greeting = React.useMemo(() => {
     const hours = currentDate.getHours();
 
@@ -55,22 +56,43 @@ export default function Ticket({ currentDate, visitor }: Props) {
 
         <div className="flex flex-col gap-1 mt-14">
           <Text className="font-light text-zinc-400">Almost ready.</Text>
-          <Text className="font-light text-zinc-400">
-            The first interactions are here.
-          </Text>
-          {/* <div className="flex gap-0.5 justify-center items-center">
-            <Text className="font-light text-zinc-400">Press</Text>
-            <div className="flex items-center py-0.5 px-1 rounded bg-zinc-50/[.06]">
-              <RiCommandLine size={16} className="fill-zinc-300 -mt-1" />
-              <Text className="text-zinc-300">+ K</Text>
+          {!device.isMobile && device.isMac && (
+            <div className="flex gap-0.5 justify-center items-center">
+              <Text className="font-light text-zinc-400">Press</Text>
+              <div className="flex items-center pb-0.5 pt-1 px-1 rounded bg-zinc-50/[.06]">
+                <RiCommandLine size={16} className="fill-zinc-300 -mt-1" />
+                <Text className="text-zinc-300">+ K</Text>
+              </div>
+              <Text className="font-light text-zinc-400">
+                to start the travel
+              </Text>
             </div>
-            <Text className="font-light text-zinc-400">
-              to start the travel
-            </Text>
-          </div> */}
+          )}
+          {!device.isMobile && !device.isMac && (
+            <div className="flex gap-0.5 justify-center items-center">
+              <Text className="font-light text-zinc-400">Press</Text>
+              <div className="flex items-center pb-0.5 pt-1 px-1 rounded bg-zinc-50/[.06]">
+                <Text className="text-zinc-300">CTRL + K</Text>
+              </div>
+              <Text className="font-light text-zinc-400">
+                to start the travel
+              </Text>
+            </div>
+          )}
+          {device.isMobile && (
+            <div className="flex gap-0.5 justify-center items-center">
+              <Text className="font-light text-zinc-400">Tap</Text>
+              <div className="flex items-center pb-0.5 px-1 py-2 rounded bg-zinc-50/[.06] -mt-1.5">
+                <RiMenuFill size={16} className="fill-zinc-300 -mt-1" />
+              </div>
+              <Text className="font-light text-zinc-400">
+                to start the travel
+              </Text>
+            </div>
+          )}
         </div>
 
-        <div className="flex flex-col mt-10">
+        <div className="flex flex-col mt-8">
           <Text className="font-light text-zinc-400">Visitor Number</Text>
           <Text className="font-light text-4xl text-zinc-50">
             #

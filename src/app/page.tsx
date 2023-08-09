@@ -4,11 +4,19 @@ import Ticket from '@/domains/homepage/components/ticket';
 import UserService from '@/domains/users/services/user-service';
 import InputName from '@/domains/homepage/components/input-name';
 import Link from 'next/link';
+import { headers } from 'next/headers';
+import UAParser from 'ua-parser-js';
 
 export default async function Home() {
   // Date from server
   const currentDate = new Date();
   const visitor = await UserService.getUserFromSession();
+  const headersList = headers();
+  const userAgent = new UAParser(headersList.get('user-agent') as string);
+  const device = {
+    isMobile: userAgent.getDevice().type?.toLocaleLowerCase() === 'mobile',
+    isMac: userAgent.getOS().name?.toLocaleLowerCase() === 'mac os',
+  };
 
   return (
     <section className="container mt-5 lg:mt-20 grid lg:grid-cols-[1fr_24.75rem] gap-11">
@@ -42,7 +50,7 @@ export default async function Home() {
         </Text>
       </div>
 
-      <Ticket visitor={visitor} currentDate={currentDate} />
+      <Ticket visitor={visitor} currentDate={currentDate} device={device} />
     </section>
   );
 }
