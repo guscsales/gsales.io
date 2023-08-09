@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  gsales-main-database:
+    image: postgres
+    restart: always
+    container_name: gsales-main-database
+    environment:
+      POSTGRES_DB: 'gsales'
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: '12345678'
+    ports:
+      - '5432:5432'
+    expose:
+      - '5432'
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+
+  # main-nosql:
+  #   image: redis/redis-stack:latest
+  #   restart: always
+  #   container_name: main-nosql
+  #   command: redis-server --appendonly yes --requirepass ${MAIN_NO_SQL_PASSWORD} --loadmodule /opt/redis-stack/lib/rejson.so --loadmodule /opt/redis-stack/lib/redisbloom.so --loadmodule /opt/redis-stack/lib/redisearch.so
+  #   ports:
+  #     - '6379:6379'
+  #     - '8001:8001'
+  #   expose:
+  #     - '6379'
+  #     - '8001'
+  #   volumes:
+  #     - ./data/nosql:/data

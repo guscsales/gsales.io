@@ -70,46 +70,27 @@ export default function MainNavMobileContent({
                       Home
                     </ButtonTransparent>
                   </Link>
-                  {/* <Link href="/journey"> */}
-                  <ButtonTransparent
-                    as="span"
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Journey
-                  </ButtonTransparent>
-                  {/* </Link> */}
-                  {/* <Link href="/blog"> */}
-                  <ButtonTransparent
-                    as="span"
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Blog
-                  </ButtonTransparent>
-                  {/* </Link> */}
-                  {/* <Link href="/projects"> */}
-                  <ButtonTransparent
-                    as="span"
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Projects
-                  </ButtonTransparent>
-                  {/* </Link> */}
-                  {/* <Link href="/wall"> */}
-                  <ButtonTransparent
-                    as="span"
-                    className="justify-start"
-                    status="disabled"
-                  >
-                    Wall
-                  </ButtonTransparent>
-                  {/* </Link> */}
-                  <ButtonTransparent
-                    className="justify-start"
-                    status="disabled"
-                  >
+                  <Link href="/journey">
+                    <ButtonTransparent as="span" className="justify-start">
+                      Journey
+                    </ButtonTransparent>
+                  </Link>
+                  <Link href="/blog">
+                    <ButtonTransparent as="span" className="justify-start">
+                      Blog
+                    </ButtonTransparent>
+                  </Link>
+                  <Link href="/projects">
+                    <ButtonTransparent as="span" className="justify-start">
+                      Projects
+                    </ButtonTransparent>
+                  </Link>
+                  <Link href="/wall">
+                    <ButtonTransparent as="span" className="justify-start">
+                      Wall
+                    </ButtonTransparent>
+                  </Link>
+                  <ButtonTransparent className="justify-start">
                     Message 4 U
                   </ButtonTransparent>
                 </div>
@@ -129,7 +110,7 @@ export default function MainNavMobileContent({
                 </div>
               </div> */}
 
-              {/* <div className="grid gap-2">
+              <div className="grid gap-2">
                 <Text className="text-sm flex gap-1 items-center">
                   <RiSunFill className="-mt-1" /> Theme
                 </Text>
@@ -138,7 +119,7 @@ export default function MainNavMobileContent({
                   <ButtonTransparent>Dark</ButtonTransparent>
                   <ButtonTransparent>System</ButtonTransparent>
                 </div>
-              </div> */}
+              </div>
             </div>
 
             <div className="flex items-end">

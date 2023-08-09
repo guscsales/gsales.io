@@ -7,12 +7,24 @@ import { RiCommandLine, RiRocket2Fill } from 'react-icons/ri';
 import atvImg from '@/common/services/avtimg';
 import '@/common/styles/avtimg.css';
 
-export default function Ticket() {
+type Props = {
+  currentDate: Date;
+};
+
+export default function Ticket({ currentDate }: Props) {
+  const greeting = React.useMemo(() => {
+    const hours = currentDate.getHours();
+
+    return hours < 12
+      ? 'Good Morning'
+      : hours < 18
+      ? 'Good Afternoon'
+      : 'Good Evening';
+  }, [currentDate]);
+
   React.useEffect(() => {
     atvImg(true);
   }, []);
-
-  // test
 
   return (
     <div className="atvImg w-[302px] h-[513px] relative mx-auto">
@@ -21,12 +33,12 @@ export default function Ticket() {
         style={{ backgroundImage: `url('${ticketDark.src}')` }}
       >
         <div className="flex flex-col gap-1 mt-16 pt-[3.75rem]">
-          <Text className="font-light text-zinc-400">Hello World!</Text>
+          <Text className="font-light text-zinc-400">{greeting}</Text>
           <Text
             className="font-bold text-3xl text-zinc-300"
             id="ticket-guest-name"
           >
-            Putting fuel...
+            Last call!
           </Text>
         </div>
 
@@ -36,7 +48,7 @@ export default function Ticket() {
 
         <div className="flex flex-col gap-1 mt-14">
           <Text className="font-light text-zinc-400">Almost ready.</Text>
-          {/* <div className="flex gap-0.5 justify-center items-center">
+          <div className="flex gap-0.5 justify-center items-center">
             <Text className="font-light text-zinc-400">Press</Text>
             <div className="flex items-center py-0.5 px-1 rounded bg-zinc-50/[.06]">
               <RiCommandLine size={16} className="fill-zinc-300 -mt-1" />
@@ -45,15 +57,15 @@ export default function Ticket() {
             <Text className="font-light text-zinc-400">
               to start the travel
             </Text>
-          </div> */}
+          </div>
         </div>
 
-        {/* <div className="flex flex-col mt-10">
+        <div className="flex flex-col mt-10">
           <Text className="font-light text-zinc-400">Guest Number</Text>
           <Text className="font-light text-4xl text-zinc-50">
             #<Text className="font-blast text-4xl text-zinc-50">000001</Text>
           </Text>
-        </div> */}
+        </div>
       </div>
     </div>
   );
