@@ -72,7 +72,7 @@ export default function MainNavDesktop(
           </Dropdown.Portal>
         </Dropdown.Root> */}
 
-        <div className="w-px h-6 bg-zinc-100 dark:bg-zinc-800" />
+        {/* <div className="w-px h-6 bg-zinc-100 dark:bg-zinc-800" /> */}
 
         <div className="flex gap-1.5 items-center">
           <div className="rounded-full w-1.5 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-300 -mt-0.5" />
