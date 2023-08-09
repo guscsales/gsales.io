@@ -4,17 +4,22 @@ import React from 'react';
 import debounce from 'lodash/debounce';
 import { clientAPI } from '@/common/services/api';
 import { User } from '@prisma/client';
+import { SessionContext } from '@/domains/common/providers/session-provider';
 
 type Props = {
   visitor: User | null;
 };
 
 export default function InputName({ visitor }: Props) {
+  const { visitor: clientVisitor } = React.useContext(SessionContext);
+
   const updateUser = React.useCallback(
     debounce(async (name) => {
-      await clientAPI.patch(`/guests/${visitor?.id}`, { name });
+      await clientAPI.patch(`/guests/${visitor?.id || clientVisitor?.id}`, {
+        name,
+      });
     }, 300),
-    []
+    [clientVisitor]
   );
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {

@@ -15,19 +15,27 @@ export default function MainNavDesktop(
           Home
         </ButtonTransparent>
       </Link>
-      <Link href="/journey">
-        <ButtonTransparent as="span">Journey</ButtonTransparent>
-      </Link>
-      <Link href="/blog">
-        <ButtonTransparent as="span">Blog</ButtonTransparent>
-      </Link>
-      <Link href="/projects">
-        <ButtonTransparent as="span">Projects</ButtonTransparent>
-      </Link>
-      <Link href="/wall">
-        <ButtonTransparent as="span">Wall</ButtonTransparent>
-      </Link>
-      <ButtonTransparent>Message 4 U</ButtonTransparent>
+      {/* <Link href="/journey"> */}
+      <ButtonTransparent as="span" status="disabled">
+        Journey
+      </ButtonTransparent>
+      {/* </Link>
+      <Link href="/blog"> */}
+      <ButtonTransparent as="span" status="disabled">
+        Blog
+      </ButtonTransparent>
+      {/* </Link>
+      <Link href="/projects"> */}
+      <ButtonTransparent as="span" status="disabled">
+        Projects
+      </ButtonTransparent>
+      {/* </Link>
+      <Link href="/wall"> */}
+      <ButtonTransparent as="span" status="disabled">
+        Wall
+      </ButtonTransparent>
+      {/* </Link> */}
+      <ButtonTransparent status="disabled">Message 4 U</ButtonTransparent>
 
       <div className="w-px h-6 bg-zinc-100 dark:bg-zinc-800" />
 
@@ -50,7 +58,7 @@ export default function MainNavDesktop(
           </Dropdown.Portal>
         </Dropdown.Root> */}
 
-        <Dropdown.Root>
+        {/* <Dropdown.Root>
           <Dropdown.Trigger>
             <ButtonIcon icon={RiSunFill} size={18} />
           </Dropdown.Trigger>
@@ -62,7 +70,7 @@ export default function MainNavDesktop(
               <Dropdown.Item>System</Dropdown.Item>
             </Dropdown.Content>
           </Dropdown.Portal>
-        </Dropdown.Root>
+        </Dropdown.Root> */}
 
         <div className="w-px h-6 bg-zinc-100 dark:bg-zinc-800" />
 

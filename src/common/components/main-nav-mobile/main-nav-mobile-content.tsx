@@ -2,12 +2,7 @@
 
 import ButtonTransparent from '@/libs/ui/components/button-transparent';
 import Text from '@/libs/ui/components/text';
-import {
-  RiEarthFill,
-  RiFlagFill,
-  RiSunFill,
-  RiCloseFill,
-} from 'react-icons/ri';
+import { RiEarthFill, RiSunFill, RiCloseFill } from 'react-icons/ri';
 import { createPortal } from 'react-dom';
 import ButtonIcon from '@/libs/ui/components/button-icon';
 import { tv } from 'tailwind-variants';
@@ -70,27 +65,46 @@ export default function MainNavMobileContent({
                       Home
                     </ButtonTransparent>
                   </Link>
-                  <Link href="/journey">
-                    <ButtonTransparent as="span" className="justify-start">
-                      Journey
-                    </ButtonTransparent>
-                  </Link>
-                  <Link href="/blog">
-                    <ButtonTransparent as="span" className="justify-start">
-                      Blog
-                    </ButtonTransparent>
-                  </Link>
-                  <Link href="/projects">
-                    <ButtonTransparent as="span" className="justify-start">
-                      Projects
-                    </ButtonTransparent>
-                  </Link>
-                  <Link href="/wall">
-                    <ButtonTransparent as="span" className="justify-start">
-                      Wall
-                    </ButtonTransparent>
-                  </Link>
-                  <ButtonTransparent className="justify-start">
+                  {/* <Link href="/journey"> */}
+                  <ButtonTransparent
+                    as="span"
+                    className="justify-start"
+                    status="disabled"
+                  >
+                    Journey
+                  </ButtonTransparent>
+                  {/* </Link>
+                  <Link href="/blog"> */}
+                  <ButtonTransparent
+                    as="span"
+                    className="justify-start"
+                    status="disabled"
+                  >
+                    Blog
+                  </ButtonTransparent>
+                  {/* </Link>
+                  <Link href="/projects"> */}
+                  <ButtonTransparent
+                    as="span"
+                    className="justify-start"
+                    status="disabled"
+                  >
+                    Projects
+                  </ButtonTransparent>
+                  {/* </Link>
+                  <Link href="/wall"> */}
+                  <ButtonTransparent
+                    as="span"
+                    className="justify-start"
+                    status="disabled"
+                  >
+                    Wall
+                  </ButtonTransparent>
+                  {/* </Link> */}
+                  <ButtonTransparent
+                    className="justify-start"
+                    status="disabled"
+                  >
                     Message 4 U
                   </ButtonTransparent>
                 </div>
@@ -110,7 +124,7 @@ export default function MainNavMobileContent({
                 </div>
               </div> */}
 
-              <div className="grid gap-2">
+              {/* <div className="grid gap-2">
                 <Text className="text-sm flex gap-1 items-center">
                   <RiSunFill className="-mt-1" /> Theme
                 </Text>
@@ -119,7 +133,7 @@ export default function MainNavMobileContent({
                   <ButtonTransparent>Dark</ButtonTransparent>
                   <ButtonTransparent>System</ButtonTransparent>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="flex items-end">
