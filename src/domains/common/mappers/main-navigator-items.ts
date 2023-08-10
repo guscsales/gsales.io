@@ -2,12 +2,12 @@ export const mainNavigatorItems = {
   pages: [
     {
       href: '/',
-      state: 'active',
+      state: 'idle',
       label: 'Home',
     },
     {
       href: '/journey',
-      state: 'disabled',
+      state: 'idle',
       label: 'Journey',
     },
     {

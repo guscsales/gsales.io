@@ -5,6 +5,7 @@ type Props = {
   as?: keyof HTMLElementTagNameMap;
   highlight?: boolean;
   family?: 'sans' | 'code' | 'blast';
+  type?: 'common' | 'paragraph';
 };
 
 const Text = React.forwardRef(
@@ -13,6 +14,7 @@ const Text = React.forwardRef(
       as = 'span',
       family = 'sans',
       highlight = false,
+      type = 'common',
       children,
       className,
       ...props
@@ -39,6 +41,10 @@ const Text = React.forwardRef(
           code: 'font-code',
           blast: 'font-blast',
         },
+        type: {
+          common: '',
+          paragraph: 'leading-relaxed lg:leading-loose',
+        },
       },
     });
 
@@ -47,7 +53,7 @@ const Text = React.forwardRef(
       {
         ref,
         ...props,
-        className: defaultClassName({ class: className, family }),
+        className: defaultClassName({ class: className, family, type }),
       },
       children
     );

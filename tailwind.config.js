@@ -1,5 +1,6 @@
 const colors = require('tailwindcss/colors');
 const plugin = require('tailwindcss/plugin');
+const tw = require('tailwindcss/');
 const { withTV } = require('tailwind-variants/transformer');
 
 /** @type {import('tailwindcss').Config} */
@@ -30,7 +31,7 @@ module.exports = withTV({
         code: ['var(--font-code)'],
       },
       backgroundImage: {
-        'green-to-purple': `linear-gradient(253deg, ${colors.purple['500']} 0%, ${colors.green['500']} 61.46%)`,
+        'green-to-purple': `linear-gradient(253deg, ${colors.purple['500']} 0%, ${colors.emerald['200']} 61.46%)`,
         'zero-to-white':
           'linear-gradient(289deg, rgba(250, 250, 250, 0.60) 0%, rgba(250, 250, 250, 0.00) 100%)',
         'white-to-zero':
@@ -42,7 +43,7 @@ module.exports = withTV({
     },
   },
   plugins: [
-    plugin(({ addUtilities }) => {
+    plugin(({ addUtilities, theme }) => {
       addUtilities({
         '.transition-base': {
           transition: 'all 140ms ease-in-out',
