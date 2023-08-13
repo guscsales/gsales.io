@@ -100,7 +100,7 @@ export default function CarrierTimeline() {
         <div className="flex flex-nowrap lg:flex-col gap-2 lg:gap-5 lg:max-h-[356px] pb-2 lg:pr-2 scroll overflow-x-auto lg:overflow-y-auto lg:overflow-x-hidden">
           {experiences.map((experience, index) => (
             <CarrierTimelineItem
-              key={experience.title}
+              key={`${experience.title}-${index}`}
               active={index === currentExperienceIndex}
               experience={experience}
               onClick={() => {

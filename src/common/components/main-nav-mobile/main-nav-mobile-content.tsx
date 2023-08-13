@@ -17,6 +17,7 @@ import { mainNavigatorItems } from '@/domains/common/mappers/main-navigator-item
 import Typewriter from 'typewriter-effect';
 import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
 import { prepareTypewriterMultiPhrases } from '@/common/services/typewriter';
+import MainNavMenuItem from '@/common/components/main-nav-menu-item';
 
 type Props = {
   status: 'opened' | 'closed';
@@ -74,17 +75,11 @@ export default function MainNavMobileContent({
                   {mainNavigatorItems.pages.map(({ href, state, label }) =>
                     state !== 'disabled' ? (
                       <Link href={href} key={label}>
-                        <ButtonTransparent
-                          as="span"
-                          status={
-                            state as React.ComponentProps<
-                              typeof ButtonTransparent
-                            >['status']
-                          }
+                        <MainNavMenuItem
+                          label={label}
+                          href={href}
                           className="justify-start"
-                        >
-                          {label}
-                        </ButtonTransparent>
+                        />
                       </Link>
                     ) : (
                       <ButtonTransparent

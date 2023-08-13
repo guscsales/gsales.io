@@ -16,6 +16,7 @@ import Link from 'next/link';
 import Typewriter from 'typewriter-effect';
 import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
 import { prepareTypewriterMultiPhrases } from '@/common/services/typewriter';
+import { usePathname, useRouter } from 'next/navigation';
 
 function CommandKWrapper({
   children,
@@ -45,9 +46,11 @@ function CommandKWrapper({
 }
 
 export default function CommandK() {
-  const [value, setValue] = React.useState('linear');
+  const [value, setValue] = React.useState('');
   const inputRef = React.useRef<HTMLInputElement | null>(null);
   const listRef = React.useRef(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   React.useEffect(() => {
     inputRef?.current?.focus();
@@ -70,12 +73,23 @@ export default function CommandK() {
       } else if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
+      } else if (e.key === 'Enter') {
+        const item = mainNavigatorItems.pages.find(({ id }) => id === value);
+
+        if (item?.href) {
+          router.push(item.href);
+          setOpen(false);
+        }
       }
     };
 
     document.addEventListener('keydown', down);
     return () => document.removeEventListener('keydown', down);
-  }, []);
+  }, [value]);
+
+  React.useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <AnimatePresence>

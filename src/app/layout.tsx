@@ -8,6 +8,7 @@ import UserService from '@/domains/users/services/user-service';
 import CreateSession from '@/domains/common/components/create-session';
 import SessionProvider from '@/domains/common/providers/session-provider';
 import CommandK from '@/domains/common/components/command-k';
+import { headers } from 'next/headers';
 
 export const metadata: Metadata = {
   title: 'Software Engineer | Javascript Specialist - Gus!',
@@ -23,6 +24,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const user = await UserService.getUserFromSession();
+  const pathname = headers().get('x-pathname');
 
   return (
     <html lang="en">

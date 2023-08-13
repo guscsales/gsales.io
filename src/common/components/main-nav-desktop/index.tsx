@@ -5,6 +5,7 @@ import Text from '@/libs/ui/components/text';
 import { RiSunFill } from 'react-icons/ri';
 import Link from 'next/link';
 import { mainNavigatorItems } from '@/domains/common/mappers/main-navigator-items';
+import MainNavMenuItem from '@/common/components/main-nav-menu-item';
 
 export default function MainNavDesktop(
   props: React.HTMLAttributes<HTMLElement>
@@ -14,16 +15,7 @@ export default function MainNavDesktop(
       {mainNavigatorItems.pages.map(({ href, state, label }) =>
         state !== 'disabled' ? (
           <Link href={href} key={label}>
-            <ButtonTransparent
-              as="span"
-              status={
-                state as React.ComponentProps<
-                  typeof ButtonTransparent
-                >['status']
-              }
-            >
-              {label}
-            </ButtonTransparent>
+            <MainNavMenuItem label={label} href={href} />
           </Link>
         ) : (
           <ButtonTransparent

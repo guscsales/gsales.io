@@ -1,11 +1,13 @@
 export const mainNavigatorItems = {
   pages: [
     {
+      id: 'home',
       href: '/',
       state: 'idle',
       label: 'Home',
     },
     {
+      id: 'journey',
       href: '/journey',
       state: 'idle',
       label: 'Journey',
