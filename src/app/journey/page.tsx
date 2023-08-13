@@ -6,8 +6,13 @@ import gusToday from '@/assets/images/me-today.png';
 import { headers } from 'next/headers';
 import DeviceService from '@/common/services/device-service';
 import Card from '@/libs/ui/components/card';
+import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
+import CarrierTimeline from '@/domains/journey/carrier-timeline';
+import { educations } from '@/domains/journey/mappers/carrier';
 
 export default function JourneyPage() {
+  const startedAt = 2009;
+  const currentDate = new Date();
   const headersList = headers();
   const device = DeviceService.getDeviceDetails(
     headersList.get('user-agent') as string
@@ -93,19 +98,30 @@ export default function JourneyPage() {
         <Text as="p" className="mb-3" type="paragraph">
           I believe coding is{' '}
           <Text highlight>more than just write lines and complex words.</Text>{' '}
-          What give me gas to continue every day it&apos;s the purpose of
+          What give me gas to continue every day it&apos;s the purpose of{' '}
           <Text highlight>improving people&apos;s lives</Text> through what I
           write in the IDEs, whether in personal projects or within companies,
           the goal is always the same:{' '}
           <Text highlight>
             to leave a legacy and make a difference in someone&apos;s life.
+          </Text>{' '}
+          However, those people are not limited to final clients only. All
+          people that already worked with me{' '}
+          <Text highlight>taught me something</Text> and also{' '}
+          <Text highlight>taught them</Text>, keeping always my main principles,
+          that are:{' '}
+          <Text highlight>
+            {myPhilosophy.join(', ').replace('!', '').toLowerCase()}
           </Text>
+          .
         </Text>
 
         <Text as="p" className="mb-3" type="paragraph">
-          My journey started in 2009, when I had my first contact with coding,
-          I&apos;m <Text highlight>14 years on the road</Text> and here I want
-          to share my journey in a little more detail, i.e.:{' '}
+          I&apos;m{' '}
+          <Text highlight>
+            {currentDate.getFullYear() - startedAt} years on the road
+          </Text>{' '}
+          and here I want to share my journey in a little more detail, i.e.:{' '}
           <Text highlight>
             the companies I went through, where I studied and the awards I
             owned.
@@ -115,6 +131,60 @@ export default function JourneyPage() {
         <Text as="p" type="paragraph" highlight>
           Fasten your seatbelt! 🚀
         </Text>
+      </section>
+
+      <section className="mt-8">
+        <Text
+          as="h2"
+          className="text-2xl mb-2 font-bold text-zinc-900 dark:text-zinc-50"
+        >
+          Carrier
+        </Text>
+
+        <Text as="p" className="mb-6">
+          If you already watched <Text highlight>Interstellar</Text>, for sure
+          you know about the <Text highlight>Miller Planet</Text>. My journey
+          it&apos;s kind closer to this <Text highlight>since {startedAt}</Text>
+          , when I had my first interaction with coding, until today, and for
+          sure to the future. Well, one thing about me: I like sorting stuff, so
+          my timeline will be described from present to past.
+        </Text>
+
+        <CarrierTimeline />
+      </section>
+
+      <section className="mt-8 lg:mt-10">
+        <Text
+          as="h2"
+          className="text-2xl mb-2 font-bold text-zinc-900 dark:text-zinc-50"
+        >
+          Education
+        </Text>
+
+        <div className="grid gap-3">
+          {educations.map((education) => (
+            <div key={education.title} className="flex flex-col gap-1 z-20">
+              <Text
+                as="h3"
+                className="text-xl font-medium text-zinc-900 dark:text-zinc-50"
+              >
+                {education.title}
+              </Text>
+              <div className="flex gap-1.5 items-center">
+                <Text className="font-light text-zinc-800 dark:text-zinc-300">
+                  {education.institution}
+                </Text>
+
+                <div className="w-1 h-1  -mt-1 rounded-full bg-zinc-900/[.12] dark:bg-zinc-50/[.12]" />
+                <Text className="font-light">{education.degree}</Text>
+                <div className="w-1 h-1  -mt-1 rounded-full bg-zinc-900/[.12] dark:bg-zinc-50/[.12]" />
+                <Text className="font-light">{education.startYear}</Text>
+                <div className="w-1 h-1 -mt-1 rounded-full bg-zinc-900/[.12] dark:bg-zinc-50/[.12]" />
+                <Text className="font-light">{education.endYear}</Text>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </article>
   );

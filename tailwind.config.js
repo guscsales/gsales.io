@@ -40,6 +40,9 @@ module.exports = withTV({
           'linear-gradient(155deg, #60A5FA 0%, rgba(167, 243, 208, 0.1) 75%, rgba(0, 0, 0, 0) 100%)',
         'red-to-pink': `linear-gradient(47deg, ${colors.red['500']} 0%, ${colors.pink['500']} 100%)`,
       },
+      boxShadow: {
+        'dark-scroll': '0 0 0.25rem rgba(250, 250, 250, 0.06)', // Zinc 50/6%
+      },
     },
   },
   plugins: [
