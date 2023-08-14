@@ -9,6 +9,7 @@ import {
   RiFileList2Fill,
   RiFootballLine,
   RiImage2Fill,
+  RiMapPinFill,
   RiMoneyDollarCircleFill,
   RiPlayFill,
   RiTerminalWindowFill,
@@ -63,7 +64,7 @@ function ProjectCard({
   );
 }
 
-export default function JourneyPage() {
+export default function ProjectsPage() {
   return (
     <article className="container mt-5">
       <PageHeader
@@ -117,7 +118,7 @@ export default function JourneyPage() {
           />
 
           <ProjectCard
-            icon={RiYoutubeFill}
+            icon={RiMapPinFill}
             title="Busca CEP"
             headline="Miscellaneous"
             description="I created this project to help me find addresses quickly and to test the Brazil APIs, a new open source project which consolidates several important public data APIs from Brazil."
