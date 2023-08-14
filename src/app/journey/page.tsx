@@ -9,6 +9,7 @@ import Card from '@/libs/ui/components/card';
 import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
 import CarrierTimeline from '@/domains/journey/carrier-timeline';
 import { educations } from '@/domains/journey/mappers/carrier';
+import PageHeader from '@/common/components/page-header';
 
 export default function JourneyPage() {
   const startedAt = 2009;
@@ -20,17 +21,11 @@ export default function JourneyPage() {
 
   return (
     <article className="container mt-5">
-      <header className="flex flex-col gap-2.5 mb-2">
-        <Text className="flex gap-1 items-center uppercase text-sm text-zinc-600 dark:text-zinc-300">
-          <RiEarthFill size={16} className="-mt-1" />
-          Planet Journey
-        </Text>
-        <Text className="text-4xl font-bold">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 dark:from-emerald-200 to-purple-500 dark:to-purple-500">
-            Be Relentless. Collect Feedback. Do Again.
-          </span>
-        </Text>
-      </header>
+      <PageHeader
+        planet="Journey"
+        title="Be Relentless. Collect Feedback. Do Again."
+        className="mb-2"
+      />
 
       <section>
         <div className="float-left mr-3 mb-3 lg:mr-4 lg:mb-4 relative w-40 h-40 lg:w-60 lg:h-60">

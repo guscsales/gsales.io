@@ -13,19 +13,21 @@ export const mainNavigatorItems = {
       label: 'Journey',
     },
     {
-      href: '/blog',
-      state: 'disabled',
-      label: 'Blog',
-    },
-    {
+      id: 'projects',
       href: '/projects',
-      state: 'disabled',
+      state: 'idle',
       label: 'Projects',
     },
     {
       href: '/wall',
       state: 'disabled',
       label: 'Wall',
+    },
+    {
+      href: '/blog',
+      state: 'disabled',
+      label: 'Blog',
+      soon: true,
     },
   ],
   interactions: [
