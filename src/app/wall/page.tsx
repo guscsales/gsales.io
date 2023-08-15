@@ -11,7 +11,7 @@ import MessagesService from '@/domains/messages/services/messages-service';
 import { headers } from 'next/headers';
 import DeviceService from '@/common/services/device-service';
 import MessageCardContent from '@/domains/wall/components/message-card-content';
-import { Suspense } from 'react';
+import MessageCardsMasonry from '@/domains/wall/components/message-cards-masonry';
 
 type MessageCardProps = {
   message: Message & { User: { name: string; visitorNumber: number } };
@@ -98,25 +98,33 @@ export default async function WallPage() {
   const [latestMessage, ...messages] = await MessagesService.fetchAll();
 
   return (
-    <article className="container mt-5">
-      <PageHeader planet="Wall" title="Time to interact!" className="mb-2" />
+    <article className="mt-5">
+      <PageHeader
+        planet="Wall"
+        title="Time to interact!"
+        className="container mb-2"
+      />
 
-      <Text as="p" className="mb-3" type="paragraph">
-        Like every good trip, now it&apos;s time for you to interact with what
-        I&apos;m proposing, but before, giving you more context:{' '}
-        <Text highlight>
-          have you ever heard about &quot;The Facebook Wall&quot;?
-        </Text>{' '}
-        It&apos;s very nice! You can write any message there, and I created my
-        version right here, so{' '}
-        <Text highlight>feel free to post something for me or anyone else</Text>{' '}
-        to read. It could be <Text highlight>inspirational</Text>,{' '}
-        <Text highlight>some feedback</Text>, <Text highlight>kudos</Text>,{' '}
-        <Text highlight>a reminder for (or from) the future</Text> or from the
-        future, or <Text highlight>anything you want</Text> to share.
-      </Text>
+      <section className="container">
+        <Text as="p" className="mb-3" type="paragraph">
+          Like every good trip, now it&apos;s time for you to interact with what
+          I&apos;m proposing, but before, giving you more context:{' '}
+          <Text highlight>
+            have you ever heard about &quot;The Facebook Wall&quot;?
+          </Text>{' '}
+          It&apos;s very nice! You can write any message there, and I created my
+          version right here, so{' '}
+          <Text highlight>
+            feel free to post something for me or anyone else
+          </Text>{' '}
+          to read. It could be <Text highlight>inspirational</Text>,{' '}
+          <Text highlight>some feedback</Text>, <Text highlight>kudos</Text>,{' '}
+          <Text highlight>a reminder for (or from) the future</Text> or from the
+          future, or <Text highlight>anything you want</Text> to share.
+        </Text>
+      </section>
 
-      <section>
+      <section className="container">
         <Text
           as="h2"
           className="text-zinc-900 dark:text-zinc-50 font-bold text-2xl mb-2"
@@ -137,8 +145,10 @@ export default async function WallPage() {
         >
           and more...
         </Text>
+      </section>
 
-        <div className="grid lg:grid-cols-2 gap-4">
+      <section className="px-3 lg:px-4">
+        <MessageCardsMasonry>
           {messages.map((message, index) => (
             <MessageCard
               key={message.id}
@@ -146,7 +156,7 @@ export default async function WallPage() {
               leftPosition={!device.isMobile && index % 2 === 0}
             />
           ))}
-        </div>
+        </MessageCardsMasonry>
       </section>
     </article>
   );

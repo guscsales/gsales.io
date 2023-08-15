@@ -21,7 +21,7 @@ export const mainNavigatorItems = {
     {
       id: 'wall',
       href: '/wall',
-      state: 'disabled',
+      state: 'idle',
       label: 'Wall',
     },
     {

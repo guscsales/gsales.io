@@ -38,6 +38,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "react-loading-skeleton": "^3.3.1",
+    "react-responsive-masonry": "^2.1.7",
     "sharp": "^0.32.4",
     "swr": "^2.2.1",
     "tailwind-variants": "^0.1.13",
@@ -50,6 +51,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.196",
     "@types/negotiator": "^0.6.1",
+    "@types/react-responsive-masonry": "^2.1.0",
     "@types/ua-parser-js": "^0.7.36",
     "prisma": "^5.1.1",
     "sass": "^1.64.2",
