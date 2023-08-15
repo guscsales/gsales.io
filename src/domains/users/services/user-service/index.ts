@@ -10,9 +10,29 @@ async function getUserById(id: string) {
   return user;
 }
 
-async function createUser() {
+type CreateUser = {
+  name?: string;
+  email?: string;
+  visitorNumber?: number;
+};
+
+async function createUser({ name, email, visitorNumber }: CreateUser = {}) {
   const newUser = await DatabaseService.instance<User>((prisma) =>
-    prisma.user.create({ data: {} })
+    prisma.user.create({ data: { name, email, visitorNumber } })
+  );
+
+  return newUser;
+}
+
+type UpdateUser = {
+  userId: string;
+  name: string;
+  email: string;
+};
+
+async function updateUser({ userId, name, email }: UpdateUser) {
+  const newUser = await DatabaseService.instance<User>((prisma) =>
+    prisma.user.update({ where: { id: userId }, data: { name, email } })
   );
 
   return newUser;
@@ -33,6 +53,7 @@ const UserService = {
   getUserFromSession,
   getUserById,
   createUser,
+  updateUser,
 };
 
 export default UserService;

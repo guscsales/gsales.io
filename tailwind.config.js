@@ -1,6 +1,5 @@
 const colors = require('tailwindcss/colors');
 const plugin = require('tailwindcss/plugin');
-const tw = require('tailwindcss/');
 const { withTV } = require('tailwind-variants/transformer');
 
 /** @type {import('tailwindcss').Config} */
@@ -38,6 +37,8 @@ module.exports = withTV({
           'linear-gradient(316deg, rgba(250, 250, 250, 0.00) 0%, rgba(250, 250, 250, 0.60) 100%)',
         'blue-green-to-zero':
           'linear-gradient(155deg, #60A5FA 0%, rgba(167, 243, 208, 0.1) 75%, rgba(0, 0, 0, 0) 100%)',
+        'zero-to-blue-green':
+          'linear-gradient(19deg, rgba(0, 0, 0, 0) 0%, rgba(167, 243, 208, 0.1) 25%, #60A5FA 100%)',
         'red-to-pink': `linear-gradient(47deg, ${colors.red['500']} 0%, ${colors.pink['500']} 100%)`,
       },
       boxShadow: {
@@ -46,7 +47,7 @@ module.exports = withTV({
     },
   },
   plugins: [
-    plugin(({ addUtilities, theme }) => {
+    plugin(({ addUtilities }) => {
       addUtilities({
         '.transition-base': {
           transition: 'all 140ms ease-in-out',

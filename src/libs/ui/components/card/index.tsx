@@ -7,6 +7,7 @@ type Props = {
     | 'zero-to-white'
     | 'white-to-zero'
     | 'blue-green-to-zero'
+    | 'zero-to-blue-green'
     | 'red-to-pink';
   wrapperClassName?: string;
 };
@@ -28,6 +29,7 @@ export default function Card({
         'zero-to-white': 'bg-zero-to-white',
         'white-to-zero': 'bg-white-to-zero',
         'blue-green-to-zero': 'bg-blue-green-to-zero',
+        'zero-to-blue-green': 'bg-zero-to-blue-green',
         'red-to-pink': 'bg-red-to-pink',
       },
     },

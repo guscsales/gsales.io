@@ -32,7 +32,7 @@ export default function Badge({
 
   return (
     <div className={cardWrapper({ className, color })} {...props}>
-      <Text className="text-zinc-50 text-xs font-bold">{children}</Text>
+      <Text className="text-zinc-50 text-xs font-bold h-3.5">{children}</Text>
     </div>
   );
 }

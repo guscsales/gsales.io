@@ -2,13 +2,13 @@ import fonts from '@/libs/ui/core/fonts';
 import type { Metadata } from 'next';
 import MainHeader from '@/common/components/main-header';
 import MainFooter from '@/common/components/main-footer';
-
-import '@/common/styles/globals.css';
 import UserService from '@/domains/users/services/user-service';
 import CreateSession from '@/domains/common/components/create-session';
-import SessionProvider from '@/domains/common/providers/session-provider';
 import CommandK from '@/domains/common/components/command-k';
-import { headers } from 'next/headers';
+import CoreProvider from '@/domains/common/providers/core-provider';
+
+import '@/common/styles/globals.css';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export const metadata: Metadata = {
   title: 'Software Engineer | Javascript Specialist - Gus!',
@@ -24,18 +24,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const user = await UserService.getUserFromSession();
-  const pathname = headers().get('x-pathname');
 
   return (
     <html lang="en">
       <body className={`dark ${fonts.className} pt-14`}>
-        <SessionProvider>
+        <CoreProvider>
           <CreateSession userId={user?.id} />
           <MainHeader />
           <main>{children}</main>
           <MainFooter />
           <CommandK />
-        </SessionProvider>
+        </CoreProvider>
       </body>
     </html>
   );

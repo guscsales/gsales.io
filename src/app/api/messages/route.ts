@@ -13,6 +13,8 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const messagePostValidator = z.object({
+    name: z.string({ required_error: ValidatorErrors.RequiredField }),
+    email: z.string({ required_error: ValidatorErrors.RequiredField }).email(),
     content: z.string({ required_error: ValidatorErrors.RequiredField }),
     userId: z.string({ required_error: ValidatorErrors.RequiredField }),
     fromLinkedIn: z.boolean({ required_error: ValidatorErrors.RequiredField }),

@@ -8,7 +8,7 @@ const prisma = new PrismaClient({
 
 async function instance<T>(execFunc: (prisma: PrismaClient) => Promise<T>) {
   try {
-    const response = execFunc(prisma);
+    const response = await execFunc(prisma);
     prisma.$disconnect();
 
     return response;
