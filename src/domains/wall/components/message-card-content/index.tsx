@@ -11,7 +11,10 @@ type Props = {
 };
 
 export default function MessageCardContent({ messageId }: Props) {
-  const { data, isLoading } = useSWR<Message>(`/messages/${messageId}`);
+  const { data, isLoading } = useSWR<Message>(`/messages/${messageId}`, {
+    revalidateOnFocus: false,
+    revalidateIfStale: false,
+  });
 
   return !isLoading ? (
     <Text
@@ -22,14 +25,12 @@ export default function MessageCardContent({ messageId }: Props) {
         __html:
           data?.content
             .split('\n\n')
-            .map((paragraph) => `<p>${paragraph}</p>`)
+            .map((paragraph) => `<p class="break-all">${paragraph}</p>`)
             .join('') || '',
       }}
     />
   ) : (
     <>
-      <Skeleton height={14} />
-      <Skeleton height={14} />
       <Skeleton height={14} />
       <Skeleton width="75%" height={14} />
     </>

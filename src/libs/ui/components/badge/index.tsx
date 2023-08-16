@@ -8,7 +8,8 @@ type Props = {
     | 'zero-to-white'
     | 'white-to-zero'
     | 'blue-green-to-zero'
-    | 'red-to-pink';
+    | 'red-to-pink'
+    | 'opaque';
 };
 
 export default function Badge({
@@ -26,6 +27,7 @@ export default function Badge({
         'white-to-zero': 'bg-white-to-zero',
         'blue-green-to-zero': 'bg-blue-green-to-zero',
         'red-to-pink': 'bg-red-to-pink',
+        opaque: 'bg-zinc-900/[.12] dark:bg-zinc-50/[.12]',
       },
     },
   });
