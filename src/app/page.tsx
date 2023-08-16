@@ -31,21 +31,9 @@ export default async function Home() {
           while listening to music.
         </Text>
         <Text className="font-bold text-2xl text-zinc-900 dark:text-zinc-50 mb-3">
-          For your ticket: what&apos;s your name?
+          Fill your ticket: what&apos;s your name?
         </Text>
         <InputName visitor={visitor} />
-        <Text className="font-bold text-zinc-900 dark:text-zinc-50 mt-8">
-          This is a work in progress. You can still check my website{' '}
-          <Link
-            href="https://old.gsales.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline text-blue-300"
-          >
-            old version
-          </Link>
-          .
-        </Text>
       </div>
 
       <Ticket visitor={visitor} currentDate={currentDate} device={device} />

@@ -1,10 +1,11 @@
 import PageHeader from '@/common/components/page-header';
 import Text from '@/libs/ui/components/text';
 import MessagesService from '@/domains/messages/services/messages-service';
-import { headers } from 'next/headers';
 import MessageCardsList from '@/domains/wall/components/message-cards-list';
 import Image from 'next/image';
 import flagOnMoon from '@/assets/images/flag-on-moon.jpeg';
+import UserService from '@/domains/users/services/user-service';
+import { cookies } from 'next/headers';
 
 export default async function WallPage() {
   const messages = await MessagesService.fetchAll();
