@@ -1,23 +1,27 @@
 import Text from '@/libs/ui/components/text';
 import Image from 'next/image';
-import { RiEarthFill } from 'react-icons/ri';
 import gusBaby from '@/assets/images/me-one-year-old.png';
 import gusToday from '@/assets/images/me-today.png';
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import DeviceService from '@/common/services/device-service';
 import Card from '@/libs/ui/components/card';
 import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
 import CarrierTimeline from '@/domains/journey/carrier-timeline';
 import { educations } from '@/domains/journey/mappers/carrier';
 import PageHeader from '@/common/components/page-header';
+import UserService from '@/domains/users/services/user-service';
 
-export default function JourneyPage() {
+export default async function JourneyPage() {
   const startedAt = 2009;
   const currentDate = new Date();
   const headersList = headers();
   const device = DeviceService.getDeviceDetails(
     headersList.get('user-agent') as string
   );
+  const guest = await UserService.getUserById(
+    cookies().get('gs_session')!.value
+  );
+  const firstName = guest?.name?.split(' ')[0];
 
   return (
     <article className="container mt-5">
@@ -43,11 +47,12 @@ export default function JourneyPage() {
         </div>
 
         <Text as="p" className="mb-3" type="paragraph">
-          Now officially, <Text highlight>I want to welcome you</Text>, my name
-          is <Text highlight>Gustavo Campos Sales (a.k.a: Gus)</Text>, the
-          captain of this rocket and the person in the photo on the right. Being
-          honest, I&apos;m currently looks less like the Gus aside, because of
-          course, this photo was taken a few years ago 🤣.
+          Hi {firstName ? firstName : 'traveler'}, now officially,{' '}
+          <Text highlight>I want to welcome you</Text>, my name is{' '}
+          <Text highlight>Gustavo Campos Sales (a.k.a: Gus)</Text>, the captain
+          of this rocket and the person in the photo on the right. Being honest,
+          I&apos;m currently looks less like the Gus aside, because of course,
+          this photo was taken a few years ago 🤣.
         </Text>
 
         <Text as="p" className="mb-3" type="paragraph">
