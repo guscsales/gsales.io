@@ -19,6 +19,13 @@ import CircleSeparator from '@/common/components/circle-separator';
 import Link from 'next/link';
 import Badge from '@/libs/ui/components/badge';
 import { IconType } from 'react-icons';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Study and make a project | Projects',
+  description:
+    'Part of a software engineer life is creating side projects. Here I list my main JavaScript and Open Source projects I made for study, for community and more.',
+};
 
 type ProjectCardProps = {
   icon: IconType;

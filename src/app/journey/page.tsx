@@ -10,6 +10,13 @@ import CarrierTimeline from '@/domains/journey/carrier-timeline';
 import { educations } from '@/domains/journey/mappers/carrier';
 import PageHeader from '@/common/components/page-header';
 import UserService from '@/domains/users/services/user-service';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Be Relentless. Collect Feedback. Do Again. | Journey',
+  description:
+    "I've been on the road for 14 years, it's a lot of history, a lot of projects and a lot of people. Here I want to share my journey since 2009 in a little more detail.",
+};
 
 export default async function JourneyPage() {
   const startedAt = 2009;

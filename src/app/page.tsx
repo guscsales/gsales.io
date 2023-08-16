@@ -3,9 +3,15 @@ import Text from '@/libs/ui/components/text';
 import Ticket from '@/domains/homepage/components/ticket';
 import UserService from '@/domains/users/services/user-service';
 import InputName from '@/domains/homepage/components/input-name';
-import Link from 'next/link';
 import { headers } from 'next/headers';
 import DeviceService from '@/common/services/device-service';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Software Engineer | Javascript Specialist | Gustavo Sales',
+  description:
+    'Coding awesome things since 2009, with many attention of details, feeling owner and giving and receiving feedback. You can call me Gus.',
+};
 
 export default async function Home() {
   // Date from server

@@ -4,8 +4,13 @@ import MessagesService from '@/domains/messages/services/messages-service';
 import MessageCardsList from '@/domains/wall/components/message-cards-list';
 import Image from 'next/image';
 import flagOnMoon from '@/assets/images/flag-on-moon.jpeg';
-import UserService from '@/domains/users/services/user-service';
-import { cookies } from 'next/headers';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Plant your flag! | Wall',
+  description:
+    'Have you ever heard about "The Facebook Wall"? Post any message here for me or anyone else to read. Be creative!',
+};
 
 export default async function WallPage() {
   const messages = await MessagesService.fetchAll();
