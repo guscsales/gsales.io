@@ -25,7 +25,7 @@ export default function MessageCardContent({ messageId }: Props) {
         __html:
           data?.content
             .split('\n\n')
-            .map((paragraph) => `<p class="break-all">${paragraph}</p>`)
+            .map((paragraph) => `<p class="break-words">${paragraph}</p>`)
             .join('') || '',
       }}
     />
