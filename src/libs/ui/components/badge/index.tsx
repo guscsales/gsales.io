@@ -18,7 +18,7 @@ export default function Badge({
   children,
   ...props
 }: Props & React.HTMLAttributes<HTMLElement>) {
-  const cardWrapper = tv({
+  const badgeWrapper = tv({
     base: 'inline-flex items-center justify-center rounded py-[0.188rem] px-1.5 cursor-default',
     variants: {
       color: {
@@ -31,10 +31,23 @@ export default function Badge({
       },
     },
   });
+  const badgeText = tv({
+    base: 'text-xs font-bold h-3.5',
+    variants: {
+      color: {
+        'green-to-purple': 'text-zinc-50',
+        'zero-to-white': 'text-zinc-50',
+        'white-to-zero': 'text-zinc-50',
+        'blue-green-to-zero': 'text-zinc-50',
+        'red-to-pink': 'text-zinc-50',
+        opaque: 'text-zinc-900 dark:text-zinc-50',
+      },
+    },
+  });
 
   return (
-    <div className={cardWrapper({ className, color })} {...props}>
-      <Text className="text-zinc-50 text-xs font-bold h-3.5">{children}</Text>
+    <div className={badgeWrapper({ className, color })} {...props}>
+      <Text className={badgeText({ color })}>{children}</Text>
     </div>
   );
 }

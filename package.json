@@ -33,6 +33,7 @@
     "negotiator": "^0.6.3",
     "next": "13.4.12",
     "next-api-builder": "^1.0.1",
+    "next-themes": "^0.2.1",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -50,6 +51,8 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/jest": "^29.5.3",
     "@types/lodash": "^4.14.196",
     "@types/negotiator": "^0.6.1",
     "@types/react-responsive-masonry": "^2.1.0",

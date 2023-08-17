@@ -35,6 +35,10 @@ module.exports = withTV({
           'linear-gradient(289deg, rgba(250, 250, 250, 0.60) 0%, rgba(250, 250, 250, 0.00) 100%)',
         'white-to-zero':
           'linear-gradient(316deg, rgba(250, 250, 250, 0.00) 0%, rgba(250, 250, 250, 0.60) 100%)',
+        'zero-to-black':
+          'linear-gradient(289deg, rgba(24,24,27, 0.60) 0%, rgba(24,24,27, 0.00) 100%)',
+        'black-to-zero':
+          'linear-gradient(316deg, rgba(24,24,27, 0.00) 0%, rgba(24,24,27, 0.60) 100%)',
         'blue-green-to-zero':
           'linear-gradient(155deg, #60A5FA 0%, rgba(167, 243, 208, 0.1) 75%, rgba(0, 0, 0, 0) 100%)',
         'zero-to-blue-green':

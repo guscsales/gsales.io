@@ -5,7 +5,7 @@ import gusToday from '@/assets/images/me-today.png';
 import { cookies, headers } from 'next/headers';
 import DeviceService from '@/common/services/device-service';
 import Card from '@/libs/ui/components/card';
-import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
+import { myPhilosophy } from '@/common/mappers/my-philosophy';
 import CarrierTimeline from '@/domains/journey/carrier-timeline';
 import { educations } from '@/domains/journey/mappers/carrier';
 import PageHeader from '@/common/components/page-header';

@@ -101,9 +101,9 @@ export default function atvImg(withCircles: boolean = false) {
     shadowHTML.className = 'atvImg-shadow';
     layersHTML.className = 'atvImg-layers';
     circleTopHTML.className =
-      'w-[59px] h-[53px] absolute top-[-27px] left-[121px] bg-zinc-900 rounded-full z-50';
+      'w-[59px] h-[53px] absolute top-[-27px] left-[121px] bg-zinc-50 dark:bg-zinc-900 rounded-full z-50';
     circleBottomHTML.className =
-      'w-[59px] h-[53px] absolute bottom-[-24px] left-[122px] bg-zinc-900 rounded-full z-50';
+      'w-[59px] h-[53px] absolute bottom-[-24px] left-[122px] bg-zinc-50 dark:bg-zinc-900 rounded-full z-50';
 
     for (var i = 0; i < totalLayerElems; i++) {
       var layer = d.createElement('div'),

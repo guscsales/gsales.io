@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { clientAPI } from '@/common/services/api';
-import { SessionContext } from '@/domains/common/providers/session-provider';
+import { SessionContext } from '@/common/providers/session-provider';
 import { User } from '@prisma/client';
 
 type Props = {

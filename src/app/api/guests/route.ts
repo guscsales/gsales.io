@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import DatabaseService from '@/common/services/database-service';
-import { User } from '@prisma/client';
 import { StatusCodes } from '@/common/enums/status-codes';
 import UserService from '@/domains/users/services/user-service';
 

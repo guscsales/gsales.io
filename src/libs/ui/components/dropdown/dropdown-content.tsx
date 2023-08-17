@@ -9,12 +9,13 @@ export default function DropdownContent({
   ...props
 }: React.ComponentProps<typeof DropdownMenu.Content>) {
   const defaultClassName = tv({
-    base: 'rounded dark:bg-zinc-50/[.06] shadow-lg p-2',
+    base: 'rounded bg-zinc-200 dark:bg-zinc-800 shadow-lg p-2',
   });
   return (
     <DropdownMenu.Content
       {...props}
       className={defaultClassName({ className })}
+      sideOffset={4}
     >
       {children}
     </DropdownMenu.Content>

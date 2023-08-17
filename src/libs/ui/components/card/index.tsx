@@ -26,8 +26,8 @@ export default function Card({
     variants: {
       border: {
         'green-to-purple': 'bg-green-to-purple',
-        'zero-to-white': 'bg-zero-to-white',
-        'white-to-zero': 'bg-white-to-zero',
+        'zero-to-white': 'bg-zero-to-black dark:bg-zero-to-white',
+        'white-to-zero': 'bg-black-to-zero dark:bg-white-to-zero',
         'blue-green-to-zero': 'bg-blue-green-to-zero',
         'zero-to-blue-green': 'bg-zero-to-blue-green',
         'red-to-pink': 'bg-red-to-pink',

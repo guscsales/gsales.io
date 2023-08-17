@@ -2,9 +2,13 @@
 
 import ButtonIcon from '@/libs/ui/components/button-icon';
 import { RiMenuFill } from 'react-icons/ri';
-import MainNavMobileContent from './main-nav-mobile-content';
 import React from 'react';
 import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
+const MainNavMobileContent = dynamic(
+  () => import('@/common/components/main-nav-mobile/main-nav-mobile-content'),
+  { ssr: false }
+);
 
 export default function MainNavMobile() {
   const pathname = usePathname();

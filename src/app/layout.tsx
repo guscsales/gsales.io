@@ -3,12 +3,16 @@ import type { Metadata } from 'next';
 import MainHeader from '@/common/components/main-header';
 import MainFooter from '@/common/components/main-footer';
 import UserService from '@/domains/users/services/user-service';
-import CreateSession from '@/domains/common/components/create-session';
-import CommandK from '@/domains/common/components/command-k';
-import CoreProvider from '@/domains/common/providers/core-provider';
+import CreateSession from '@/common/components/create-session';
+import CoreProvider from '@/common/providers/core-provider';
+import dynamic from 'next/dynamic';
 
 import '@/common/styles/globals.css';
 import 'react-loading-skeleton/dist/skeleton.css';
+
+const CommandK = dynamic(() => import('@/common/components/command-k'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: {
@@ -26,10 +30,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const user = await UserService.getUserFromSession();
+  // const { theme } = JSON.parse(cookies().get('theme')?.value as string);
 
   return (
     <html lang="en">
-      <body className={`dark ${fonts.className} pt-14`}>
+      <body className={`${fonts.className} pt-14`}>
         <CoreProvider>
           <CreateSession userId={user?.id} />
           <MainHeader />

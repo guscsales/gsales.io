@@ -4,9 +4,14 @@ import Card from '@/libs/ui/components/card';
 import classNames from 'classnames';
 import { format } from 'date-fns';
 import { RiMessage3Line, RiLinkedinBoxFill } from 'react-icons/ri';
-import MessageCardContent from '@/domains/wall/components/message-card-content';
 import Text from '@/libs/ui/components/text';
 import { Message } from '@/domains/messages/services/messages-service';
+import dynamic from 'next/dynamic';
+
+const MessageCardContent = dynamic(
+  () => import('@/domains/wall/components/message-card-content'),
+  { ssr: false }
+);
 
 type Props = {
   message: Message;

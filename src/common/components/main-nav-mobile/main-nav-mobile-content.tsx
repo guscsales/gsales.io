@@ -7,17 +7,19 @@ import {
   RiSunFill,
   RiCloseFill,
   RiStarSFill,
+  RiMoonFill,
 } from 'react-icons/ri';
 import { createPortal } from 'react-dom';
 import ButtonIcon from '@/libs/ui/components/button-icon';
 import { tv } from 'tailwind-variants';
 import Link from 'next/link';
 import React from 'react';
-import { mainNavigatorItems } from '@/domains/common/mappers/main-navigator-items';
+import { mainNavigatorItems } from '@/common/mappers/main-navigator-items';
 import Typewriter from 'typewriter-effect';
-import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
+import { myPhilosophy } from '@/common/mappers/my-philosophy';
 import { prepareTypewriterMultiPhrases } from '@/common/services/typewriter';
 import MainNavMenuItem from '@/common/components/main-nav-menu-item';
+import { useTheme } from 'next-themes';
 
 type Props = {
   status: 'opened' | 'closed';
@@ -31,6 +33,7 @@ export default function MainNavMobileContent({
   ...props
 }: Props & React.HTMLAttributes<HTMLElement>) {
   const [ready, setReady] = React.useState(false);
+  const { theme, setTheme } = useTheme();
 
   React.useEffect(() => {
     if (document) {
@@ -39,7 +42,7 @@ export default function MainNavMobileContent({
   }, []);
 
   const wrapper = tv({
-    base: 'fixed w-[75vw] sm:w-[50vw] md:w-[38vw] h-screen top-0 right-0 p-4 pt-10 lg:hidden z-30 bg-zinc-800 transition-base',
+    base: 'fixed w-[75vw] sm:w-[50vw] md:w-[38vw] h-screen top-0 right-0 p-4 pt-10 lg:hidden z-30 bg-zinc-200 dark:bg-zinc-800 transition-base',
     variants: {
       status: {
         opened: 'translate-x-0 opacity-100 visible',
@@ -113,16 +116,29 @@ export default function MainNavMobileContent({
                 </div>
               </div> */}
 
-              {/* <div className="grid gap-2">
+              <div className="grid gap-2">
                 <Text className="text-sm flex gap-1 items-center">
-                  <RiSunFill className="-mt-1" /> Theme
+                  {theme === 'light' ? (
+                    <RiSunFill className="-mt-1" />
+                  ) : (
+                    <RiMoonFill className="-mt-1" />
+                  )}{' '}
+                  Choose the theme
                 </Text>
                 <div className="grid grid-flow-col gap-1">
-                  <ButtonTransparent>Light</ButtonTransparent>
-                  <ButtonTransparent>Dark</ButtonTransparent>
-                  <ButtonTransparent>System</ButtonTransparent>
+                  {mainNavigatorItems.themes.map(({ id, label }) => (
+                    <ButtonTransparent
+                      key={id}
+                      status={theme === id ? 'active' : 'idle'}
+                      onClick={() => {
+                        setTheme(id);
+                      }}
+                    >
+                      {label}
+                    </ButtonTransparent>
+                  ))}
                 </div>
-              </div> */}
+              </div>
             </div>
 
             <div className="flex flex-col justify-center items-center gap-2">

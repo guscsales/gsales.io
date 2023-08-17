@@ -1,11 +1,14 @@
 import ButtonTransparent from '@/libs/ui/components/button-transparent';
-import Dropdown from '@/libs/ui/components/dropdown';
-import ButtonIcon from '@/libs/ui/components/button-icon';
 import Text from '@/libs/ui/components/text';
-import { RiSunFill } from 'react-icons/ri';
 import Link from 'next/link';
-import { mainNavigatorItems } from '@/domains/common/mappers/main-navigator-items';
+import { mainNavigatorItems } from '@/common/mappers/main-navigator-items';
 import MainNavMenuItem from '@/common/components/main-nav-menu-item';
+import dynamic from 'next/dynamic';
+
+const MainNavThemeSwitcherDesktop = dynamic(
+  () => import('@/common/components/main-nav-theme-switcher-desktop'),
+  { ssr: false }
+);
 
 export default function MainNavDesktop(
   props: React.HTMLAttributes<HTMLElement>
@@ -31,7 +34,7 @@ export default function MainNavDesktop(
         )
       )}
 
-      <div className="w-px h-6 bg-zinc-100 dark:bg-zinc-800" />
+      <div className="w-px h-6 bg-zinc-200 dark:bg-zinc-800" />
 
       <div className="flex gap-3 items-center">
         {/* <Dropdown.Root>
@@ -52,21 +55,11 @@ export default function MainNavDesktop(
           </Dropdown.Portal>
         </Dropdown.Root> */}
 
-        {/* <Dropdown.Root>
-          <Dropdown.Trigger>
-            <ButtonIcon icon={RiSunFill} size={18} />
-          </Dropdown.Trigger>
-          <Dropdown.Portal>
-            <Dropdown.Content>
-              <Dropdown.Label>Choose the theme</Dropdown.Label>
-              <Dropdown.Item>Dark</Dropdown.Item>
-              <Dropdown.Item>Light</Dropdown.Item>
-              <Dropdown.Item>System</Dropdown.Item>
-            </Dropdown.Content>
-          </Dropdown.Portal>
-        </Dropdown.Root> */}
+        <div className="w-[34px] h-[34px]">
+          <MainNavThemeSwitcherDesktop />
+        </div>
 
-        {/* <div className="w-px h-6 bg-zinc-100 dark:bg-zinc-800" /> */}
+        <div className="w-px h-6 bg-zinc-200 dark:bg-zinc-800" />
 
         <div className="flex gap-1.5 items-center">
           <div className="rounded-full w-1.5 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-300 -mt-0.5" />

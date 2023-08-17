@@ -10,13 +10,16 @@ import {
   RiEarthFill,
   RiExpandUpDownLine,
   RiStarSFill,
+  RiSunFill,
+  RiMoonFill,
 } from 'react-icons/ri';
-import { mainNavigatorItems } from '@/domains/common/mappers/main-navigator-items';
+import { mainNavigatorItems } from '@/common/mappers/main-navigator-items';
 import Link from 'next/link';
 import Typewriter from 'typewriter-effect';
-import { myPhilosophy } from '@/domains/common/mappers/my-philosophy';
+import { myPhilosophy } from '@/common/mappers/my-philosophy';
 import { prepareTypewriterMultiPhrases } from '@/common/services/typewriter';
 import { usePathname, useRouter } from 'next/navigation';
+import { useTheme } from 'next-themes';
 
 function CommandKWrapper({
   children,
@@ -57,6 +60,7 @@ export default function CommandK() {
   }, []);
 
   const [open, setOpen] = React.useState(false);
+  const { theme, setTheme } = useTheme();
 
   const [firstPhrase, ...otherPhrases] = myPhilosophy;
   const typewriterProps = prepareTypewriterMultiPhrases(
@@ -73,13 +77,6 @@ export default function CommandK() {
       } else if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
-      } else if (e.key === 'Enter') {
-        const item = mainNavigatorItems.pages.find(({ id }) => id === value);
-
-        if (item?.href) {
-          router.push(item.href);
-          setOpen(false);
-        }
       }
     };
 
@@ -101,10 +98,10 @@ export default function CommandK() {
                 <Command.Input
                   ref={inputRef}
                   autoFocus
-                  placeholder="Search for planets..."
+                  placeholder="Search for planets or themes..."
                 />
               </div>
-              <Command.List ref={listRef}>
+              <Command.List ref={listRef} className="scroll">
                 <Command.Empty>No results found.</Command.Empty>
                 <Command.Group
                   heading={
@@ -116,7 +113,14 @@ export default function CommandK() {
                   {mainNavigatorItems.pages.map(({ href, state, label }) =>
                     state !== 'disabled' ? (
                       <Link href={href} key={label}>
-                        <Command.Item>{label}</Command.Item>
+                        <Command.Item
+                          onSelect={() => {
+                            router.push(href);
+                            setOpen(false);
+                          }}
+                        >
+                          {label}
+                        </Command.Item>
                       </Link>
                     ) : (
                       <Command.Item data-disabled="true" key={label}>
@@ -125,19 +129,29 @@ export default function CommandK() {
                     )
                   )}
                 </Command.Group>
-                {/* <Command.Group
+                <Command.Group
                   heading={
                     <Text className="flex gap-1 items-center">
-                      <RiSunFill className="-mt-1" /> Theme
+                      {theme === 'light' ? (
+                        <RiSunFill className="-mt-1" />
+                      ) : (
+                        <RiMoonFill className="-mt-1" />
+                      )}{' '}
+                      Choose the theme
                     </Text>
                   }
                 >
-                  <div cmdk-group-items-flex="">
-                    <Command.Item>Light</Command.Item>
-                    <Command.Item>Dark</Command.Item>
-                    <Command.Item>System</Command.Item>
-                  </div>
-                </Command.Group> */}
+                  {mainNavigatorItems.themes.map(({ id, label }) => (
+                    <Command.Item
+                      key={id}
+                      onSelect={() => {
+                        setTheme(id);
+                      }}
+                    >
+                      {label}
+                    </Command.Item>
+                  ))}
+                </Command.Group>
               </Command.List>
 
               <div cmdk-raycast-footer="">

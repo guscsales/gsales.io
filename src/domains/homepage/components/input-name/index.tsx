@@ -4,7 +4,7 @@ import React from 'react';
 import debounce from 'lodash/debounce';
 import { clientAPI } from '@/common/services/api';
 import { User } from '@prisma/client';
-import { SessionContext } from '@/domains/common/providers/session-provider';
+import { SessionContext } from '@/common/providers/session-provider';
 
 type Props = {
   visitor: User | null;

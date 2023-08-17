@@ -6,7 +6,7 @@ import MessageCardsMasonry from '../message-cards-masonry';
 import MessageCard from '@/domains/wall/components/message-card';
 import { Message } from '@/domains/messages/services/messages-service';
 import { postMessageOnWall } from '@/domains/wall/actions/post-message-on-wall';
-import { SessionContext } from '@/domains/common/providers/session-provider';
+import { SessionContext } from '@/common/providers/session-provider';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import '@firebase/init';
 import { clientAPI } from '@/common/services/api';

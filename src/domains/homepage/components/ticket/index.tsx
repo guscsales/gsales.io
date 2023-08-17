@@ -7,7 +7,7 @@ import { RiCommandLine, RiMenuFill, RiRocket2Fill } from 'react-icons/ri';
 import atvImg from '@/common/services/avtimg';
 import '@/common/styles/avtimg.css';
 import { User } from '@prisma/client';
-import { SessionContext } from '@/domains/common/providers/session-provider';
+import { SessionContext } from '@/common/providers/session-provider';
 
 type Props = {
   currentDate: Date;
