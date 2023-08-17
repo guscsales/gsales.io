@@ -11,6 +11,7 @@ import { educations } from '@/domains/journey/mappers/carrier';
 import PageHeader from '@/common/components/page-header';
 import UserService from '@/domains/users/services/user-service';
 import { Metadata } from 'next';
+import { cache } from 'react';
 
 export const metadata: Metadata = {
   title: 'Be Relentless. Collect Feedback. Do Again. | Journey',
@@ -25,9 +26,12 @@ export default async function JourneyPage() {
   const device = DeviceService.getDeviceDetails(
     headersList.get('user-agent') as string
   );
-  const guest = await UserService.getUserById(
-    cookies().get('gs_session')!.value
-  );
+  const guest = cache(async () => {
+    const _guest = await UserService.getUserById(
+      cookies().get('gs_session')!.value
+    );
+    return _guest;
+  });
   const firstName = guest?.name?.split(' ')[0];
 
   return (
