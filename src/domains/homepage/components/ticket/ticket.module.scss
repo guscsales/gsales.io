@@ -1,0 +1,9 @@
+.bgTicket {
+  @apply bg-[url("/images/ticket-light.png")];
+}
+
+:global(.dark) {
+  .bgTicket {
+    @apply bg-[url("/images/ticket-dark.png")];
+  }
+}
