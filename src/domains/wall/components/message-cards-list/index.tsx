@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React, { useTransition } from 'react';
-import Text from '@/libs/ui/components/text';
-import MessageCardsMasonry from '../message-cards-masonry';
-import MessageCard from '@/domains/wall/components/message-card';
-import { Message } from '@/domains/messages/services/messages-service';
-import { postMessageOnWall } from '@/domains/wall/actions/post-message-on-wall';
-import { SessionContext } from '@/common/providers/session-provider';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import '@firebase/init';
-import { clientAPI } from '@/common/services/api';
-import classNames from 'classnames';
-import { useForm } from 'react-hook-form';
-import { RiInformationLine } from 'react-icons/ri';
-import useSWR from 'swr';
+import React, {useTransition} from "react";
+import Text from "@/libs/ui/components/text";
+import MessageCardsMasonry from "../message-cards-masonry";
+import MessageCard from "@/domains/wall/components/message-card";
+import {Message} from "@/domains/messages/services/messages-service";
+import {postMessageOnWall} from "@/domains/wall/actions/post-message-on-wall";
+import {SessionContext} from "@/common/providers/session-provider";
+import {getAuth, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
+import "@firebase/init";
+import {clientAPI} from "@/common/services/api";
+import classNames from "classnames";
+import {useForm} from "react-hook-form";
+import {RiInformationLine} from "react-icons/ri";
+import useSWR from "swr";
 
 type Props = {
   messages: Message[];
@@ -23,42 +23,23 @@ type FormData = {
   content: string;
 };
 
-export default function MessageCardsList({ messages }: Props) {
+export default function MessageCardsList({messages}: Props) {
   const [[latestMessage, ...optimisticMessages], setOptimisticMessages] =
     React.useState(messages);
   const [isPending, startTransition] = useTransition();
-  const { visitor } = React.useContext(SessionContext);
+  const {visitor} = React.useContext(SessionContext);
   const form = useForm<FormData>();
-  const { data: user } = useSWR(`/users/${visitor?.id}`, {
-    revalidateOnFocus: false,
-  });
 
-  const onSubmit = form.handleSubmit(async ({ content }: FormData) => {
+  const onSubmit = form.handleSubmit(async ({content}: FormData) => {
     let userId = visitor?.id;
 
-    const { data: user } = await clientAPI.get(`/users/${userId}`);
+    const {data: user} = await clientAPI.get(`/users/${userId}`);
 
     let name = user?.name;
     let email = user?.email;
 
-    // No name, get from Google
-    if (!name) {
-      const provider = new GoogleAuthProvider();
-      const auth = getAuth();
-
-      try {
-        const { user } = await signInWithPopup(auth, provider);
-
-        name = user.displayName;
-        email = user.email;
-      } catch (e: any) {
-        console.log(e.message);
-        return null;
-      }
-    }
-
     startTransition(async () => {
-      const message = await postMessageOnWall({ content, name, email });
+      const message = await postMessageOnWall({content, name, email});
 
       setOptimisticMessages(
         (prevValue) => [message, ...prevValue] as Message[]
@@ -80,7 +61,7 @@ export default function MessageCardsList({ messages }: Props) {
             focus-within:border-zinc-900/[.5] focus-within:dark:border-zinc-50/[.5]
             transition-base`,
             {
-              'pointer-events-none': isPending,
+              "pointer-events-none": isPending,
             }
           )}
         >
@@ -90,7 +71,7 @@ export default function MessageCardsList({ messages }: Props) {
             className={`font-sans font-light text-lg
             text-zinc-900 dark:text-zinc-50 placeholder:text-zinc-400 
             bg-transparent outline-none`}
-            {...form.register('content', { required: true })}
+            {...form.register("content", {required: true})}
           />
           <button
             type="submit"
@@ -100,22 +81,13 @@ export default function MessageCardsList({ messages }: Props) {
             hover:dark:bg-zinc-50 hover:dark:text-zinc-900
             transition-base rounded`,
               {
-                'pointer-events-none opacity-60': !form.formState.isValid,
+                "pointer-events-none opacity-60": !form.formState.isValid,
               }
             )}
           >
-            {isPending ? 'Posting...' : 'Post it!'}
+            {isPending ? "Posting..." : "Post it!"}
           </button>
         </form>
-        {!user?.name && (
-          <Text
-            as="div"
-            className="flex gap-0.5 items-center w-full lg:w-[36.5rem] lg:mx-auto mt-1 font-light text-sm"
-          >
-            <RiInformationLine size={16} className="-mt-1" />
-            Will be needed to log in with your Google account to show your name.
-          </Text>
-        )}
       </section>
 
       <section className="container">

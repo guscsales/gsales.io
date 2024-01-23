@@ -3,7 +3,7 @@
 import React from 'react';
 import Text from '@/libs/ui/components/text';
 import Typewriter from 'typewriter-effect/dist/core';
-import RealtimeDatabase from '@/common/services/realtime-database';
+// import RealtimeDatabase from '@/common/services/realtime-database';
 
 export default function MainFooterListeningNow() {
   let previousSong = '';
@@ -15,24 +15,24 @@ export default function MainFooterListeningNow() {
       deleteSpeed: 30,
     });
 
-    typewriter.typeString('// let listeningNow =  ');
+    typewriter.typeString('// let listeningNow =  \'Nothing playing\';').start();
 
-    RealtimeDatabase.get({
-      table: 'currentSong',
-      callback: (data: any) => {
-        const currentSong = data?.title
-          ? `'${data.title} - ${data.artist}'; `
-          : `'Nothing playing'; `;
+    // RealtimeDatabase.get({
+    //   table: 'currentSong',
+    //   callback: (data: any) => {
+    //     const currentSong = data?.title
+    //       ? `'${data.title} - ${data.artist}'; `
+    //       : `'Nothing playing'; `;
 
-        typewriter
-          .deleteChars(previousSong.length || 1)
-          .typeString(currentSong)
-          .start();
+    //     typewriter
+    //       .deleteChars(previousSong.length || 1)
+    //       .typeString(currentSong)
+    //       .start();
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        previousSong = currentSong;
-      },
-    });
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    //     previousSong = currentSong;
+    //   },
+    // });
   }, []);
 
   return (
