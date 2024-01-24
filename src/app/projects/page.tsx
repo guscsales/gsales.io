@@ -183,7 +183,7 @@ export default function ProjectsPage() {
                 </Text>
                 <CircleSeparator className="hidden lg:block" />
                 <Link
-                  href="https://estounatorcida.com.br"
+                  href="https://estou-na-torcida.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
