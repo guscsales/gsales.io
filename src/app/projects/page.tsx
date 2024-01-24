@@ -1,8 +1,8 @@
-import { headers } from 'next/headers';
-import DeviceService from '@/common/services/device-service';
-import PageHeader from '@/common/components/page-header';
-import Text from '@/libs/ui/components/text';
-import Card from '@/libs/ui/components/card';
+import {headers} from "next/headers";
+import DeviceService from "@/common/services/device-service";
+import PageHeader from "@/common/components/page-header";
+import Text from "@/libs/ui/components/text";
+import Card from "@/libs/ui/components/card";
 import {
   RiCheckFill,
   RiCodeBoxFill,
@@ -14,17 +14,17 @@ import {
   RiPlayFill,
   RiTerminalWindowFill,
   RiYoutubeFill,
-} from 'react-icons/ri';
-import CircleSeparator from '@/common/components/circle-separator';
-import Link from 'next/link';
-import Badge from '@/libs/ui/components/badge';
-import { IconType } from 'react-icons';
-import { Metadata } from 'next';
+} from "react-icons/ri";
+import CircleSeparator from "@/common/components/circle-separator";
+import Link from "next/link";
+import Badge from "@/libs/ui/components/badge";
+import {IconType} from "react-icons";
+import {Metadata} from "next";
 
 export const metadata: Metadata = {
-  title: 'Study and make a project | Projects',
+  title: "Study and make a project | Projects",
   description:
-    'Part of a software engineer life is creating side projects. Here I list my main JavaScript and Open Source projects I made for study, for community and more.',
+    "Part of a software engineer life is creating side projects. Here I list my main JavaScript and Open Source projects I made for study, for community and more.",
 };
 
 type ProjectCardProps = {
@@ -81,10 +81,10 @@ export default function ProjectsPage() {
       />
 
       <Text as="p" className="mb-3" type="paragraph">
-        I love to create <Text highlight>side projects</Text>, can be for my{' '}
-        <Text highlight>YouTube videos</Text>, for some{' '}
-        <Text highlight>specific purpose</Text> or just to{' '}
-        <Text highlight>learn a new technology</Text>. Side projects are{' '}
+        I love to create <Text highlight>side projects</Text>, can be for my{" "}
+        <Text highlight>YouTube videos</Text>, for some{" "}
+        <Text highlight>specific purpose</Text> or just to{" "}
+        <Text highlight>learn a new technology</Text>. Side projects are{" "}
         <Text highlight>one of my passions</Text>, and here I will list the main
         ones I developed in my carrier.
       </Text>
@@ -100,17 +100,17 @@ export default function ProjectsPage() {
         <div className="grid gap-3">
           <ProjectCard
             icon={RiYoutubeFill}
-            title="Gus Quem Fala"
+            title="Codegus"
             headline="YouTube Channel"
             description="I share code and carrier knowledge according what I developed in my experience. The videos are about frontend, backend, git and more."
             footer={
               <>
-                <div>
-                  <Badge color="red-to-pink">Working</Badge>
-                </div>
-                <CircleSeparator className="hidden lg:block" />
-                <Text className="font-light">1,650 subscribers</Text>
-                <CircleSeparator className="hidden lg:block" />
+                <Badge color="red-to-pink" className="-mt-1">
+                  Working In Progress
+                </Badge>
+                <CircleSeparator className="hidden lg:block -mt-1" />
+                <Text className="font-light">2,639 subscribers</Text>
+                <CircleSeparator className="hidden lg:block -mt-1" />
                 <Link
                   href="https://canal.gsales.io"
                   target="_blank"
@@ -257,16 +257,14 @@ export default function ProjectsPage() {
             description="A place where you can learn and test JavaScript's array prototype functions."
             footer={
               <>
-                <div>
-                  <Badge color="red-to-pink" className="-mt-0.5">
-                    Working
-                  </Badge>
-                </div>
-                <CircleSeparator className="hidden lg:block" />
+                <Badge color="red-to-pink" className="-mt-1">
+                  Working In Progress
+                </Badge>
+                <CircleSeparator className="hidden lg:block -mt-1" />
                 <Text className="font-light">
                   Next.js, TailwindCSS, Vercel, VanillaJS
                 </Text>
-                <CircleSeparator className="hidden lg:block" />
+                <CircleSeparator className="hidden lg:block -mt-1" />
                 <Link
                   href="https://playground.gsales.io/"
                   target="_blank"
@@ -276,7 +274,7 @@ export default function ProjectsPage() {
                     See project
                   </Text>
                 </Link>
-                <CircleSeparator className="hidden lg:block" />
+                <CircleSeparator className="hidden lg:block -mt-1" />
                 <Link
                   href="https://github.com/guscsales/prototype-playground"
                   target="_blank"
