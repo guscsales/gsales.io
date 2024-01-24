@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-50;
+  @apply bg-zinc-50
+    selection:bg-zinc-50/[.06]
+    selection:text-blue-300;
 }
 
 .dark body {
