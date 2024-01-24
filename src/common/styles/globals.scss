@@ -4,12 +4,14 @@
 
 body {
   @apply bg-zinc-50
-    selection:bg-zinc-50/[.06]
-    selection:text-blue-300;
+    selection:bg-blue-900/[.06]
+    selection:text-blue-500;
 }
 
 .dark body {
-  @apply bg-zinc-900;
+  @apply bg-zinc-900
+    selection:bg-zinc-50/[.06]
+    selection:text-blue-300;
 }
 
 .scroll::-webkit-scrollbar {
